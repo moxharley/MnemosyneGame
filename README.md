@@ -16,4 +16,4 @@ A01477069
 moxharley
 
 ## HOW DID THE LAB GO:
-Vesperxia - Science Fiction Horror Game: *summary*
+Cassiopeia - Science Fiction Horror Game: *summary*
