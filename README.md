@@ -7,13 +7,13 @@ This is written in markdown.
 Read about markdown here: [markdowncheatsheet](https://www.markdownguide.org/cheat-sheet/)
 
 ## YOUR NAME:
-Replace this line with your name
+Harlan Bullock
 
 ## YOUR STUDENT NUMBER:
-Replace this line with your student number
+A01477069
 
 ## YOUR GITHUB NAME:
-Replace this line with your GitHub name
+moxharley
 
 ## HOW DID THE LAB GO:
-Insert any comments you have here
+Vesperxia - Science Fiction Horror Game: *summary*
