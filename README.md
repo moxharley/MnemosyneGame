@@ -16,4 +16,4 @@ A01477069
 moxharley
 
 ## HOW DID THE LAB GO:
-Cassiopeia - Science Fiction Horror Game: *summary*
+Mnemosyne - Science Fiction Horror Game: You are a **lone survivor** in a derelict starship drifting through space. The starship’s life-support and sensors are failing and the visual feed from your helmet visor has been damaged and corrupted. You can only see via uploading the starship’s AI, *“archangel”* into your visor to guide you through the wreckage and hazards to the single working escape pod.
