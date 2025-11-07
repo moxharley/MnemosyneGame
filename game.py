@@ -2,7 +2,7 @@ import time
 import sys
 
 def output(message):
-    delay = 0.25
+    delay = 0.3
     for char in message:
         sys.stdout.write(char)
         time.sleep(delay)
