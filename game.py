@@ -8,7 +8,19 @@ def output(message, new_line=False, delay=0.02):
     if new_line:
         sys.stdout.write('\n')
 
+def validate_command(accepted_inputs):
+    while True:
+        user_input = input()
+        if user_input in accepted_inputs:
+            break
+        output('> INVALID INPUT: Type a valid input')
+        time.sleep(1)
+        sys.stdout.write('\r')
+        output('>> ')
+    return user_input
+
 def boot_sequence():
+    output('..........\r', True, 0.55)
     output('> _boot sequence initiated')
     output('...', True, 0.3)
 
@@ -85,15 +97,13 @@ def boot_sequence():
     output('> ', True)
     output('>> ', False)
 
-    while True:
-        accepted_inputs = ('y', 'Y', 'n', 'N')
-        yes_or_no = input()
-        if yes_or_no in accepted_inputs:
-            break
-        output('> INVALID INPUT: Type a valid input')
-        time.sleep(1)
-        sys.stdout.write('\r')
-        output('>> ')
+    command = validate_command(('y', 'Y', 'n', 'N'))
+
+    if command in ('y', 'Y'):
+        pass
+    elif command in ('n', 'N'):
+        pass
+
 
 
 def character():
