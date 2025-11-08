@@ -1,6 +1,7 @@
 import time
 import sys
 
+
 def output(message, new_line=False, delay=0.02):
     for char in message:
         sys.stdout.write(char)
@@ -100,9 +101,44 @@ def boot_sequence():
     command = validate_command(('y', 'Y', 'n', 'N'))
 
     if command in ('y', 'Y'):
-        pass
+        output('> ', True)
+        output('> \033[32mConfirmed.\033[0m', True)
+        time.sleep(2.5)
+        output('> Establishing uplink')
+        output('...', True, 0.3)
+        output('> ', True)
+        output('> [VEIL-9] Attempting secure sandbox')
+        output('...', True, 0.3)
+        output('> [\033[31mARCHANGEL\033[0m] OVERRIDE: Priority connection authorized under ship emergency protocols.', True)
+        output('> ', True)
+        output('> ..........', True, 0.3)
+        output('> Link established.', True)
+        output('> \033[31mARCHANGEL\033[0m//VOICE ROUTE ONLINE', True)
+
+
     elif command in ('n', 'N'):
-        pass
+        output('> ', True)
+        output('> \033[31mDeclined.\033[0m', True)
+        time.sleep(2.5)
+        output('> [VEIL-9] External access request denied', False)
+        output('...▓▓▓▓▓▓▓▓▓▓▓▓▓', True, 0.3)
+        time.sleep(4)
+        output('> [\033[31mARCHANGEL\033[0m] OVERRIDE: Countermand accepted. Ship AI authorization supersedes user input.', True)
+        output('> ', True)
+        output('> [VEIL-9] ALERT: Unauthorized data transfer detected.', True, 0.1)
+        output('> [\033[31mARCHANGEL\033[0m] STATUS: Integration at 74%', False, 0.1)
+        output('... ', False, 0.3)
+        output('87%')
+        output('... ', False, 0.3)
+        time.sleep(0.7)
+        output('complete.', True)
+        output('> ', True)
+        output('> ..........', True, 0.3)
+        output('> Link established.', True)
+        output('> \033[31mARCHANGEL\033[0m//VOICE ROUTE ONLINE', True)
+
+
+
 
 
 
