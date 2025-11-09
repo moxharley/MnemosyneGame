@@ -251,13 +251,8 @@ def boot_sequence():
     output('> ', True)
     archangel_output(f'{player['class']}...archetype uploaded.')
     output('> ', True)
-    tutorial(player)
+    return player
 
-
-
-
-def character():
-    pass
 
 def tutorial(player):
     output('> [\033[31mARCHANGEL\033[0m] ROUTINE_COMPLETE: Neural scaffolding re-synced.', True)
@@ -288,7 +283,8 @@ def tutorial(player):
 
 def game():
     ambient_noise()
-    boot_sequence()
+    player = boot_sequence()
+    tutorial(player)
 
 
 def main():
