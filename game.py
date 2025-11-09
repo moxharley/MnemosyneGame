@@ -19,8 +19,8 @@ def archangel_output(message):
     archangel = pyttsx3.init()
     archangel.setProperty('voice', 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-US_ZIRA_11.0')
     archangel.setProperty('rate', 120)
-    archangel.setProperty('volume', 0.9)
-    archangel_message = '\x1B[3m' + message + '\x1B[0m'
+    archangel.setProperty('volume', 0.7)
+    archangel_message = '\033[3m' + message + '\033[0m'
     output('> ', False)
     output(archangel_message, True)
     archangel.say(message)
@@ -218,10 +218,11 @@ def boot_sequence():
 
     last_name = input()
     identifier1 = first_name
-    identifier2 = 'Lieutenant ' + last_name
+    identifier2 = 'Commanding Officer ' + last_name
+    player = {'Y-coordinate': 0, 'X-coordinate': 0, 'first-name': first_name, 'last-name': last_name}
 
     output('> ', True)
-    archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}')
+    archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}.')
     output('> ', True)
     archangel_output('Memory pattern incomplete.')
     archangel_output(f'{identifier2}... There are gaps in your identity files where training and experience should be.')
@@ -235,9 +236,40 @@ def boot_sequence():
     output('>   [3] TECHNOMANCER — interface, logic, machine empathy.', True)
     output('>   [4] NOMAD — intuition, adaptability, perception.', True)
     output('> ', True)
-    output('>> ', True)
+    output('>> ', False)
 
-    user_class = input()
+    user_class = int(validate_command(('1', '2', '3', '4')))
+    if user_class == 1:
+        player['class'] = 'Freighter'
+    elif user_class == 2:
+        player['class'] = 'Ace-pilot'
+    elif user_class == 3:
+        player['class'] = 'Technomancer'
+    elif user_class == 4:
+        player['class'] = 'Nomad'
+
+    output('> ', True)
+    archangel_output(f'{player['class']}...archetype uploaded.')
+    output('> ', True)
+    output('> [\033[31mARCHANGEL\033[0m] ROUTINE_COMPLETE: Neural scaffolding re-synced.', True)
+    output('> [VEIL-9] NOTICE: Vital parameters stabilizing.', True)
+    output('> [VEIL-9] WARNING: Data integrity remains below acceptable threshold.> [VEIL-9] NOTICE: Vital parameters stabilizing.', True)
+    output('> [\033[31mARCHANGEL\033[0m] PRIORITY_OVERRIDE: Acceptable risk. Reconstruction will continue during operation.', True)
+    output('> [\033[31mARCHANGEL\033[0m] STATUS: interface online.')
+    output('> [\033[31mARCHANGEL\033[0m] ENVIRONMENTAL_FEED: standby.')
+    output('> ', True)
+    archangel_output('Your systems are stable enough for basic function.')
+    archangel_output('We will begin diagnostics.')
+    output('> ', True)
+    output('> Use the following commands to verify control:', True)
+    output('>   →  \033[4mstatus\033[0m  — display USER and life-support data.')
+    output('>   →  \033[4mlook\033[0m    — initialize ENVIRONMENT telemetry.')
+    output('> ', True)
+    archangel_output('Proceed when ready.')
+    output('> ', True)
+    output('>> ', False)
+
+
 
 
 def character():
