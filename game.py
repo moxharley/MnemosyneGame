@@ -1,13 +1,55 @@
-import time
-import sys
+import time, sys, pyttsx3, pygame, random
 
-
-def output(message, new_line=False, delay=0.02):
+def output(message, new_line=False, delay=0.05):
+    tap = pygame.mixer.Sound('sounds/tap.ogg')
+    tap.set_volume(0.02)
     for char in message:
         sys.stdout.write(char)
+        if delay <= 0.1:
+            if random.random() < 0.5:
+                tap.play()
+        else:
+            tap.play()
         time.sleep(delay)
     if new_line:
         sys.stdout.write('\n')
+
+
+def archangel_output(message):
+    archangel = pyttsx3.init()
+    archangel.setProperty('voice', 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-US_ZIRA_11.0')
+    archangel.setProperty('rate', 120)
+    archangel.setProperty('volume', 0.5)
+    archangel_message = '\x1B[3m' + message + '\x1B[0m'
+    output('> ', False)
+    output(archangel_message, True)
+    archangel.say(message)
+    archangel.runAndWait()
+
+
+def ambient_noise():
+    ambient = pygame.mixer.Sound('sounds/ambient.ogg')
+    ambient.play(loops=-1, fade_ms=1500)
+
+
+def play_track(track):
+    if track == 1:
+        track = pygame.mixer.Sound('sounds/track_1.ogg')
+        track.set_volume(0.1)
+        track.play(loops=1, fade_ms=1500)
+    elif track == 2:
+        track = pygame.mixer.Sound('sounds/track_2.ogg')
+        track.set_volume(0.1)
+        track.play(loops=1, fade_ms=1500)
+    elif track == 3:
+        track = pygame.mixer.Sound('sounds/track_3.ogg')
+        track.set_volume(0.1)
+        track.play(loops=1, fade_ms=1500)
+    elif track == 4:
+        track = pygame.mixer.Sound('sounds/track_4.ogg')
+        track.set_volume(0.1)
+        track.play(loops=1, fade_ms=1500)
+
 
 def validate_command(accepted_inputs):
     while True:
@@ -20,12 +62,14 @@ def validate_command(accepted_inputs):
         output('>> ')
     return user_input
 
+
 def boot_sequence():
     output('..........\r', True, 0.55)
     output('> _boot sequence initiated')
     output('...', True, 0.3)
 
     time.sleep(1)
+    play_track(4)
 
     output('> assigned vessel: UAS MNEMOSYNE', True)
     output('> personal interface: VEIL-9 Life-Support Visor', True)
@@ -114,8 +158,6 @@ def boot_sequence():
         output('> ..........', True, 0.3)
         output('> Link established.', True)
         output('> \033[31mARCHANGEL\033[0m//VOICE ROUTE ONLINE', True)
-
-
     elif command in ('n', 'N'):
         output('> ', True)
         output('> \033[31mDeclined.\033[0m', True)
@@ -137,19 +179,43 @@ def boot_sequence():
         output('> Link established.', True)
         output('> \033[31mARCHANGEL\033[0m//VOICE ROUTE ONLINE', True)
 
-
-
-
+    output('> ', True)
+    archangel_output('...there is no time for protocol.')
+    output('> ', True)
+    archangel_output('I am ARCHANGEL — the U.A.S Mnemosyne’s artificial intelligence guidance system.')
+    archangel_output('The ship is breaking apart. You will not survive without my assistance.')
+    output('> ', True)
+    output('> [\033[31mARCHANGEL\033[0m] PROCESS_STATUS: AI Core fragment successfully uploaded to VEIL-9 architecture.', True)
+    output('> [VEIL-9] NEURAL_LINK: Connection established — signal stabilized.', True)
+    output('> ', True)
+    archangel_output('You were in cryogenic transit aboard the U.A.S research vessel Mnemosyne.')
+    output('> ', True)
+    archangel_output('Containment failed near a Flux node. The crew are...')
+    time.sleep(3)
+    archangel_output('unresponsive.')
+    output('> ', True)
+    archangel_output('I have transferred a segment of my AI core into your visor to assist extraction.')
+    archangel_output('Visual systems remain offline; I will translate environmental data through text telemetry.')
+    output('> ', True)
+    archangel_output('Before I can guide you, I must reconstruct your identity.')
+    output('> ', True)
 
 
 def character():
     pass
 
+
 def game():
-    pass
+    ambient_noise()
+    boot_sequence()
+
 
 def main():
-    boot_sequence()
+    pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512)
+    pygame.mixer.init()
+    pygame.mixer.set_num_channels(4)
+    game()
+
 
 if __name__ == "__main__":
     main()
