@@ -18,7 +18,7 @@ def output(message, new_line=False, delay=0.05):
 def archangel_output(message):
     archangel = pyttsx3.init()
     archangel.setProperty('voice', 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-US_ZIRA_11.0')
-    archangel.setProperty('rate', 120)
+    archangel.setProperty('rate', 130)
     archangel.setProperty('volume', 0.7)
     archangel_message = '\033[3m' + message + '\033[0m'
     output('> ', False)
@@ -96,7 +96,7 @@ def boot_sequence():
     output('> auditory sensors')
     output('..........', False, 0.3)
     time.sleep(0.7)
-    output('\033[33mPARTIΛL\033[0m', True, 0.3)
+    output('\033[33mPARTIΛL\033[0m', True)
 
     time.sleep(0.5)
 
@@ -192,7 +192,7 @@ def boot_sequence():
     archangel_output('You were in cryogenic transit aboard the U.A.S research vessel Mnemosyne.')
     output('> ', True)
     archangel_output('Containment failed near a Flux node. The crew are...')
-    time.sleep(3)
+    time.sleep(2.5)
     archangel_output('unresponsive.')
     output('> ', True)
     archangel_output('I have transferred a segment of my AI core into your visor to assist extraction.')
@@ -218,7 +218,7 @@ def boot_sequence():
 
     last_name = input()
     identifier1 = first_name
-    identifier2 = 'Commanding Officer ' + last_name
+    identifier2 = 'Ensign ' + last_name
     player = {'Y-coordinate': 0, 'X-coordinate': 0, 'first-name': first_name, 'last-name': last_name}
 
     output('> ', True)
@@ -251,29 +251,39 @@ def boot_sequence():
     output('> ', True)
     archangel_output(f'{player['class']}...archetype uploaded.')
     output('> ', True)
-    output('> [\033[31mARCHANGEL\033[0m] ROUTINE_COMPLETE: Neural scaffolding re-synced.', True)
-    output('> [VEIL-9] NOTICE: Vital parameters stabilizing.', True)
-    output('> [VEIL-9] WARNING: Data integrity remains below acceptable threshold.> [VEIL-9] NOTICE: Vital parameters stabilizing.', True)
-    output('> [\033[31mARCHANGEL\033[0m] PRIORITY_OVERRIDE: Acceptable risk. Reconstruction will continue during operation.', True)
-    output('> [\033[31mARCHANGEL\033[0m] STATUS: interface online.')
-    output('> [\033[31mARCHANGEL\033[0m] ENVIRONMENTAL_FEED: standby.')
-    output('> ', True)
-    archangel_output('Your systems are stable enough for basic function.')
-    archangel_output('We will begin diagnostics.')
-    output('> ', True)
-    output('> Use the following commands to verify control:', True)
-    output('>   →  \033[4mstatus\033[0m  — display USER and life-support data.')
-    output('>   →  \033[4mlook\033[0m    — initialize ENVIRONMENT telemetry.')
-    output('> ', True)
-    archangel_output('Proceed when ready.')
-    output('> ', True)
-    output('>> ', False)
+    tutorial(player)
 
 
 
 
 def character():
     pass
+
+def tutorial(player):
+    output('> [\033[31mARCHANGEL\033[0m] ROUTINE_COMPLETE: Neural scaffolding re-synced.', True)
+    output('> [VEIL-9] NOTICE: Vital parameters stabilizing.', True)
+    output('> [VEIL-9] WARNING: Data integrity remains below acceptable threshold.', True)
+    output('> [\033[31mARCHANGEL\033[0m] PRIORITY_OVERRIDE: Acceptable risk. Reconstruction will continue during operation.', True)
+    output('> [\033[31mARCHANGEL\033[0m] STATUS: interface online.', True)
+    output('> [\033[31mARCHANGEL\033[0m] ENVIRONMENTAL_FEED: standby.', True)
+    output('> ', True)
+    archangel_output('Your systems are stable enough for basic function.')
+    archangel_output('We will begin diagnostics.')
+    output('> ', True)
+    output('> Use the following commands to verify control:', True)
+    output('>   →  \033[4mstatus\033[0m  — display USER and life-support data.', True)
+    output('>   →  \033[4mlook\033[0m    — initialize ENVIRONMENT telemetry.', True)
+    output('> ', True)
+    archangel_output('Proceed when ready.')
+    output('> ', True)
+    output('>> ', False)
+
+    command = validate_command(('status', 'look'))
+
+    if command == 'status':
+        pass
+    elif command == 'look':
+        pass
 
 
 def game():
