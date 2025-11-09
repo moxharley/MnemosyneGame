@@ -6,7 +6,7 @@ def output(message, new_line=False, delay=0.05):
     for char in message:
         sys.stdout.write(char)
         if delay <= 0.1:
-            if random.random() < 0.5:
+            if random.random() < 0.65:
                 tap.play()
         else:
             tap.play()
@@ -64,12 +64,12 @@ def validate_command(accepted_inputs):
 
 
 def boot_sequence():
+    play_track(4)
     output('..........\r', True, 0.55)
     output('> _boot sequence initiated')
     output('...', True, 0.3)
 
     time.sleep(1)
-    play_track(4)
 
     output('> assigned vessel: UAS MNEMOSYNE', True)
     output('> personal interface: VEIL-9 Life-Support Visor', True)
@@ -117,7 +117,7 @@ def boot_sequence():
     output('> ', True)
     output('> [ VEIL-9 LIFE SYSTEMS™ BOOT SEQUENCE ]', True)
     output('> ----------------------------------------', True)
-    output('>  \033[35m“Because life support should feel like living.”\033[0m', True, 0.15)
+    output('>  \033[35m“Because life support should feel like living.”\033[0m', True, 0.1)
     output('>  Property of \033[1mAurelius Dynamics\033[0m.', True)
     output('>  Unauthorized modification is a federal offense.', True)
     output('> ----------------------------------------', True)
