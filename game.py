@@ -2,7 +2,7 @@ import time, sys, pyttsx3, pygame, random
 
 def output(message, new_line=False, delay=0.05):
     tap = pygame.mixer.Sound('sounds/tap.ogg')
-    tap.set_volume(0.02)
+    tap.set_volume(0.04)
     for char in message:
         sys.stdout.write(char)
         if delay <= 0.1:
@@ -19,7 +19,7 @@ def archangel_output(message):
     archangel = pyttsx3.init()
     archangel.setProperty('voice', 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-US_ZIRA_11.0')
     archangel.setProperty('rate', 120)
-    archangel.setProperty('volume', 0.5)
+    archangel.setProperty('volume', 0.9)
     archangel_message = '\x1B[3m' + message + '\x1B[0m'
     output('> ', False)
     output(archangel_message, True)
@@ -29,25 +29,26 @@ def archangel_output(message):
 
 def ambient_noise():
     ambient = pygame.mixer.Sound('sounds/ambient.ogg')
+    ambient.set_volume(1.1)
     ambient.play(loops=-1, fade_ms=1500)
 
 
 def play_track(track):
     if track == 1:
         track = pygame.mixer.Sound('sounds/track_1.ogg')
-        track.set_volume(0.1)
+        track.set_volume(0.2)
         track.play(loops=1, fade_ms=1500)
     elif track == 2:
         track = pygame.mixer.Sound('sounds/track_2.ogg')
-        track.set_volume(0.1)
+        track.set_volume(0.2)
         track.play(loops=1, fade_ms=1500)
     elif track == 3:
         track = pygame.mixer.Sound('sounds/track_3.ogg')
-        track.set_volume(0.1)
+        track.set_volume(0.2)
         track.play(loops=1, fade_ms=1500)
     elif track == 4:
         track = pygame.mixer.Sound('sounds/track_4.ogg')
-        track.set_volume(0.1)
+        track.set_volume(0.2)
         track.play(loops=1, fade_ms=1500)
 
 
@@ -216,8 +217,27 @@ def boot_sequence():
     output('>> ', False)
 
     last_name = input()
+    identifier1 = first_name
+    identifier2 = 'Lieutenant ' + last_name
 
+    output('> ', True)
+    archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}')
+    output('> ', True)
+    archangel_output('Memory pattern incomplete.')
+    archangel_output(f'{identifier2}... There are gaps in your identity files where training and experience should be.')
+    output('> ', True)
+    output('> [VEIL-9] ACTION: Suggest cognitive reinforcement using stored occupational templates.', True)
+    output('> [\033[31mARCHANGEL\033[0m] ROUTINE_ACCEPTED: Importing viable neural archetypes.', True)
+    output('> ', True)
+    archangel_output('Please select a primary archetype for reconstruction —')
+    output('>   [1] FREIGHTER — endurance, strength, stability.', True)
+    output('>   [2] ACE PILOT — reflex, precision, aggression.', True)
+    output('>   [3] TECHNOMANCER — interface, logic, machine empathy.', True)
+    output('>   [4] NOMAD — intuition, adaptability, perception.', True)
+    output('> ', True)
+    output('>> ', True)
 
+    user_class = input()
 
 
 def character():
