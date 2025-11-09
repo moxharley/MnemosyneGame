@@ -199,6 +199,25 @@ def boot_sequence():
     output('> ', True)
     archangel_output('Before I can guide you, I must reconstruct your identity.')
     output('> ', True)
+    output('> [VEIL-9] NOTICE: User identity file corrupted.', True)
+    output('> [VEIL-9] ACTION: Initiating partial data recall', False)
+    output('...', True, 0.3)
+    output('> [\033[31mARCHANGEL\033[0m] PROCESS_ABORT: Manual input required. Self-report integrity > archived reconstruction.', True)
+    output('> ', True)
+    archangel_output('Please state your first name.')
+    output('> ', True)
+    output('>> ', False)
+
+    first_name = input()
+
+    output('> ', True)
+    archangel_output('Please state your last name.')
+    output('> ', True)
+    output('>> ', False)
+
+    last_name = input()
+
+
 
 
 def character():
