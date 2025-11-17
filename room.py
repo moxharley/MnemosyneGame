@@ -1,76 +1,60 @@
+import game
+
+
 def look(character):
     pass
 
-def make_board(level):
-    if level == 'stasis':
-        return make_stasis()
-    if level == 'loading':
-        return make_loading()
-    if level == 'galley':
-        return make_galley()
-    if level == 'bridge':
-        return make_bridge()
-    if level == 'observation':
-        return make_observation()
-    if level == 'pod_1':
-        return make_podbay1()
-    return None
 
-def make_stasis():
-    rows = 6
-    columns = 11
-    board = {}
-    for number1 in range(0, columns):
-        for number2 in range(0, rows):
-            coordinates = (number1, number2)
-            board[coordinates] = ""
-    board["goal"] = ((rows - 1), (columns - 1))
+def make_board():
+    """
+    Make board.
 
-    board[(0, 1)] = "Locker - Peeling white paint, a red cross decal is half-scraped away."
-    board[(0, 2)] = "Locker - The interior is frosted over. A single blue battery pack rests in the bottom tray."
-    board[(0, 3)] = "Locker - The rusted locker door has fallen off the hinges and shattered the cryo pod adjacent."
-    board[(0, 4)] = "Locker - Cold vapor spills out as you get close to it."
+    Makes the playable map of the starship.
 
-    board[(2, 1)] = "Cryopod-01 - The inside shows a faint outline of a body in frost."
-    board[(2, 2)] = "Cryopod-02 - This cryopod is empty."
-    board[(2, 3)] = "Cryopod-03 - This cryopod has been shattered by a fallen locker door. A frozen corpse slumps out"
-    board[(2, 4)] = "Cryopod-04 - This cryopod is empty"
+    :return: a well-formed board dictionary
+    """
+    board = {
+    (0, 0): "Entrance Hatch - The sliding hatch leads out into the hallway. Frost rims its seams, and a faint green exit strip glows beneath your feet.",
 
-    board[(5, 1)] = "Cryopod-05 - The inside shows a faint outline of a body in frost."
-    board[(5, 2)] = "Cryopod-06 - The hatch hangs open. The restraint straps are torn and stiff with frozen condensation."
-    board[(5, 3)] = "Cryopod-07 - The glass is cracked inward as though something forced its way inside."
-    board[(5, 4)] = "Cryopod-08 - This cryopod is empty."
+    (1, 0): "Overhead Conduit - The ceiling panel above is bowed and stained by a dark, dried drip. Something dripped here recently.",
 
-    board[(8, 1)] = "Cryopod-09 - A swirling fog fills the pod interior, lit by faint emergency lights."
-    board[(8, 2)] = "Cryopod-10 - The pod display flickers between two unreadable diagnostic screens."
-    board[(8, 3)] = "Cryopod-11 - This cryopod is empty."
-    board[(8, 4)] = "Cryopod-12 - This cryopod is empty."
+    (2, 0): "Supply Cabinet - A waist-high storage cabinet. Its magnetic lock flickers weakly, and the metal is dented from the inside.",
 
-    board[(10, 2)] = "Terminal - A low-power terminal displaying flickering blue text."
-    board[(10, 3)] = "Terminal - This terminal stutters through corrupted log frames."
+    (3, 0): "Cryopod-01 (Fractured) - The viewport glass is shattered inward as though something forced its way inside. Frost spreads in jagged veins.",
 
-    board['Cryopod-03']
-    board['Cryopod-07']
-    board['Cryopod-10']
-    board['Terminal']
-    board['Locker-1']
-    board['Locker-2']
-    board['Locker-3']
-    board['Locker-4']
+    (0, 1): "Cryopod-02 (Offline) - The pod is dark. A faint human-shaped frost imprint remains on the window, but the pod is empty.",
 
-    return
+    (1, 1): "Cryopod-03 (Your Pod) - The hatch is hanging sideways. Cracks in the interior ice suggest you thrashed free. A broken datapad lies on the platform.",
 
-def make_loading():
-    pass
+    (2, 1): "Terminal A - A flickering stasis control terminal. Lines of corrupted diagnostics scroll by too quickly to read.",
 
-def make_galley():
-    pass
+    (3, 1): "Cryopod-04 (Scorched) - The inner surface is warped and blackened by heat. Something inside burned violently before power failed.",
 
-def make_bridge():
-    pass
+    (0, 2): "Cryopod-05 (Scratched) - Deep, uneven gouges mark the inside walls. Some look metallic; others disturbingly biological.",
 
-def make_observation():
-    pass
+    (1, 2): "Cryopod-06 (Coolant Leak) - Coolant pools beneath the pod, unusually dark and viscous. It reeks of warm metal.",
 
-def make_podbay1():
-    pass
+    (2, 2): "Terminal B - A partially frozen backup terminal. Crew IDs flicker onscreen before dissolving into static.",
+
+    (3, 2): "Drain Pit - A grated floor drain where melted ice gathers. Something metallic clatters deep beneath it when you move nearby."
+    }
+    return board
+
+
+def describe_current_location(board, character):
+    """
+    Describe current location.
+
+    Prints the associated description of the current character location.
+
+    :param board: a dictionary.
+    :param character: a dictionary.
+    :precondition: board must be a dictionary in the proper format (i.e. {(0, 0): Room,... 'Goal': (1, 1)}.
+    :precondition: character must be a dictionary with a "Y-coordinate" and "X-coordinate" key.
+    :precondition: character["Y-coordinate"] and character["X-coordinate] must be integers.
+    :postcondition: finds the associated description of the character's current location on the board.
+    :return: None
+    """
+    player_coordinate = (character["X-coordinate"], character["Y-coordinate"])
+    game.output("> Description: ")
+    game.archangel_output(str(board[player_coordinate]))

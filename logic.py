@@ -9,7 +9,7 @@ def get_user_input():
     """
     while True:
         direction = str(input())
-        accepted_inputs = ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W', 'look', 'status', 'lore', 'interact', 'Look', 'Status', 'Lore', 'Interact')
+        accepted_inputs = ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W', 'look', 'status', 'lore', 'interact', 'Status', 'Interact')
         if direction not in accepted_inputs:
             print('Please type a valid input:')
         else:
