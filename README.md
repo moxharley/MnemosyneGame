@@ -38,6 +38,6 @@ Level Up - When you fail a roll, you gain an experience point, and for every thr
 
 Level 3 - So you can technically go for the end goal at whatever level you would like, but the end-game checks are very hard and typically only possible with a +2 to a stat, so it is far more possible if you are level 3.
 
-Goal - Your final goal is to reach the escape pod bay and escape. Originally, the first escape-pod bay was going to be inaccessible, so the player would have to travel to the other side of the ship to reach the other escape-pod bay and leave, however I decided to cut that and make the game shorter so that I could focus more on the quality over the quantity. If I had more time I would absolutely make the story as full and long as I had originally concocted.
+Goal - Your final goal is to reach the escape pod bay and escape. However, since we only had so much time to complete this project, the goal of the demo is to open the maintenance access bay (to which if I finished this game fully, would be act 1 of 3).
 
 
