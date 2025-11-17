@@ -1,6 +1,21 @@
 def look(character):
     pass
 
+def make_board(level):
+    if level == 'stasis':
+        return make_stasis()
+    if level == 'loading':
+        return make_loading()
+    if level == 'galley':
+        return make_galley()
+    if level == 'bridge':
+        return make_bridge()
+    if level == 'observation':
+        return make_observation()
+    if level == 'pod_1':
+        return make_podbay1()
+    return None
+
 def make_stasis():
     rows = 6
     columns = 11
@@ -43,4 +58,19 @@ def make_stasis():
     board['Locker-3']
     board['Locker-4']
 
-    return board
+    return
+
+def make_loading():
+    pass
+
+def make_galley():
+    pass
+
+def make_bridge():
+    pass
+
+def make_observation():
+    pass
+
+def make_podbay1():
+    pass

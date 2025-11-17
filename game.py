@@ -259,6 +259,7 @@ def tutorial(player):
 def game():
     sound.ambient_noise()
     player = boot_sequence()
+    room.make_board(level)
     tutorial(player)
 
 
