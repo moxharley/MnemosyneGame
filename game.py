@@ -1,8 +1,8 @@
-import time, sys, pyttsx3, pygame, random
+import time, sys, pyttsx3, pygame, random, sound
 
 def output(message, new_line=False, delay=0.05):
     tap = pygame.mixer.Sound('sounds/tap.ogg')
-    tap.set_volume(0.04)
+    tap.set_volume(0.08)
     for char in message:
         sys.stdout.write(char)
         if delay <= 0.1:
@@ -27,31 +27,6 @@ def archangel_output(message):
     archangel.runAndWait()
 
 
-def ambient_noise():
-    ambient = pygame.mixer.Sound('sounds/ambient.ogg')
-    ambient.set_volume(1.1)
-    ambient.play(loops=-1, fade_ms=1500)
-
-
-def play_track(track):
-    if track == 1:
-        track = pygame.mixer.Sound('sounds/track_1.ogg')
-        track.set_volume(0.2)
-        track.play(loops=1, fade_ms=1500)
-    elif track == 2:
-        track = pygame.mixer.Sound('sounds/track_2.ogg')
-        track.set_volume(0.2)
-        track.play(loops=1, fade_ms=1500)
-    elif track == 3:
-        track = pygame.mixer.Sound('sounds/track_3.ogg')
-        track.set_volume(0.2)
-        track.play(loops=1, fade_ms=1500)
-    elif track == 4:
-        track = pygame.mixer.Sound('sounds/track_4.ogg')
-        track.set_volume(0.2)
-        track.play(loops=1, fade_ms=1500)
-
-
 def validate_command(accepted_inputs):
     while True:
         user_input = input()
@@ -65,7 +40,7 @@ def validate_command(accepted_inputs):
 
 
 def boot_sequence():
-    play_track(4)
+    sound.play_track(4)
     output('..........\r', True, 0.55)
     output('> _boot sequence initiated')
     output('...', True, 0.3)
@@ -282,7 +257,7 @@ def tutorial(player):
 
 
 def game():
-    ambient_noise()
+    sound.ambient_noise()
     player = boot_sequence()
     tutorial(player)
 
@@ -292,6 +267,37 @@ def main():
     pygame.mixer.init()
     pygame.mixer.set_num_channels(4)
     game()
+
+    #          ┌─────────┐
+    #          │Emergency│
+    #          │Pod Bay 1│
+    #          └────┬┬───┘
+    #         ┌─────┴┴────┐
+    #         │Observation│
+    #         └─────┬┬────┘
+    # ┌───────┐  ┌──┴┴──┐  ┌───────┐
+    # │Medical├──┼Galley┼──┤Loading│
+    # │ Bay   │  └──┬┬──┘  │ Bay   │
+    # └──┬┬───┘  ┌──┴┴──┐  └───┬┬──┘
+    # ┌──┴┴────┐ │Bridge│  ┌───┴┴──┐
+    # │Crew    │ └──┬┬──┘  │Stasis │
+    # │Quarters│    ││     │ Pods  │
+    # └────────┘    ││     └───────┘
+    #          ┌────┴┴─────┐
+    #          │Maintenance│
+    #          │ Access    │
+    #          └────┬┬─────┘
+    #   ┌─────┐ ┌───┴┴───┐ ┌───────┐
+    #   │Relay├─┤Reactors├─┤Utility│
+    #   └─────┘ └───┬┬───┘ └───────┘
+    #          ┌────┴┴─────┐
+    #          │Fabrication│
+    #          │ Bay       │
+    #          └────┬┬─────┘
+    #           ┌───┴┴────┐
+    #           │Emergency│
+    #           │Pod Bay 2│
+    #           └─────────┘
 
 
 if __name__ == "__main__":
