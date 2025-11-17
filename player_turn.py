@@ -8,9 +8,9 @@ def look(board, character):
 def make_bar(current):
     filled = ''
     empty = ''
-    for index in range(1, current):
+    for index in range(0, current):
         filled += '█'
-    for index in range(1, (10 - current)):
+    for index in range(0, (10 - current)):
         empty += '░'
 
     if current >= 8:

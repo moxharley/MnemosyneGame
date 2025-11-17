@@ -32,5 +32,5 @@ def ambient_noise():
     Play ambient sound.
     """
     ambient = pygame.mixer.Sound('sounds/ambient.ogg')
-    ambient.set_volume(1.5)
+    ambient.set_volume(1.9)
     ambient.play(loops=-1, fade_ms=1500)
