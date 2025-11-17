@@ -21,6 +21,8 @@ def game():
             player = player_turn.look(board, player)
         elif action in ('interact', 'Interact'):
             player = player_turn.interact(board, player)
+        elif action in ('map', 'Map'):
+            player_turn.map()
         hull_integrity = player_turn.hull_damage(hull_integrity)
     if goal_achieved == True:
         scene_sequence.escape(player)

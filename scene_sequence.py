@@ -289,7 +289,7 @@ def tutorial(board, player):
         output('> [VEIL-9] NOTICE: Scan diagnosis complete.', True)
         output('> ', True)
         archangel_output('This is your immediate environment.')
-        archangel_output('High-lighted words are objects you may interact with.')
+        archangel_output('objects highlighted in red are objects you may interact with.')
         archangel_output('We will need to interact with our surroundings to survive.')
         output('> ', True)
 

@@ -1,12 +1,38 @@
 import room, logic, sys, scene_sequence
 
-def ship_map(character):
-    pass
+def ship_map():
+    scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] DATA: Starship layout initializing.', True, 0.03)
+    scene_sequence.output('> ---------------------------------', True, 0.03)
+    scene_sequence.output('>    ┌───────┐  ┌──────┐  ┌───────┐', True, 0.03)
+    scene_sequence.output('>    │Medical├──┼Galley┼──┤Loading│', True, 0.03)
+    scene_sequence.output('>    │ Bay   │  └──┬┬──┘  │ Bay   │', True, 0.03)
+    scene_sequence.output('>    └──┬┬───┘  ┌──┴┴──┐  └───┬┬──┘', True, 0.03)
+    scene_sequence.output('>    ┌──┴┴────┐ │Bridge│  ┌───┴┴──┐', True, 0.03)
+    scene_sequence.output('>    │Crew    │ └──┬┬──┘  │Stasis │', True, 0.03)
+    scene_sequence.output('>    │Quarters│    ││     │ Pods  │', True, 0.03)
+    scene_sequence.output('>    └────────┘    ││     └───────┘', True, 0.03)
+    scene_sequence.output('>             ┌────┴┴─────┐', True, 0.03)
+    scene_sequence.output('>             │Maintenance│', True, 0.03)
+    scene_sequence.output('>             │ Access    │', True, 0.03)
+    scene_sequence.output('>             └────┬┬─────┘', True, 0.03)
+    scene_sequence.output('>      ┌─────┐ ┌───┴┴───┐ ┌───────┐', True, 0.03)
+    scene_sequence.output('>      │Relay├─┤Reactors├─┤Utility│', True, 0.03)
+    scene_sequence.output('>      └─────┘ └───┬┬───┘ └───────┘', True, 0.03)
+    scene_sequence.output('>             ┌────┴┴─────┐', True, 0.03)
+    scene_sequence.output('>             │Fabrication│', True, 0.03)
+    scene_sequence.output('>             │ Bay       │', True, 0.03)
+    scene_sequence.output('>             └────┬┬─────┘', True, 0.03)
+    scene_sequence.output('>              ┌───┴┴────┐', True, 0.03)
+    scene_sequence.output('>              │Emergency│', True, 0.03)
+    scene_sequence.output('>              │Pod Bay 2│', True, 0.03)
+    scene_sequence.output('>              └─────────┘', True, 0.03)
+    scene_sequence.output('> ---------------------------------', True, 0.03)
+    scene_sequence.output('> ', True, 0.03)
 
 
 def look(board, character):
-    scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ENVIRONMENT: Telemetry scan initialized.', True)
-    scene_sequence.output('> \033[32m[scan complete]\033[0m', True)
+    scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ENVIRONMENT: Telemetry scan initialized.', True, 0.03)
+    scene_sequence.output('> \033[32m[telemetry synced]\033[0m', True, 0.03)
     scene_sequence.output('> ------------------------ ', True, 0.03)
     scene_sequence.output('> \033[4mCOORDINATES:\033[0m', True, 0.03)
     scene_sequence.output(f'> Position..........({character['X-coordinate']}, {character['Y-coordinate']})', True, 0.03)
