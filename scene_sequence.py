@@ -193,7 +193,7 @@ def boot():
     last_name = input()
     identifier1 = first_name
     identifier2 = 'Ensign ' + last_name
-    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current-HP': 2, 'current-EP': 10}
+    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current-HP': 10, 'current-EP': 10, 'room': 'Stasis-Pods'}
 
     output('> ', True)
     archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}.')
@@ -274,7 +274,7 @@ def tutorial(board, player):
         player_turn.status(player)
         output('> [VEIL-9] NOTICE: Status diagnosis complete.', True)
         output('> ', True)
-        archangel_output('This is your current status. Our goal is to keep you alive.')
+        archangel_output('This is your current status. Our goal is to get you to an escape pod alive.')
         archangel_output('Every command you give decreases your energy a small amount.')
         archangel_output('You must NOT hit critical energy or health levels.')
         output('> ', True)
@@ -288,9 +288,9 @@ def tutorial(board, player):
         player_turn.look(board, player)
         output('> [VEIL-9] NOTICE: Scan diagnosis complete.', True)
         output('> ', True)
-        archangel_output('This is your current status. Our goal is to keep you alive.')
-        archangel_output('Every command you give decreases your energy a small amount.')
-        archangel_output('You must NOT hit critical energy or health levels.')
+        archangel_output('This is your immediate environment.')
+        archangel_output('High-lighted words are objects you may interact with.')
+        archangel_output('We will need to interact with our surroundings to survive.')
         output('> ', True)
 
 

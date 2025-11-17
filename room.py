@@ -1,8 +1,11 @@
-import game
+import scene_sequence
 
 
-def look(character):
-    pass
+def make_interaction():
+    has_interact = {
+        (1, 1): 'data-pad'
+    }
+    return has_interact
 
 
 def make_board():
@@ -24,7 +27,7 @@ def make_board():
 
     (0, 1): "Cryopod-02 (Offline) - The pod is dark. A faint human-shaped frost imprint remains on the window, but the pod is empty.",
 
-    (1, 1): "Cryopod-03 (Your Pod) - The hatch is hanging sideways. Cracks in the interior ice suggest you thrashed free. A broken datapad lies on the platform.",
+    (1, 1): "Cryopod-03 (Your Pod) - The hatch is hanging sideways. Cracks in the interior ice suggest you thrashed free. A broken \033[31mdata-pad\033[0m lies on the platform.",
 
     (2, 1): "Terminal A - A flickering stasis control terminal. Lines of corrupted diagnostics scroll by too quickly to read.",
 
@@ -56,5 +59,8 @@ def describe_current_location(board, character):
     :return: None
     """
     player_coordinate = (character["X-coordinate"], character["Y-coordinate"])
-    game.output("> Description: ")
-    game.archangel_output(str(board[player_coordinate]))
+    scene_sequence.output('> ' + str(board[player_coordinate]), True, 0.03)
+
+
+def set_room(character):
+    pass

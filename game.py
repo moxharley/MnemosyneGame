@@ -1,4 +1,4 @@
-import pygame, sound, room, logic, player_turn, sequence
+import pygame, sound, room, logic, player_turn, scene_sequence
 
 
 def game():
@@ -6,13 +6,12 @@ def game():
     Run the game loop.
     """
     sound.ambient_noise()
-    player = sequence.boot()
+    player = scene_sequence.boot()
     board = room.make_board()
-    sequence.tutorial(board, player)
+    scene_sequence.tutorial(board, player)
     goal_achieved = False
     hull_integrity = 90
     while goal_achieved == False:
-        room.describe_current_location(board, player)
         action = logic.get_user_input()
         if action in ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W'):
             player = player_turn.move(player)
@@ -24,9 +23,9 @@ def game():
             player = player_turn.interact(board, player)
         hull_integrity = player_turn.hull_damage(hull_integrity)
     if goal_achieved == True:
-        sequence.escape(player)
+        scene_sequence.escape(player)
     else:
-        sequence.death(player)
+        scene_sequence.death(player)
 
 
 
