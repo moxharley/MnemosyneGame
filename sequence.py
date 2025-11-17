@@ -219,28 +219,28 @@ def boot():
         player['eng'] = 0
         player['inf'] = 0
         player['int'] = -1
-        player['inventory'] = ('Heavy-Wrench', 'Empty', 'Empty', 'Empty')
+        player['inventory'] = ['Heavy-Wrench', 'Empty', 'Empty', 'Empty']
     elif user_class == 2:
         player['class'] = 'Ace-pilot'
         player['end'] = -1
         player['eng'] = 1
         player['inf'] = 0
         player['int'] = 0
-        player['inventory'] = ('Side-Arm', 'Empty', 'Empty', 'Empty')
+        player['inventory'] = ['Side-Arm', 'Empty', 'Empty', 'Empty']
     elif user_class == 3:
         player['class'] = 'Technomancer'
         player['end'] = 0
         player['eng'] = -1
         player['inf'] = 1
         player['int'] = 0
-        player['inventory'] = ('Data-Knife', 'Empty', 'Empty', 'Empty')
+        player['inventory'] = ['Data-Knife', 'Empty', 'Empty', 'Empty']
     elif user_class == 4:
         player['class'] = 'Nomad'
         player['end'] = 0
         player['eng'] = 0
         player['inf'] = -1
         player['int'] = 1
-        player['inventory'] = ('Bo-Staff', 'Empty', 'Empty', 'Empty')
+        player['inventory'] = ['Bo-Staff', 'Empty', 'Empty', 'Empty']
 
     output('> ', True)
     archangel_output(f'{player['class']}...archetype uploaded.')
