@@ -2,10 +2,13 @@ import pygame, sound, room, logic, player_turn, sequence
 
 
 def game():
+    """
+    Run the game loop.
+    """
     sound.ambient_noise()
     player = sequence.boot()
     board = room.make_board()
-    sequence.tutorial(player)
+    sequence.tutorial(board, player)
     goal_achieved = False
     hull_integrity = 90
     while goal_achieved == False:
@@ -28,6 +31,9 @@ def game():
 
 
 def main():
+    """
+    Drive the program.
+    """
     pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512)
     pygame.mixer.init()
     pygame.mixer.set_num_channels(4)

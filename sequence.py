@@ -1,4 +1,4 @@
-import time, sys, pyttsx3, pygame, random, sound
+import time, sys, pyttsx3, pygame, random, sound, player_turn
 
 
 def output(message, new_line=False, delay=0.05):
@@ -195,7 +195,7 @@ def boot():
     last_name = input()
     identifier1 = first_name
     identifier2 = 'Ensign ' + last_name
-    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current_HP': 11, 'current_EP': 11}
+    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current-HP': 10, 'current-EP': 10}
 
     output('> ', True)
     archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}.')
@@ -217,12 +217,32 @@ def boot():
     user_class = int(validate_command(('1', '2', '3', '4')))
     if user_class == 1:
         player['class'] = 'Freighter'
+        player['end'] = 1
+        player['eng'] = 0
+        player['inf'] = 0
+        player['int'] = -1
+        player['inventory'] = ('Heavy-Wrench', 'Empty', 'Empty', 'Empty')
     elif user_class == 2:
         player['class'] = 'Ace-pilot'
+        player['end'] = -1
+        player['eng'] = 1
+        player['inf'] = 0
+        player['int'] = 0
+        player['inventory'] = ('Side-Arm', 'Empty', 'Empty', 'Empty')
     elif user_class == 3:
         player['class'] = 'Technomancer'
+        player['end'] = 0
+        player['eng'] = -1
+        player['inf'] = 1
+        player['int'] = 0
+        player['inventory'] = ('Data-Knife', 'Empty', 'Empty', 'Empty')
     elif user_class == 4:
         player['class'] = 'Nomad'
+        player['end'] = 0
+        player['eng'] = 0
+        player['inf'] = -1
+        player['int'] = 1
+        player['inventory'] = ('Bo-Staff', 'Empty', 'Empty', 'Empty')
 
     output('> ', True)
     archangel_output(f'{player['class']}...archetype uploaded.')
@@ -230,7 +250,7 @@ def boot():
     return player
 
 
-def tutorial(player):
+def tutorial(board, player):
     output('> [\033[31mARCHANGEL\033[0m] ROUTINE_COMPLETE: Neural scaffolding re-synced.', True)
     output('> [VEIL-9] NOTICE: Vital parameters stabilizing.', True)
     output('> [VEIL-9] WARNING: Data integrity remains below acceptable threshold.', True)
@@ -252,6 +272,6 @@ def tutorial(player):
     command = validate_command(('status', 'look'))
 
     if command == 'status':
-        pass
+        player_turn.status(player)
     elif command == 'look':
-        pass
+        player_turn.look(board, player)
