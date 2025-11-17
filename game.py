@@ -30,7 +30,6 @@ def game():
         scene_sequence.death(player)
 
 
-
 def main():
     """
     Drive the program.
