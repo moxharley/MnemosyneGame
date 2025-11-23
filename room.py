@@ -32,7 +32,7 @@ def make_interaction():
                 character = logic.update("current-EP", character, (-1))
                 energy_percent = (character['current-EP'] / 10) * 100
                 energy = player_turn.make_bar(character['current-EP'])
-                scene_sequence.output(f'{energy} {energy_percent}%', True)
+                scene_sequence.output(f'{energy} {energy_percent}%\n>', True)
             else:
                 sound.play_sound(4)
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
@@ -58,7 +58,7 @@ def make_interaction():
                 character = logic.update("current-EP", character, 2)
                 energy_percent = (character['current-EP'] / 10) * 100
                 energy =player_turn.make_bar(character['current-EP'])
-                scene_sequence.output(f'{energy} {energy_percent}%', True)
+                scene_sequence.output(f'{energy} {energy_percent}%\n>', True)
             else:
                 sound.play_sound(4)
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
