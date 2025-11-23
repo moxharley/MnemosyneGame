@@ -1,4 +1,4 @@
-import random, scene_sequence, time, sys
+import random, scene_sequence, time, sys, sound
 
 
 def get_user_input():
@@ -68,7 +68,7 @@ def roll(stat, difficulty_class):
 
     :param stat: an integer variable
     :param difficulty_class: an integer variable
-    :precondition: stat must be at least -1 and no greater than 2.
+    :precondition: stat must be at least -1.
     :precondition: difficulty_class must be at least 1 and no greater than 8.
     :postcondition: determines whether you pass a difficulty class roll.
     :return: a boolean variable.
@@ -78,12 +78,37 @@ def roll(stat, difficulty_class):
     return dice >= difficulty_class
 
 
-def experience(character):
-    pass
-
-
 def level_up(character):
-    pass
+    character['exp'] += 1
+    scene_sequence.output(f'> [\033[31mARCHANGEL\033[0m] ACTION_FAILURE: Error pattern recorded. Experience +1  ({character['exp']} / 3)\n>',True)
+    if character['exp'] == 3:
+        sound.play_sound(3)
+        character['exp'] = 0
+        scene_sequence.output('> [VEIL-9] ALERT: Cognitive threshold reached — adaptation event detected.\n>', True)
+        scene_sequence.output('> Select the cognitive parameter you intend to reinforce.', True)
+        scene_sequence.output('>   [1] ENDURE     — Stress tolerance & bodily resilience', True)
+        scene_sequence.output('>   [2] ENGAGE     — Direct action, force, and confrontation', True)
+        scene_sequence.output('>   [3] INTERFACE  — Machine logic, system control, technical precision', True)
+        scene_sequence.output('>   [4] INTUIT     — Pattern recognition, instinct, and perceptual insight', True)
+        scene_sequence.output('>\n>> ')
+        stat_increase = int(scene_sequence.validate_command(('1', '2', '3', '4')))
+        if stat_increase == 1:
+            character['end'] += 1
+            scene_sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in ENDURE has improved: [{character['end']}]', True)
+            scene_sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
+        if stat_increase == 2:
+            character['eng'] += 1
+            scene_sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in ENGAGE has improved: [{character['eng']}]', True)
+            scene_sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
+        if stat_increase == 3:
+            character['inf'] += 1
+            scene_sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in INTERFACE has improved: [{character['inf']}]', True)
+            scene_sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
+        if stat_increase == 4:
+            character['int'] += 1
+            scene_sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in INTUIT has improved: [{character['int']}]', True)
+            scene_sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
+    return character
 
 
 def update(key, character, amount):

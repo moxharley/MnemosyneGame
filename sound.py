@@ -35,6 +35,14 @@ def play_sound(sound):
         sound = pygame.mixer.Sound('sounds/damage.ogg')
         sound.set_volume(1)
         sound.play(loops=0, fade_ms=1500)
+    elif sound == 3:
+        sound = pygame.mixer.Sound('sounds/success.ogg')
+        sound.set_volume(1)
+        sound.play(loops=0, fade_ms=1500)
+    elif sound == 4:
+        sound = pygame.mixer.Sound('sounds/failure.ogg')
+        sound.set_volume(1)
+        sound.play(loops=0, fade_ms=1500)
 
 
 def ambient_noise():

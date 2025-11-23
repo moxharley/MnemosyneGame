@@ -212,7 +212,7 @@ def boot():
     last_name = input()
     identifier1 = first_name
     identifier2 = 'Ensign ' + last_name
-    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current-HP': 8, 'current-EP': 7, 'room': 'Stasis-Pods'}
+    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current-HP': 8, 'current-EP': 7, 'room': 'Stasis-Pods', 'exp': 0}
 
     output('> ', True)
     archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}.')

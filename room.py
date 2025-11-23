@@ -19,6 +19,7 @@ def make_interaction():
             successful = logic.roll(character["inf"], 3)
             scene_sequence.output("> ", True)
             if successful:
+                sound.play_sound(3)
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
                 scene_sequence.output("> You bridge two exposed contacts and apply careful pressure.", True)
                 sound.play_sound(1)
@@ -33,6 +34,7 @@ def make_interaction():
                 energy = player_turn.make_bar(character['current-EP'])
                 scene_sequence.output(f'{energy} {energy_percent}%', True)
             else:
+                sound.play_sound(4)
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
                 scene_sequence.output("> You try to bridge the exposed contacts.", True)
                 scene_sequence.output("> A pulse of heat flashes across your glove — the pad pops, internally shorting out.\n> ", True)
@@ -41,11 +43,13 @@ def make_interaction():
                 character = logic.update("current-HP", character, -1)
                 health_percent = (character['current-HP'] / 10) * 100
                 health = player_turn.make_bar(character['current-HP'])
-                scene_sequence.output(f'{health} {health_percent}%', True)
+                scene_sequence.output(f'{health} {health_percent}%\n>', True)
+                character = logic.level_up(character)
         elif action == 2:
             successful = logic.roll(character["eng"], 5)
             scene_sequence.output("> ", True)
             if successful:
+                sound.play_sound(3)
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
                 scene_sequence.output("> You dig your fingers under the casing and twist hard.", True)
                 scene_sequence.output("> The brittle housing snaps open with a sharp crack.\n> ", True)
@@ -56,6 +60,7 @@ def make_interaction():
                 energy =player_turn.make_bar(character['current-EP'])
                 scene_sequence.output(f'{energy} {energy_percent}%', True)
             else:
+                sound.play_sound(4)
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
                 scene_sequence.output("> You wrench the casing open — too forcefully. ", True)
                 scene_sequence.output("> The frozen plastic explodes in your grip, scattering useless shards.\n> ", True)
@@ -70,7 +75,8 @@ def make_interaction():
                 character = logic.update("current-EP", character, (-1))
                 energy_percent = (character['current-EP'] / 10) * 100
                 energy = player_turn.make_bar(character['current-EP'])
-                scene_sequence.output(f'{energy} {energy_percent}%', True)
+                scene_sequence.output(f'{energy} {energy_percent}%\n>', True)
+                character = logic.level_up(character)
         del has_interact[(1, 1)]
         return character
 
