@@ -32,18 +32,16 @@ def make_interaction():
                 energy_percent = (character['current-EP'] / 10) * 100
                 energy = player_turn.make_bar(character['current-EP'])
                 scene_sequence.output(f'{energy} {energy_percent}%', True)
-                return character
             else:
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
                 scene_sequence.output("> You try to bridge the exposed contacts.", True)
                 scene_sequence.output("> A pulse of heat flashes across your glove — the pad pops, internally shorting out.\n> ", True)
-                scene_sequence.output("> The screen dies completely.", True)
-                scene_sequence.output("> [VEIL-9] HEALTH: Health levels decreased a small amount: ", True)
+                scene_sequence.output("> The screen dies completely.\n>", True)
+                scene_sequence.output("> [VEIL-9] HEALTH: Health levels decreased a small amount: ")
                 character = logic.update("current-HP", character, -1)
                 health_percent = (character['current-HP'] / 10) * 100
                 health = player_turn.make_bar(character['current-HP'])
                 scene_sequence.output(f'{health} {health_percent}%', True)
-                return character
         elif action == 2:
             successful = logic.roll(character["eng"], 5)
             scene_sequence.output("> ", True)
@@ -51,13 +49,12 @@ def make_interaction():
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
                 scene_sequence.output("> You dig your fingers under the casing and twist hard.", True)
                 scene_sequence.output("> The brittle housing snaps open with a sharp crack.\n> ", True)
-                scene_sequence.output("> Inside, a micro power cell remains intact.", True)
-                scene_sequence.output("> [VEIL-9] ENERGY: Energy levels increased a moderate amount: ", True)
+                scene_sequence.output("> Inside, a micro power cell remains intact.\n>", True)
+                scene_sequence.output("> [VEIL-9] ENERGY: Energy levels increased a moderate amount: ")
                 character = logic.update("current-EP", character, 2)
                 energy_percent = (character['current-EP'] / 10) * 100
                 energy =player_turn.make_bar(character['current-EP'])
                 scene_sequence.output(f'{energy} {energy_percent}%', True)
-                return character
             else:
                 scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
                 scene_sequence.output("> You wrench the casing open — too forcefully. ", True)
@@ -72,9 +69,9 @@ def make_interaction():
                 scene_sequence.output("> [VEIL-9] ENERGY: Energy levels decreased a small amount: ", False)
                 character = logic.update("current-EP", character, (-1))
                 energy_percent = (character['current-EP'] / 10) * 100
-                energy =player_turn.make_bar(character['current-EP'])
+                energy = player_turn.make_bar(character['current-EP'])
                 scene_sequence.output(f'{energy} {energy_percent}%', True)
-                return character
+        del has_interact[(1, 1)]
         return character
 
     has_interact = {

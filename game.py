@@ -16,16 +16,18 @@ def game():
         scene_sequence.output("> \n>> ")
         action = logic.get_user_input()
         if action in ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W'):
-            player = player_turn.move(player)
+            if logic.validate_move(board, player, action):
+                player_turn.move(player, action)
+            else:
+                scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True)
         elif action in ('status', 'Status'):
-            player = player_turn.status(player)
+            player_turn.status(player)
         elif action in ('look', 'Look'):
-            player = player_turn.look(board, player)
+            player_turn.look(board, player)
         elif action in ('interact', 'Interact'):
-            player = player_turn.interact(board, player)
+            player_turn.interact(board['interacts'], player)
         elif action in ('map', 'Map'):
             player_turn.ship_map()
-        hull_integrity = player_turn.hull_damage(hull_integrity)
     if goal_achieved == True:
         scene_sequence.escape(player)
     else:

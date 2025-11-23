@@ -25,7 +25,7 @@ def ship_map():
     scene_sequence.output('>             └────┬┬─────┘', True, 0.03)
     scene_sequence.output('>              ┌───┴┴────┐', True, 0.03)
     scene_sequence.output('>              │Emergency│', True, 0.03)
-    scene_sequence.output('>              │Pod Bay 2│', True, 0.03)
+    scene_sequence.output('>              │Pod Bay 1│', True, 0.03)
     scene_sequence.output('>              └─────────┘', True, 0.03)
     scene_sequence.output('> ---------------------------------', True, 0.03)
     scene_sequence.output('> ', True, 0.03)
@@ -48,7 +48,7 @@ def look(board, character):
     can_west = logic.validate_move(board, character, 'w')
 
     scene_sequence.output('> \033[4mACCESS:\033[0m', True, 0.03)
-    scene_sequence.output('> Available Routes... ', False, 0.03)
+    scene_sequence.output('> Available Routes...', False, 0.03)
     if can_north:
         scene_sequence.output('north, ')
     if can_east:
@@ -59,7 +59,6 @@ def look(board, character):
         scene_sequence.output('west, ')
     sys.stdout.write('\b\b\n')
     scene_sequence.output('> ------------------------ ', True, 0.03)
-    scene_sequence.output('> ', True, 0.03)
 
 
 def make_bar(current):
@@ -107,11 +106,40 @@ def status(character):
     scene_sequence.output(f'> Slot_3.........{character['inventory'][2]}', True, 0.03)
     scene_sequence.output(f'> Slot_4.........{character['inventory'][3]}', True, 0.03)
     scene_sequence.output('> ------------------------ ', True, 0.03)
-    scene_sequence.output('> ', True, 0.03)
 
 
-def move(character):
-    pass
+def move(character, direction):
+    """
+    Move character coordinates.
+
+    Adjusts character x and y coordinates based off of movement direction.
+
+    :param character: a dictionary.
+    :param direction: a single character string.
+    :precondition: direction must be 'n', 'N', 'e', 'E', 's', 'S', 'w' or 'W'
+    :precondition: character must be a dictionary with a "Y-coordinate" and "X-coordinate" key.
+    :precondition: character["Y-coordinate"] and character["X-coordinate"] must be integers.
+    :postcondition: adjusts character dictionary using movement direction.
+    :return: updated character dictionary.
+    """
+    north = ('n', 'N')
+    east = ('e', 'E')
+    south = ('s', 'S')
+    west = ('w', 'W')
+    if direction in north:
+        character["Y-coordinate"] += 1
+        scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: north-ward movement confirmed.',True)
+    elif direction in east:
+        character["X-coordinate"] += 1
+        scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: east-ward movement confirmed.', True)
+    elif direction in south:
+        character["Y-coordinate"] -= 1
+        scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: south-ward movement confirmed.', True)
+    elif direction in west:
+        character["X-coordinate"] -= 1
+        scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: west-ward movement confirmed.', True)
+    return character
+
 
 def interact(interacts, character):
     scene_sequence.output("> ", True)
@@ -125,5 +153,10 @@ def interact(interacts, character):
         scene_sequence.output('>> ')
     return character
 
+
 def hull_integrity(hull):
+    pass
+
+
+def encounter_chance(player):
     pass

@@ -12,7 +12,7 @@ def get_user_input():
     """
     while True:
         action = str(input())
-        accepted_inputs = ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W', 'look', 'status', 'lore', 'interact', 'Status', 'Interact')
+        accepted_inputs = ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W', 'look', 'status', 'map', 'interact')
         if action not in accepted_inputs:
             scene_sequence.output('> INVALID INPUT: Type a valid input')
             time.sleep(1)
@@ -21,40 +21,6 @@ def get_user_input():
         else:
             break
     return action
-
-
-def move_character(character, direction):
-    """
-    Move character coordinates.
-
-    Adjusts character x and y coordinates based off of movement direction.
-
-    :param character: a dictionary.
-    :param direction: a single character string.
-    :precondition: direction must be 'n', 'N', 'e', 'E', 's', 'S', 'w' or 'W'
-    :precondition: character must be a dictionary with a "Y-coordinate" and "X-coordinate" key.
-    :precondition: character["Y-coordinate"] and character["X-coordinate"] must be integers.
-    :postcondition: adjusts character dictionary using movement direction.
-    :return: updated character dictionary.
-
-    >>> move_character({"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}, 's')
-    {'X-coordinate': 0, 'Y-coordinate': 1, 'Current HP': 5}
-    >>> move_character({"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}, 'e')
-    {'X-coordinate': 1, 'Y-coordinate': 0, 'Current HP': 5}
-    """
-    north = ('n', 'N')
-    east = ('e', 'E')
-    south = ('s', 'S')
-    west = ('w', 'W')
-    if direction in north:
-        character["Y-coordinate"] += 1
-    elif direction in east:
-        character["X-coordinate"] -= 1
-    elif direction in south:
-        character["Y-coordinate"] -= 1
-    elif direction in west:
-        character["X-coordinate"] += 1
-    return character
 
 
 def validate_move(board, character, direction):
@@ -84,13 +50,13 @@ def validate_move(board, character, direction):
     west = ('w', 'W')
     character_coordinates = [character["X-coordinate"], character["Y-coordinate"]]
     if direction in north:
-        character_coordinates[0] -= 1
-    elif direction in east:
         character_coordinates[1] += 1
-    elif direction in south:
+    elif direction in east:
         character_coordinates[0] += 1
-    elif direction in west:
+    elif direction in south:
         character_coordinates[1] -= 1
+    elif direction in west:
+        character_coordinates[0] -= 1
     return tuple(character_coordinates) in board
 
 
