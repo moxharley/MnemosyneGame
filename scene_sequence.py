@@ -388,3 +388,9 @@ def log_1():
     output('> ', True)
     output('> [VEIL-9] CORRECTION: Integrity analysis does not support that claim.', True)
 
+def death():
+    sound.play_sound(8)
+    output('>\n> [VEIL-9] CRITICAL FAILURE: Vital signals lost.', True)
+    output('> >>> TERMINAL CONNECTION LOST', True)
+    output('> >>> USER STATUS: DECEASED  ', True)
+    output('> >>> U.A.S MNEMOSYNE REGISTRY UPDATED', True)

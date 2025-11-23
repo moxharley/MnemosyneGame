@@ -127,3 +127,36 @@ def update(key, character, amount):
     if character[key] < 0:
         character[key] = 0
     return character
+
+
+def hull_damage(hull):
+    if random.random() < 0.10:
+        damage = random.randint(1, 9)
+        hull -= damage
+        hull_percent = (hull / 90) * 100
+        if hull <= 0:
+            sound.play_sound(7)
+            scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ALERT: Structural integrity compromised...I am sorry.',True)
+        else:
+            if damage >= 7:
+                sound.play_sound(7)
+            else:
+                sound.play_sound(random.randint(5, 6))
+            scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ALERT: Progressive structural damage detected.', True)
+            scene_sequence.output(f'> [\033[31mARCHANGEL\033[0m] DIAGNOSTIC: Current hull integrity at {hull_percent:.1f} and declining.', True)
+    return hull
+
+
+def check_alive(character, hull):
+    if hull <= 0:
+        return False
+    if character['current-EP'] <= 0:
+        return False
+    if character['current-HP'] <= 0:
+        return False
+    else:
+        return True
+
+
+def check_win(board, character):
+    return False

@@ -28,17 +28,22 @@ def game():
             player_turn.interact(board['interacts'], player)
         elif action in ('map', 'Map'):
             player_turn.ship_map()
+        hull_integrity = logic.hull_damage(hull_integrity)
+        if logic.check_alive(player, hull_integrity) == False:
+            break
+        if logic.check_win(board, player):
+            break
     if goal_achieved == True:
-        scene_sequence.escape(player)
+        scene_sequence.escape()
     else:
-        scene_sequence.death(player)
+        scene_sequence.death()
 
 
 def main():
     """
     Drive the program.
     """
-    pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512)
+    pygame.mixer.pre_init(frequency=44100, size=-16, channels=4, buffer=512)
     pygame.mixer.init()
     pygame.mixer.set_num_channels(4)
     game()
