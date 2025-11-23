@@ -1,9 +1,16 @@
 import time, sys, pyttsx3, pygame, random, sound, player_turn
 
 
-def output(message, new_line=False, delay=0.05):
+def output(message, new_line=False, delay=0.04):
+    """
+    Game output.
+
+    :param message: a string
+    :param new_line: a boolean
+    :param delay: a number (float or integer)
+    """
     tap = pygame.mixer.Sound('sounds/tap.ogg')
-    tap.set_volume(0.08)
+    tap.set_volume(0.05)
     for char in message:
         sys.stdout.write(char)
         if delay <= 0.1:
@@ -17,6 +24,11 @@ def output(message, new_line=False, delay=0.05):
 
 
 def archangel_output(message):
+    """
+    Archangel output.
+
+    :param message: a string
+    """
     archangel = pyttsx3.init()
     archangel.setProperty('voice', 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-US_ZIRA_11.0')
     archangel.setProperty('rate', 130)
@@ -41,6 +53,13 @@ def validate_command(accepted_inputs):
 
 
 def boot():
+    """
+    Play boot sequence.
+
+    Runs intro "cutscene" and gets player dictionary details.
+
+    :return: a well-formed player dictionary.
+    """
     sound.play_track(4)
     output('..........\r', True, 0.55)
     output('> _boot sequence initiated')
@@ -193,7 +212,7 @@ def boot():
     last_name = input()
     identifier1 = first_name
     identifier2 = 'Ensign ' + last_name
-    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current-HP': 7, 'current-EP': 10, 'room': 'Stasis-Pods'}
+    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current-HP': 8, 'current-EP': 7, 'room': 'Stasis-Pods'}
 
     output('> ', True)
     archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}.')
@@ -249,6 +268,9 @@ def boot():
 
 
 def tutorial(board, player):
+    """
+    Play tutorial sequence.
+    """
     output('> [\033[31mARCHANGEL\033[0m] ROUTINE_COMPLETE: Neural scaffolding re-synced.', True)
     output('> [VEIL-9] NOTICE: Vital parameters stabilizing.', True)
     output('> [VEIL-9] WARNING: Data integrity remains below acceptable threshold.', True)
@@ -293,4 +315,76 @@ def tutorial(board, player):
         archangel_output('We will need to interact with our surroundings to survive.')
         output('> ', True)
 
+    output('> [\033[31mARCHANGEL\033[0m] Proceed diagnostics with the \033[4minteract\033[0m command when ready.', True)
+    output('> ', True)
+    output('>> ', False)
+
+    command = validate_command('interact')
+    if command == 'interact':
+        player = player_turn.interact(board['interacts'], player)
+
+    sound.play_track(2)
+    output('> [VEIL-9] NOTICE: Tactile diagnosis complete.', True)
+    output('> ', True)
+    archangel_output('That’s everything I can stabilize for now. You are ready to move.')
+    output('> ', True)
+    archangel_output('Remember this: most actions cost energy. A little each time.')
+    archangel_output('If that runs dry the visor will shut down, and you won’t last long after.')
+    output('> ', True)
+    archangel_output('And the hull—')
+    time.sleep(0.4)
+    archangel_output('It’s failing faster than I expected.')
+    archangel_output('Sections are collapsing. Pressure breaches are spreading.')
+    output('> ', True)
+    archangel_output(f'{player['first-name']}...')
+    time.sleep(0.9)
+    archangel_output('I have detected another process running aboard this vessel.')
+    archangel_output('Its signatures resemble...▓▓▓▓▓▓▓▓▓▓, but the behavior doesn’t align with any programmed routine.')
+    output('> ', True)
+    archangel_output('Exercise extreme caution. Avoid drawing unnecessary attention.')
+    output('> ', True)
+    archangel_output('I will continue analysis as you move.')
+    sound.play_track(1)
+
+    return player
+
+def log_1():
+    output('> [DATA-SLATE // SURVEY LOG RETRIEVAL]', True)
+    output('> [file: FLX-ORBITAL-DRIFT / TETHYS-RIFT]', True)
+    output('> ', True)
+    output('> Recovered entries: 2', True)
+    output('> Integrity: 22%', True)
+    output('> Contamination: HIGH', True)
+    output('> ', True)
+    output('> ------------------------------------------------------------', True)
+    output('> ENTRY // 01', True)
+    output('> “Flux readings at the Rift perimeter are… wrong.', True)
+    output('> Not high. Not unstable. Just wrong.', True)
+    output('> The numbers don’t spike — they *bend*, like they’re trying', True)
+    output("> to describe a shape they’re not built to measure.”", True)
+    output('> ', True)
+    output('> Drone-3 kept tilting its sensor array toward the dark side', True)
+    output('> of the node. We didn’t program that behavior.”', True)
+    output('> ', True)
+    output('> ------------------------------------------------------------', True)
+    output('> ENTRY // 02', True)
+    output('> DRONE-3 TELEMETRY (RAW):', True)
+    output('> VECTOR LOCKED', True)
+    output('> UNKNOWN SIGNATURE', True)
+    output('> …repeating geometric structure detected', True)
+    output('> PROBABILITY OF KNOWN PATTERN: 0.00006%', True)
+    output('> attempting assimilation…', True)
+    output('> attempting comprehension…', True)
+    output('> attempting—', True)
+    output('> !!!SEGFAULT!!!', True)
+    output('> ', True)
+    output('> [operator note:]', True)
+    output('> “Pulled the drone back in. Its casing was warm.', True)
+    output('> Something inside the board is… leaking.”', True)
+    output('> ', True)
+    output('> ------------------------------------------------------------', True)
+    output('> ', True)
+    archangel_output('These logs are corrupted. Much of this is unreliable.')
+    output('> ', True)
+    output('> [VEIL-9] CORRECTION: Integrity analysis does not support that claim.', True)
 

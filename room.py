@@ -1,9 +1,84 @@
-import scene_sequence
+import scene_sequence, logic, time, sound, player_turn
 
 
 def make_interaction():
+
+    def data_pad(character):
+        scene_sequence.output("> You reach down to the raised platform beside your open cryopod.", True)
+        scene_sequence.output("> The data-pad is half-frozen to the metal, its screen shot through with cracks.\n> ", True)
+        time.sleep(1)
+        scene_sequence.output("> Carefully, you pry it loose. A few dead pixels flake away like ash.\n> ", True)
+        scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ANALYSIS: Peripheral device identified — crew-issued data-slate.", True)
+        scene_sequence.output("> [\033[31mARCHANGEL\033[0m] STATUS: Housing compromised, memory sectors unstable but potentially recoverable.\n> ", True)
+        scene_sequence.output("> Possible actions:\n> ", True)
+        scene_sequence.output(f">   [1] INTERFACE — Attempt to coax surviving memory sectors online.\n>      [STAT: Interface [{character["inf"]}] | DIFFICULTY: [moderate]]\n> ", True)
+        scene_sequence.output(f">   [2] ENGAGE — Force the casing open and salvage any intact components.\n>      [STAT: Engage [{character["eng"]}] | DIFFICULTY: [intermediate]]\n> ",    True)
+        scene_sequence.output(">> ")
+        action = int(scene_sequence.validate_command(("1", "2")))
+        if action == 1:
+            successful = logic.roll(character["inf"], 3)
+            scene_sequence.output("> ", True)
+            if successful:
+                scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                scene_sequence.output("> You bridge two exposed contacts and apply careful pressure.", True)
+                sound.play_sound(1)
+                scene_sequence.output("> The screen buzzes, then stabilizes into a dim, barely functional UI.\n> ", True)
+                scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ROUTINE: Bypassing damaged bootloader… partial success.\n> ", True)
+                scene_sequence.output("> Fragmented logs materialize — survey notes, flux readings, a reference to something", True)
+                scene_sequence.output("> called the “Tethys Rift.”\n> ", True)
+                scene_sequence.log_1()
+                scene_sequence.output("> [VEIL-9] ENERGY: Energy levels decreased a small amount: ", False)
+                character = logic.update("current-EP", character, (-1))
+                energy_percent = (character['current-EP'] / 10) * 100
+                energy = player_turn.make_bar(character['current-EP'])
+                scene_sequence.output(f'{energy} {energy_percent}%', True)
+                return character
+            else:
+                scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
+                scene_sequence.output("> You try to bridge the exposed contacts.", True)
+                scene_sequence.output("> A pulse of heat flashes across your glove — the pad pops, internally shorting out.\n> ", True)
+                scene_sequence.output("> The screen dies completely.", True)
+                scene_sequence.output("> [VEIL-9] HEALTH: Health levels decreased a small amount: ", True)
+                character = logic.update("current-HP", character, -1)
+                health_percent = (character['current-HP'] / 10) * 100
+                health = player_turn.make_bar(character['current-HP'])
+                scene_sequence.output(f'{health} {health_percent}%', True)
+                return character
+        elif action == 2:
+            successful = logic.roll(character["eng"], 5)
+            scene_sequence.output("> ", True)
+            if successful:
+                scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                scene_sequence.output("> You dig your fingers under the casing and twist hard.", True)
+                scene_sequence.output("> The brittle housing snaps open with a sharp crack.\n> ", True)
+                scene_sequence.output("> Inside, a micro power cell remains intact.", True)
+                scene_sequence.output("> [VEIL-9] ENERGY: Energy levels increased a moderate amount: ", True)
+                character = logic.update("current-EP", character, 2)
+                energy_percent = (character['current-EP'] / 10) * 100
+                energy =player_turn.make_bar(character['current-EP'])
+                scene_sequence.output(f'{energy} {energy_percent}%', True)
+                return character
+            else:
+                scene_sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
+                scene_sequence.output("> You wrench the casing open — too forcefully. ", True)
+                scene_sequence.output("> The frozen plastic explodes in your grip, scattering useless shards.\n> ", True)
+                sound.play_sound(2)
+                scene_sequence.output("> A few jagged edges bite into your fingertips.\n> ", True)
+                scene_sequence.output("> [VEIL-9] HEALTH: Health levels decreased a small amount: ", False)
+                character = logic.update("current-HP", character, (-1))
+                health_percent = (character['current-HP'] / 10) * 100
+                health = player_turn.make_bar(character['current-HP'])
+                scene_sequence.output(f'{health} {health_percent}%', True)
+                scene_sequence.output("> [VEIL-9] ENERGY: Energy levels decreased a small amount: ", False)
+                character = logic.update("current-EP", character, (-1))
+                energy_percent = (character['current-EP'] / 10) * 100
+                energy =player_turn.make_bar(character['current-EP'])
+                scene_sequence.output(f'{energy} {energy_percent}%', True)
+                return character
+        return character
+
     has_interact = {
-        (1, 1): 'data-pad'
+        (1, 1): data_pad
     }
     return has_interact
 
@@ -41,6 +116,7 @@ def make_board():
 
     (3, 2): "Drain Pit - A grated floor drain where melted ice gathers. Something metallic clatters deep beneath it when you move nearby."
     }
+
     return board
 
 

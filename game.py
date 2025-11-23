@@ -8,10 +8,12 @@ def game():
     sound.ambient_noise()
     player = scene_sequence.boot()
     board = room.make_board()
+    board['interacts'] = room.make_interaction()
     scene_sequence.tutorial(board, player)
     goal_achieved = False
     hull_integrity = 90
     while goal_achieved == False:
+        scene_sequence.output("> \n>> ")
         action = logic.get_user_input()
         if action in ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W'):
             player = player_turn.move(player)
@@ -22,7 +24,7 @@ def game():
         elif action in ('interact', 'Interact'):
             player = player_turn.interact(board, player)
         elif action in ('map', 'Map'):
-            player_turn.map()
+            player_turn.ship_map()
         hull_integrity = player_turn.hull_damage(hull_integrity)
     if goal_achieved == True:
         scene_sequence.escape(player)

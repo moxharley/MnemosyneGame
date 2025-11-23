@@ -1,4 +1,5 @@
-import room, logic, sys, scene_sequence
+import room, logic, sys, scene_sequence, time
+
 
 def ship_map():
     scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] DATA: Starship layout initializing.', True, 0.03)
@@ -60,6 +61,7 @@ def look(board, character):
     scene_sequence.output('> ------------------------ ', True, 0.03)
     scene_sequence.output('> ', True, 0.03)
 
+
 def make_bar(current):
     filled = ''
     empty = ''
@@ -75,6 +77,7 @@ def make_bar(current):
     else:
         bar = '[\033[31m' + filled + empty + '\033[0m]'
     return bar
+
 
 def status(character):
     scene_sequence.output('>\n> [VEIL-9] STATUS: Process initiated.', True, 0.03)
@@ -110,8 +113,17 @@ def status(character):
 def move(character):
     pass
 
-def interact(board, character):
-    pass
+def interact(interacts, character):
+    scene_sequence.output("> ", True)
+    character_coordinates = (character["X-coordinate"], character["Y-coordinate"])
+    if character_coordinates in interacts:
+        character = interacts[character_coordinates](character)
+    else:
+        scene_sequence.output('> INVALID INPUT: There is nothing to interact with')
+        time.sleep(1)
+        sys.stdout.write('\r')
+        scene_sequence.output('>> ')
+    return character
 
 def hull_integrity(hull):
     pass
