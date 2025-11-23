@@ -344,7 +344,7 @@ def tutorial(board, player):
     archangel_output('Exercise extreme caution. Avoid drawing unnecessary attention.')
     output('> ', True)
     archangel_output('I will continue analysis as you move.')
-    sound.play_track(1)
+    sound.play_track(4)
 
     return player
 
