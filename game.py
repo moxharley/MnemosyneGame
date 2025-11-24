@@ -12,7 +12,7 @@ def game():
     scene_sequence.tutorial(board, player)
     goal_achieved = False
     hull_integrity = 90
-    while goal_achieved == False:
+    while True:
         scene_sequence.output("> \n>> ")
         action = logic.get_user_input()
         if action in ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W'):
@@ -29,9 +29,10 @@ def game():
         elif action in ('map', 'Map'):
             player_turn.ship_map()
         hull_integrity = logic.hull_damage(hull_integrity)
-        if logic.check_alive(player, hull_integrity) == False:
+        if not logic.check_alive(player, hull_integrity):
             break
         if logic.check_win(board, player):
+            goal_achieved = True
             break
     if goal_achieved == True:
         scene_sequence.escape()
