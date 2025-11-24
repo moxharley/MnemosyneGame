@@ -1,4 +1,4 @@
-import random, scene_sequence, time, sys, sound
+import random, sequence, time, sys, sound
 
 
 def get_user_input():
@@ -14,10 +14,10 @@ def get_user_input():
         action = str(input())
         accepted_inputs = ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W', 'look', 'status', 'map', 'interact')
         if action not in accepted_inputs:
-            scene_sequence.output('> INVALID INPUT: Type a valid input')
+            sequence.output('> INVALID INPUT: Type a valid input')
             time.sleep(1)
             sys.stdout.write('\r')
-            scene_sequence.output('>> ')
+            sequence.output('>> ')
         else:
             break
     return action
@@ -80,34 +80,34 @@ def roll(stat, difficulty_class):
 
 def level_up(character):
     character['exp'] += 1
-    scene_sequence.output(f'> [\033[31mARCHANGEL\033[0m] ACTION_FAILURE: Error pattern recorded. Experience +1  ({character['exp']} / 3)\n>',True)
+    sequence.output(f'> [\033[31mARCHANGEL\033[0m] ACTION_FAILURE: Error pattern recorded. Experience +1  ({character['exp']} / 3)\n>',True)
     if character['exp'] == 3:
         sound.play_sound(3)
         character['exp'] = 0
-        scene_sequence.output('> [VEIL-9] ALERT: Cognitive threshold reached — adaptation event detected.\n>', True)
-        scene_sequence.output('> Select the cognitive parameter you intend to reinforce.', True)
-        scene_sequence.output('>   [1] ENDURE     — Stress tolerance & bodily resilience', True)
-        scene_sequence.output('>   [2] ENGAGE     — Direct action, force, and confrontation', True)
-        scene_sequence.output('>   [3] INTERFACE  — Machine logic, system control, technical precision', True)
-        scene_sequence.output('>   [4] INTUIT     — Pattern recognition, instinct, and perceptual insight', True)
-        scene_sequence.output('>\n>> ')
-        stat_increase = int(scene_sequence.validate_command(('1', '2', '3', '4')))
+        sequence.output('> [VEIL-9] ALERT: Cognitive threshold reached — adaptation event detected.\n>', True)
+        sequence.output('> Select the cognitive parameter you intend to reinforce.', True)
+        sequence.output('>   [1] ENDURE     — Stress tolerance & bodily resilience', True)
+        sequence.output('>   [2] ENGAGE     — Direct action, force, and confrontation', True)
+        sequence.output('>   [3] INTERFACE  — Machine logic, system control, technical precision', True)
+        sequence.output('>   [4] INTUIT     — Pattern recognition, instinct, and perceptual insight', True)
+        sequence.output('>\n>> ')
+        stat_increase = int(sequence.validate_command(('1', '2', '3', '4')))
         if stat_increase == 1:
             character['end'] += 1
-            scene_sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in ENDURE has improved: [{character['end']}]', True)
-            scene_sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
+            sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in ENDURE has improved: [{character['end']}]', True)
+            sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
         if stat_increase == 2:
             character['eng'] += 1
-            scene_sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in ENGAGE has improved: [{character['eng']}]', True)
-            scene_sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
+            sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in ENGAGE has improved: [{character['eng']}]', True)
+            sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
         if stat_increase == 3:
             character['inf'] += 1
-            scene_sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in INTERFACE has improved: [{character['inf']}]', True)
-            scene_sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
+            sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in INTERFACE has improved: [{character['inf']}]', True)
+            sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
         if stat_increase == 4:
             character['int'] += 1
-            scene_sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in INTUIT has improved: [{character['int']}]', True)
-            scene_sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
+            sequence.output(f'>\n> [VEIL-9] DIAGNOSTIC: Neural efficiency in INTUIT has improved: [{character['int']}]', True)
+            sequence.output('> [\033[31mARCHANGEL\033[0m] SUMMARY: Experience reset to 0. Further failures will continue to refine performance.', True)
     return character
 
 
@@ -136,14 +136,14 @@ def hull_damage(hull):
         hull_percent = (hull / 90) * 100
         if hull <= 0:
             sound.play_sound(7)
-            scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ALERT: Structural integrity compromised...I am sorry.',True)
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ALERT: Structural integrity compromised...I am sorry.',True)
         else:
             if damage >= 7:
                 sound.play_sound(7)
             else:
                 sound.play_sound(random.randint(5, 6))
-            scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ALERT: Progressive structural damage detected.', True)
-            scene_sequence.output(f'> [\033[31mARCHANGEL\033[0m] DIAGNOSTIC: Current hull integrity at {hull_percent:.1f} and declining.', True)
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ALERT: Progressive structural damage detected.', True)
+            sequence.output(f'> [\033[31mARCHANGEL\033[0m] DIAGNOSTIC: Current hull integrity at {hull_percent:.1f} and declining.', True)
     return hull
 
 

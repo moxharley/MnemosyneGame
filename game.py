@@ -1,4 +1,4 @@
-import pygame, sound, room, logic, player_turn, scene_sequence
+import pygame, sound, room, logic, player_turn, sequence
 
 
 def game():
@@ -6,20 +6,20 @@ def game():
     Run the game loop.
     """
     sound.ambient_noise()
-    player = scene_sequence.boot()
+    player = sequence.boot()
     board = room.make_board()
     board['interacts'] = room.make_interaction()
-    scene_sequence.tutorial(board, player)
+    sequence.tutorial(board, player)
     goal_achieved = False
     hull_integrity = 90
     while True:
-        scene_sequence.output("> \n>> ")
+        sequence.output("> \n>> ")
         action = logic.get_user_input()
         if action in ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W'):
             if logic.validate_move(board, player, action):
                 player_turn.move(player, action)
             else:
-                scene_sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True)
+                sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True)
         elif action in ('status', 'Status'):
             player_turn.status(player)
         elif action in ('look', 'Look'):
@@ -35,9 +35,9 @@ def game():
             goal_achieved = True
             break
     if goal_achieved == True:
-        scene_sequence.escape()
+        sequence.escape()
     else:
-        scene_sequence.death()
+        sequence.death()
 
 
 def main():
