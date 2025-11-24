@@ -25,7 +25,7 @@ def ship_map():
     scene_sequence.output('>             └────┬┬─────┘', True, 0.02)
     scene_sequence.output('>              ┌───┴┴────┐', True, 0.02)
     scene_sequence.output('>              │Emergency│', True, 0.02)
-    scene_sequence.output('>              │Pod Bay 1│', True, 0.02)
+    scene_sequence.output('>              │Pod Bay  │', True, 0.02)
     scene_sequence.output('>              └─────────┘', True, 0.02)
     scene_sequence.output('> -------------------------------------', True, 0.02)
     scene_sequence.output('> ', True, 0.02)

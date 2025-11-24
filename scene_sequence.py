@@ -348,6 +348,7 @@ def tutorial(board, player):
 
     return player
 
+
 def log_1():
     output('> [DATA-SLATE // SURVEY LOG RETRIEVAL]', True)
     output('> [file: FLX-ORBITAL-DRIFT / TETHYS-RIFT]', True)
@@ -387,6 +388,7 @@ def log_1():
     archangel_output('These logs are corrupted. Much of this is unreliable.')
     output('> ', True)
     output('> [VEIL-9] CORRECTION: Integrity analysis does not support that claim.\n>', True)
+
 
 def death():
     sound.play_sound(8)

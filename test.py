@@ -11,7 +11,7 @@ def game():
               'exp': 2, 'inventory': ['Side-Arm', 'Empty', 'Empty', 'Empty']}
     board = room.make_board()
     goal_achieved = False
-    hull_integrity = 1
+    hull_integrity = 90
     while goal_achieved == False:
         scene_sequence.output("> \n>> ")
         action = logic.get_user_input()
@@ -37,6 +37,7 @@ def game():
         scene_sequence.escape()
     else:
         scene_sequence.death()
+
 
 def main():
     """
