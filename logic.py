@@ -147,6 +147,10 @@ def hull_damage(hull):
     return hull
 
 
+def encounter_chance(player):
+    pass
+
+
 def check_alive(character, hull):
     if hull <= 0:
         return False

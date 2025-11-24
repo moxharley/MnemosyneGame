@@ -152,11 +152,3 @@ def interact(interacts, character):
         sys.stdout.write('\r')
         scene_sequence.output('>> ')
     return character
-
-
-def hull_integrity(hull):
-    pass
-
-
-def encounter_chance(player):
-    pass
