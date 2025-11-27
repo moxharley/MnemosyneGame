@@ -97,53 +97,135 @@ def make_board():
 
     board = {
         (0, 0): ("Entrance Hatch - The sliding hatch leads out into the hallway. Frost rims its seams, and a faint green exit strip glows beneath your feet.", "Stasis-Pods"),
-
         (1, 0): ("Overhead Conduit - The ceiling panel above is bowed and stained by a dark, dried drip. Something dripped here recently.", "Stasis-Pods"),
-
         (2, 0): ("Supply Cabinet - A waist-high storage cabinet. Its magnetic \033[34mlock\033[0m flickers weakly, and the metal is dented from the inside.", "Stasis-Pods"),
-
         (3, 0): ("Cryopod-01 (Fractured) - The viewport glass is shattered inward as though something forced its way inside. Frost spreads in jagged veins.", "Stasis-Pods"),
-
         (0, 1): ("Cryopod-02 (Offline) - The pod is dark. A faint human-shaped frost imprint remains on the window, but the pod is empty.", "Stasis-Pods"),
-
         (1, 1): ("Cryopod-03 (Your Pod) - The hatch is hanging sideways. Cracks in the interior ice suggest you thrashed free. A broken \033[31mdata-pad\033[0m lies on the platform.", "Stasis-Pods"),
-
         (2, 1): ("Terminal A - A flickering stasis control terminal. Lines of corrupted diagnostics scroll by too quickly to read.", "Stasis-Pods"),
-
         (3, 1): ("Cryopod-04 (Scorched) - The inner surface is warped and blackened by heat. Something inside burned violently before power failed.", "Stasis-Pods"),
-
         (0, 2): ("Cryopod-05 (Scratched) - Deep, uneven gouges mark the inside walls. Some look metallic; others disturbingly biological.", "Stasis-Pods"),
-
         (1, 2): ("Cryopod-06 (Coolant Leak) - Coolant pools beneath the pod, unusually dark and viscous. It reeks of warm metal.", "Stasis-Pods"),
-
         (2, 2): ("Terminal B - A partially frozen backup \033[34mterminal\033[0m. Crew IDs flicker onscreen before dissolving into static.", "Stasis-Pods"),
-
         (3, 2): ("Drain Pit - A grated floor drain where melted ice gathers. Something metallic clatters deep beneath it when you move nearby.", "Stasis-Pods"),
 
         (0, 3): ("WIP - Empty description (Corridor).", "Corridor"),
-
         (0, 4): ("WIP - Empty description (Corridor).", "Corridor"),
 
         (0, 5): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-
         (0, 6): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-
         (0, 7): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-
         (-1, 5): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-
         (-1, 6): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-
         (-1, 7): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-
         (1, 5): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-
         (1, 6): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
+        (1, 7): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
 
-        (1, 7): ("WIP - Empty description (Loading Bay)", "Loading Bay")
+        (-2, 6): ("WIP - Empty description (Corridor).", "Corridor"),
 
+        (-3, 6): ("WIP - Empty description (Galley).", "Galley"),
+        (-4, 6): ("WIP - Empty description (Galley).", "Galley"),
+        (-5, 6): ("WIP - Empty description (Galley).", "Galley"),
+        (-3, 7): ("WIP - Empty description (Galley).", "Galley"),
+        (-4, 7): ("WIP - Empty description (Galley).", "Galley"),
+        (-5, 7): ("WIP - Empty description (Galley).", "Galley"),
+
+        (-6, 6): ("WIP - Empty description (Corridor).", "Corridor"),
+
+        #Blocked off Room at the end of this corridor.
+
+        (-4, 5): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-4, 4): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, 4): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, 3): ("WIP - Empty description (Corridor).", "Corridor"),
+
+        (-5, 2): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-5, 1): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-5, 0): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-6, 2): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-6, 1): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-6, 0): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-4, 2): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-4, 1): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-4, 0): ("WIP - Empty description (Bridge).", "Bridge"),
+
+        (-5, -1): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, -2): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, -3): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, -4): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, -5): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, -6): ("WIP - Empty description (Corridor).", "Corridor"),
+
+        (-5, -7): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-5, -8): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-5, -9): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-6, -7): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-6, -8): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-6, -9): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-4, -7): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-4, -8): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-4, -9): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-3, -7): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-3, -8): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-3, -9): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+
+        (-4, -10): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-4, -11): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, -11): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-6, -11): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-6, -12): ("WIP - Empty description (Corridor).", "Corridor"),
+
+        (-6, -13): ("WIP - Empty description (Reactor).", "Reactor"),
+        (-5, -13): ("WIP - Empty description (Reactor).", "Reactor"),
+        (-6, -14): ("WIP - Empty description (Reactor).", "Reactor"),
+        (-5, -14): ("WIP - Empty description (Reactor).", "Reactor"),
+
+        (-7, -13): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-4, -14): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-6, -15): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-6, -16): ("WIP - Empty description (Corridor).", "Corridor"),
+
+        (-8, -13): ("WIP - Empty description (Relay).", "Relay"),
+        (-9, -13): ("WIP - Empty description (Relay).", "Relay"),
+        (-10, -13): ("WIP - Empty description (Relay).", "Relay"),
+        (-9, -12): ("WIP - Empty description (Relay).", "Relay"),
+        (-10, -14): ("WIP - Empty description (Relay).", "Relay"),
+        (-8, -14): ("WIP - Empty description (Relay).", "Relay"),
+        (-8, -15): ("WIP - Empty description (Relay).", "Relay"),
+        (-9, -15): ("WIP - Empty description (Relay).", "Relay"),
+        (-10, -15): ("WIP - Empty description (Relay).", "Relay"),
+
+        (-3, -14): ("WIP - Empty description (Utility).", "Utility"),
+        (-2, -14): ("WIP - Empty description (Utility).", "Utility"),
+        (-1, -14): ("WIP - Empty description (Utility).", "Utility"),
+        (-3, -13): ("WIP - Empty description (Utility).", "Utility"),
+        (-2, -13): ("WIP - Empty description (Utility).", "Utility"),
+        (-1, -13): ("WIP - Empty description (Utility).", "Utility"),
+
+        (-6, -17): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-6, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-7, -17): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-7, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-5, -17): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-5, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-4, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-8, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-4, -19): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-8, -19): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-4, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-8, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-5, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-7, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-6, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+
+        (-7, -21): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, -21): ("WIP - Empty description (Corridor).", "Corridor"),
+
+        (-7, -22): ("WIP - Empty description (Emergency Pod Bay).", "Emergency Pod Bay"),
+        (-6, -22): ("WIP - Empty description (Emergency Pod Bay).", "Emergency Pod Bay"),
+        (-5, -22): ("WIP - Empty description (Emergency Pod Bay).", "Emergency Pod Bay")
     }
-
     return board
 
 
