@@ -37,11 +37,11 @@ def play_sound(sound):
         sound.play(loops=0, fade_ms=1500)
     elif sound == 3:
         sound = pygame.mixer.Sound('sounds/success.ogg')
-        sound.set_volume(1)
+        sound.set_volume(1.1)
         sound.play(loops=0, fade_ms=1500)
     elif sound == 4:
         sound = pygame.mixer.Sound('sounds/failure.ogg')
-        sound.set_volume(1)
+        sound.set_volume(1.2)
         sound.play(loops=0, fade_ms=1500)
     elif sound == 5:
         sound = pygame.mixer.Sound('sounds/hull_1.ogg')
@@ -57,7 +57,7 @@ def play_sound(sound):
         sound.play(loops=0, fade_ms=1500)
     elif sound == 8:
         sound = pygame.mixer.Sound('sounds/death.ogg')
-        sound.set_volume(1)
+        sound.set_volume(0.9)
         sound.play(loops=0, fade_ms=1500)
 
 

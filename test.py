@@ -7,11 +7,12 @@ def game():
     """
     sound.ambient_noise()
     player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': "Jimmy", 'last-name': "Freaks", 'current-HP': 8,
-              'current-EP': 7, 'room': 'Stasis-Pods', 'class': 'Ace-pilot', 'end': -1, 'eng': 1, 'inf': 0, 'int': 0,
+              'current-EP': 7, 'room': 'Stasis-Pods', 'class': 'Ace-pilot', 'end': -1, 'eng': -1, 'inf': 0, 'int': 0,
               'exp': 2, 'inventory': ['Side-Arm', 'Empty', 'Empty', 'Empty']}
     board = room.make_board()
+    board['interacts'] = room.make_interaction()
     goal_achieved = False
-    hull_integrity = 90
+    hull_integrity = 1
     while goal_achieved == False:
         sequence.output("> \n>> ")
         action = logic.get_user_input()

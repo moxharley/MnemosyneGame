@@ -22,12 +22,15 @@ def game():
                 sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True)
         elif action in ('status', 'Status'):
             player_turn.status(player)
+            logic.energy_drain(player)
         elif action in ('look', 'Look'):
             player_turn.look(board, player)
+            logic.energy_drain(player)
         elif action in ('interact', 'Interact'):
             player_turn.interact(board['interacts'], player)
         elif action in ('map', 'Map'):
             player_turn.ship_map()
+            logic.energy_drain(player)
         hull_integrity = logic.hull_damage(hull_integrity)
         if not logic.check_alive(player, hull_integrity):
             break

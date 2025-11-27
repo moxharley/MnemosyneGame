@@ -1,4 +1,4 @@
-import random, sequence, time, sys, sound
+import random, sequence, time, sys, sound, player_turn
 
 
 def get_user_input():
@@ -147,8 +147,18 @@ def hull_damage(hull):
     return hull
 
 
-def encounter_chance(player):
+def encounter_chance(character):
     pass
+
+
+def energy_drain(character):
+    if random.random() < 0.25:
+        character['current-EP'] -= 1
+        sequence.output(">\n> [VEIL-9] ENERGY: Energy levels decreased a small amount: ", False)
+        energy_percent = (character['current-EP'] / 10) * 100
+        energy = player_turn.make_bar(character['current-EP'])
+        sequence.output(f'{energy} {energy_percent}%\n>', True)
+    return character
 
 
 def check_alive(character, hull):
