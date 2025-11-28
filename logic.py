@@ -152,12 +152,12 @@ def encounter_chance(character):
 
 
 def energy_drain(character):
-    if random.random() < 0.25:
+    if random.random() < 0.23:
         character['current-EP'] -= 1
         sequence.output(">\n> [VEIL-9] ENERGY: Energy levels decreased a small amount: ", False)
         energy_percent = (character['current-EP'] / 10) * 100
         energy = player_turn.make_bar(character['current-EP'])
-        sequence.output(f'{energy} {energy_percent}%\n>', True)
+        sequence.output(f'{energy} {energy_percent}%', True)
     return character
 
 

@@ -393,6 +393,7 @@ def log_1():
 def death():
     sound.play_sound(8)
     output('>\n> [VEIL-9] CRITICAL FAILURE: Vital signals lost.', True)
-    output('> >>> TERMINAL CONNECTION LOST', True, 0.01)
-    output('> >>> USER STATUS: DECEASED  ', True, 0.01)
-    output('> >>> U.A.S MNEMOSYNE REGISTRY UPDATED', True, 0.01)
+    output('> >>> TERMINAL CONNECTION LOST', True, 0.02)
+    output('> >>> USER STATUS: DECEASED  ', True, 0.02)
+    output('> >>> U.A.S MNEMOSYNE REGISTRY UPDATED', True, 0.02)
+    time.sleep(2)
