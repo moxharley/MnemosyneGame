@@ -80,8 +80,16 @@ def make_interaction():
         del has_interact[(1, 1)]
         return character
 
+    def puddle(character):
+        pass
+
+    def crate(character):
+        pass
+
     has_interact = {
-        (1, 1): data_pad
+        (1, 1): data_pad,
+        (-1, 6): puddle,
+        (1, 7): crate,
     }
     return has_interact
 
@@ -109,31 +117,29 @@ def make_board():
         (2, 2): ("Terminal B - A partially frozen backup \033[34mterminal\033[0m. Crew IDs flicker onscreen before dissolving into static.", "Stasis-Pods"),
         (3, 2): ("Drain Pit - A grated floor drain where melted ice gathers. Something metallic clatters deep beneath it when you move nearby.", "Stasis-Pods"),
 
-        (0, 3): ("WIP - Empty description (Corridor).", "Corridor"),
-        (0, 4): ("WIP - Empty description (Corridor).", "Corridor"),
+        (0, 3): ("Corridor Junction - A narrow passage coated in thin frost. Emergency strips along the walls pulse a slow amber.", "Corridor"),
+        (0, 4): ("Warped Bulkhead - The corridor bends slightly where the hull has bowed inward. Metal creaks softly with each shift of the ship.", "Corridor"),
 
-        (0, 5): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-        (0, 6): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-        (0, 7): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-        (-1, 5): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-        (-1, 6): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-        (-1, 7): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-        (1, 5): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-        (1, 6): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
-        (1, 7): ("WIP - Empty description (Loading Bay)", "Loading Bay"),
+        (0, 5): ("Cargo Lift Column - A central freight lift stands dark and unpowered. The railing is bent, as though something heavy struck it from below.", "Loading Bay"),
+        (0, 6): ("Suspended Crates - Two cargo containers hang from magnetic hooks above. Their clamps flicker on and off, making the chains sway slightly.", "Loading Bay"),
+        (0, 7): ("Forklift Station - A compact cargo-lifter sits dormant, its tines embedded in the floor plating.", "Loading Bay"),
+        (-1, 5): ("Overturned Cart - A \033[34msupply cart\033[0m lies on its side. Several sealed nutrient packs are scattered across the floor.", "Loading Bay"),
+        (-1, 6): ("Coolant Spill - A shallow \033[31mpuddle\033[0m spreads across the metal grate. It shines with a dark tint, though the coolant itself should not be so dark.", "Loading Bay"),
+        (-1, 7): ("Loader Arm - A mechanical loading arm sits retracted, its claws dented and misaligned. Scorch marks climb the wall beside it, like something dragged along the metal.", "Loading Bay"),
+        (1, 5): ("Tether Point - A pair of magnetic \033[34mtether lines\033[0m dangle from the ceiling, swaying gently. One line is frayed at the end.", "Loading Bay"),
+        (1, 6): ("Wall Console - A freight \033[34mmanifest\033[0m console bolted to the bulkhead. Its screen is completely dark, but a steady clicking comes from inside the casing.", "Loading Bay"),
+        (1, 7): ("Cargo Pallet - A heavy pallet sits abandoned mid-transfer. One \033[31mcrate\033[0m bears a painted warning glyph: FLUX HANDLING — DO NOT VIBRATE. Its bolts are partially loosened.", "Loading Bay"),
 
-        (-2, 6): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-2, 6): ("Corridor Junction - A smear of something dark drags along the wall at shoulder height, tapering off into shaky fingerprints.", "Corridor"),
 
-        (-3, 6): ("WIP - Empty description (Galley).", "Galley"),
-        (-4, 6): ("WIP - Empty description (Galley).", "Galley"),
-        (-5, 6): ("WIP - Empty description (Galley).", "Galley"),
-        (-3, 7): ("WIP - Empty description (Galley).", "Galley"),
-        (-4, 7): ("WIP - Empty description (Galley).", "Galley"),
-        (-5, 7): ("WIP - Empty description (Galley).", "Galley"),
+        (-3, 6): ("Galley Counter – A serving tray lies overturned, coated with a dark, grainy film that flakes when disturbed.", "Galley"),
+        (-4, 6): ("Preparation Table - Stainless surface scored by repeated impacts. A thin, dried reddish-brown film coats one corner in a circular arc.", "Galley"),
+        (-5, 6): ("Hydration Unit - The \033[34mdispenser\033[0m's front panel is cracked. Condensed fluid inside has mixed with a particulate contaminant, forming clotted streaks along the drain channel.", "Galley"),
+        (-3, 7): ("Serving Alcove - One tray remains, fused to the counter by a residue sample consistent with oxidized biofluid. Fork tines embedded in the wall suggest sudden kinetic force.", "Galley"),
+        (-4, 7): ("Cold Storage Hatch - Door left ajar. Interior temperature has failed, allowing organic matter inside to collapse into an unidentifiable slurry coating the lower bins.", "Galley"),
+        (-5, 7): ("Floor Drain - The \033[34mgrate\033[0m is obstructed by dried accumulation. Patterning indicates it originated from above rather than the floor level.", "Galley"),
 
-        (-6, 6): ("WIP - Empty description (Corridor).", "Corridor"),
-
-        #Blocked off Room at the end of this corridor.
+        (-6, 6): ("Sealed Collapse – The route to the Crew Quarters is obstructed by a dense, fused mass of debris. Heat-scoring suggests the collapse occurred under extreme stress.", "Corridor"),
 
         (-4, 5): ("WIP - Empty description (Corridor).", "Corridor"),
         (-4, 4): ("WIP - Empty description (Corridor).", "Corridor"),

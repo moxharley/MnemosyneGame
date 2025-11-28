@@ -12,8 +12,8 @@ def game():
     board = room.make_board()
     board['interacts'] = room.make_interaction()
     goal_achieved = False
-    hull_integrity = 1
-    while goal_achieved == False:
+    hull_integrity = 90
+    while True:
         sequence.output("> \n>> ")
         action = logic.get_user_input()
         if action in ('n', 'N', 'e', 'E', 's', 'S', 'w', 'W'):
@@ -23,16 +23,20 @@ def game():
                 sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True)
         elif action in ('status', 'Status'):
             player_turn.status(player)
+            logic.energy_drain(player)
         elif action in ('look', 'Look'):
             player_turn.look(board, player)
+            logic.energy_drain(player)
         elif action in ('interact', 'Interact'):
             player_turn.interact(board['interacts'], player)
         elif action in ('map', 'Map'):
             player_turn.ship_map()
+            logic.energy_drain(player)
         hull_integrity = logic.hull_damage(hull_integrity)
-        if logic.check_alive(player, hull_integrity) == False:
+        if not logic.check_alive(player, hull_integrity):
             break
         if logic.check_win(board, player):
+            goal_achieved = True
             break
     if goal_achieved == True:
         sequence.escape()
