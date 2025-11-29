@@ -20,7 +20,7 @@ def game():
             if logic.validate_move(board, player, action):
                 player_turn.move(player, action)
             else:
-                sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True)
+                sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True, 0.03)
         elif action in ('status', 'Status'):
             player_turn.status(player)
             logic.energy_drain(player)

@@ -128,16 +128,16 @@ def move(character, direction):
     west = ('w', 'W')
     if direction in north:
         character["Y-coordinate"] += 1
-        sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: north-ward movement confirmed.',True)
+        sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: north-ward movement confirmed.',True, 0.03)
     elif direction in east:
         character["X-coordinate"] += 1
-        sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: east-ward movement confirmed.', True)
+        sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: east-ward movement confirmed.', True, 0.03)
     elif direction in south:
         character["Y-coordinate"] -= 1
-        sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: south-ward movement confirmed.', True)
+        sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: south-ward movement confirmed.', True, 0.03)
     elif direction in west:
         character["X-coordinate"] -= 1
-        sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: west-ward movement confirmed.', True)
+        sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT: west-ward movement confirmed.', True, 0.03)
     return character
 
 

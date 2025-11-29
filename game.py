@@ -20,7 +20,7 @@ def game():
             if logic.validate_move(board, player, action):
                 player_turn.move(player, action)
             else:
-                sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True)
+                sequence.output('>\n> [\033[31mARCHANGEL\033[0m] MOVEMENT_DENIED: Obstruction at target coordinates.', True, 0.03)
         elif action in ('status', 'Status'):
             player_turn.status(player)
             logic.energy_drain(player)
@@ -38,8 +38,8 @@ def game():
         if logic.check_win(board, player):
             goal_achieved = True
             break
-    if goal_achieved == True:
-        sequence.escape()
+    if goal_achieved or demo_goal_achieved:
+        sequence.end_game()
     else:
         sequence.death()
 
@@ -51,7 +51,8 @@ def main():
     pygame.mixer.pre_init(frequency=44100, size=-16, channels=4, buffer=512)
     pygame.mixer.init()
     pygame.mixer.set_num_channels(4)
-    print('\n------------------------------------\nHello! Welcome to my game Mnemosyne.\n')
+    print('\n------------------------------------\nHello! Welcome to my Term Project!')
+    print('This is a demo for a game called Mnemosyne, \nwhich is a text-based scifi horror/thriller game.')
     while True:
         player_start = input('Please type \033[4mstart\033[0m to start the game:\n')
         if player_start != "start":

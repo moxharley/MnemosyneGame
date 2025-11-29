@@ -10,8 +10,8 @@ def make_interaction():
         sequence.output("> Carefully, you pry it loose. A few dead pixels flake away like ash.\n> ", True)
         sequence.output("> [\033[31mARCHANGEL\033[0m] ANALYSIS: Peripheral device identified — crew-issued data-slate.", True)
         sequence.output("> [\033[31mARCHANGEL\033[0m] STATUS: Housing compromised, memory sectors unstable but potentially recoverable.\n> ", True)
-        sequence.output("> Possible actions:\n> ", True)
-        sequence.output(f">   [1] INTERFACE — Attempt to coax surviving memory sectors online.\n>      [STAT: Interface [{character["inf"]}] | DIFFICULTY: [moderate]]\n> ", True)
+        sequence.output("> Possible actions:", True)
+        sequence.output(f">   [1] INTERFACE — Attempt to coax surviving memory sectors online.\n>      [STAT: Interface [{character["inf"]}] | DIFFICULTY: [moderate]]", True)
         sequence.output(f">   [2] ENGAGE — Force the casing open and salvage any intact components.\n>      [STAT: Engage [{character["eng"]}] | DIFFICULTY: [intermediate]]\n> ",    True)
         sequence.output(">> ")
         action = int(sequence.validate_command(("1", "2")))
@@ -55,9 +55,9 @@ def make_interaction():
                 sequence.output("> The brittle housing snaps open with a sharp crack.\n> ", True)
                 sequence.output("> Inside, a micro power cell remains intact.\n>", True)
                 sequence.output("> [VEIL-9] ENERGY: Energy levels increased a moderate amount: ")
-                character = logic.update("current-EP", character, 2)
+                character = logic.update("current-EP", character, 3)
                 energy_percent = (character['current-EP'] / 10) * 100
-                energy =player_turn.make_bar(character['current-EP'])
+                energy = player_turn.make_bar(character['current-EP'])
                 sequence.output(f'{energy} {energy_percent}%\n>', True)
             else:
                 sound.play_sound(4)
@@ -86,10 +86,22 @@ def make_interaction():
     def crate(character):
         pass
 
+    def hatch(character):
+        pass
+
+    def interface(character):
+        pass
+
+    def door(character):
+        pass
+
     has_interact = {
         (1, 1): data_pad,
         (-1, 6): puddle,
         (1, 7): crate,
+        (-5, 2): interface,
+        (-4, 0): hatch,
+        (-5, -1): door
     }
     return has_interact
 
@@ -141,96 +153,96 @@ def make_board():
 
         (-6, 6): ("Sealed Collapse – The route to the Crew Quarters is obstructed by a dense, fused mass of debris. Heat-scoring suggests the collapse occurred under extreme stress.", "Corridor"),
 
-        (-4, 5): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-4, 4): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, 4): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, 3): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-4, 5): ("Ceiling Conduit - A ceiling conduit hangs open here. The interior wiring is stretched taut, as if something pulled it from within rather than from the outside.", "Corridor"),
+        (-4, 4): ("Wall Scoring - The portside wall displays a sequence of parallel abrasions. Depth and spacing do not correspond to any maintenance tool recorded in Mnemosyne’s inventory.", "Corridor"),
+        (-5, 4): ("Airflow Disturbance - The air in this junction is noticeably colder. VEIL-9 registers a localized pressure fluctuation, source undetermined.", "Corridor"),
+        (-5, 3): ("Floor Imprint - A single indentation mars the deck plating. The force required exceeds the load capacity of any standard crew member. No debris accompanies the deformation.", "Corridor"),
 
-        (-5, 2): ("WIP - Empty description (Bridge).", "Bridge"),
-        (-5, 1): ("WIP - Empty description (Bridge).", "Bridge"),
-        (-5, 0): ("WIP - Empty description (Bridge).", "Bridge"),
-        (-6, 2): ("WIP - Empty description (Bridge).", "Bridge"),
-        (-6, 1): ("WIP - Empty description (Bridge).", "Bridge"),
-        (-6, 0): ("WIP - Empty description (Bridge).", "Bridge"),
-        (-4, 2): ("WIP - Empty description (Bridge).", "Bridge"),
-        (-4, 1): ("WIP - Empty description (Bridge).", "Bridge"),
-        (-4, 0): ("WIP - Empty description (Bridge).", "Bridge"),
+        (-5, 2): ("Primary Console - The command \033[31minterface\033[0m is cold and unpowered. Several keys are pressed inward as if held too long.", "Bridge"),
+        (-5, 1): ("Captain’s Chair - The restraint harness hangs open. The cushioning is indented, retaining the outline of recent occupation.", "Bridge"),
+        (-5, 0): ("Nav-Panel Fragment - A cracked navigation \033[34mscreen\033[0m displays a fixed star-map coordinate that does not match Mnemosyne’s logged position.", "Bridge"),
+        (-6, 2): ("Overhead Array — The sensor grid hums intermittently, emitting a low-band pulse inconsistent with any known scan pattern.", "Bridge"),
+        (-6, 1): ("Chart Table — A \033[34mholoslate\033[0m lies inert. Finger streaks are visible in the dust, terminating abruptly at the table’s edge.", "Bridge"),
+        (-6, 0): ("Auxiliary Station — A headset rests on the console. The audio jack shows heat warping, as though exposed to prolonged static surge.", "Bridge"),
+        (-4, 2): ("Status Board — The ship \033[34mschematic\033[0m blinks between intact and fractured hull outlines. Neither version matches current conditions.", "Bridge"),
+        (-4, 1): ("Internal Comms Unit — The speaker occasionally emits a soft intake-click, similar to someone preparing to speak but never continuing.", "Bridge"),
+        (-4, 0): ("Vent Access Chamber - A recessed maintenance alcove with a square ventilation \033[31mhatch\033[0m secured by worn fasteners. Thin particulate dust drifts from the grille.", "Bridge"),
 
-        (-5, -1): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, -2): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, -3): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, -4): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, -5): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, -6): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-5, -1): ("Security Bulkhead – A reinforced \033[34mdoor\033[0m marked MAINTENANCE ACCESS. The lock panel is dark, requiring manual power restoration before it can respond.", "Corridor"),
+        (-5, -2): ("Inspection Alcove – A recessed area containing a dormant wall terminal. Dried particulate dust coats the screen.", "Corridor"),
+        (-5, -3): ("Structural Rib – Ceiling struts narrow overhead, creating a compressed passage. Metallic flecks litter the floor in a thin line.", "Corridor"),
+        (-5, -4): ("Pressure Metering Section – A wall-mounted gauge reads zero across multiple channels; its casing is dented but intact.", "Corridor"),
+        (-5, -5): ("Corridor Junction – A simple curve leading downward toward maintenance. The air temperature drops perceptibly here.", "Corridor"),
+        (-5, -6): ("Service Conduit Run – Wall panels hum faintly; the conduit labels are smeared and unreadable from heat exposure.", "Corridor"),
 
-        (-5, -7): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-5, -8): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-5, -9): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-6, -7): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-6, -8): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-6, -9): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-4, -7): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-4, -8): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-4, -9): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-3, -7): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-3, -8): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
-        (-3, -9): ("WIP - Empty description (Maintenance Access).", "Maintenance Access"),
+        (-5, -7): ("Support Struts - Exposed framing lined with frost; vibration hums faintly beneath the floor.", "Maintenance Access"),
+        (-5, -8): ("Wiring Trench - A recessed floor channel filled with neatly bundled cables, some warm to the touch.", "Maintenance Access"),
+        (-5, -9): ("Anchor Bolts - Heavy bolts securing a plate that has shifted slightly out of alignment.", "Maintenance Access"),
+        (-6, -7): ("Coolant Runoff - A straight smear of dried coolant trails toward the lower levels.", "Maintenance Access"),
+        (-6, -8): ("Sensor Node - A disabled motion sensor hangs from its mount, lens dark.", "Maintenance Access"),
+        (-6, -9): ("Bulkhead Support - Thick reinforcement beams coated in a thin sheen of condensation.", "Maintenance Access"),
+        (-4, -7): ("Panel Rack - Rows of closed access panels marked with faded maintenance codes.", "Maintenance Access"),
+        (-4, -8): ("Utility Junction - A cluster of conduits merge here; the metal lightly ticks as temperatures shift.", "Maintenance Access"),
+        (-4, -9): ("Floor Grate - The grate depresses slightly underfoot; airflow is steady below.", "Maintenance Access"),
+        (-3, -7): ("Inspection Ladder - A short ladder leading to a sealed overhead hatch.", "Maintenance Access"),
+        (-3, -8): ("Service Outlet - A universal port for diagnostic tools, currently inactive.", "Maintenance Access"),
+        (-3, -9): ("Drain Runoff - Clear liquid gathers at the lowest point; no source is visible.", "Maintenance Access"),
 
-        (-4, -10): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-4, -11): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, -11): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-6, -11): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-6, -12): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-4, -10): ("Narrow Junction - The corridor contracts sharply, forcing movement in single file.", "Corridor"),
+        (-4, -11): ("Overhead Housing - A loose ceiling panel gently sways with each hull tremor.", "Corridor"),
+        (-5, -11): ("Strained Bulkhead - The wall plating is bowed inward from external pressure.", "Corridor"),
+        (-6, -11): ("Pipe Array - Low-pressure pipes run along the wall; faint heat radiates from within.", "Corridor"),
+        (-6, -12): ("Discolored Wall - A pale streak discolors the plating, origin unknown.", "Corridor"),
 
-        (-6, -13): ("WIP - Empty description (Reactor).", "Reactor"),
-        (-5, -13): ("WIP - Empty description (Reactor).", "Reactor"),
-        (-6, -14): ("WIP - Empty description (Reactor).", "Reactor"),
-        (-5, -14): ("WIP - Empty description (Reactor).", "Reactor"),
+        (-6, -13): ("Reactor Perimeter - The shielding here hums softly, pulsing with slow energy cycles.", "Reactor"),
+        (-5, -13): ("Reactor Cooling Rails - Parallel rails vent minimal heat; safe levels indicated.", "Reactor"),
+        (-6, -14): ("Reactor Core Access - A secured control surface flashes intermittent warnings.", "Reactor"),
+        (-5, -14): ("Control Conduit - Thick power conduits run floor-to-ceiling, vibrating faintly.", "Reactor"),
 
-        (-7, -13): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-4, -14): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-6, -15): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-6, -16): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-7, -13): ("Outer Corridor - Long metal stretch with no points of interest detected.", "Corridor"),
+        (-4, -14): ("Cross Way - Four corridor branches meet at a plain metal junction.", "Corridor"),
+        (-6, -15): ("Transition Section - Floor plating changes texture, marking subsystem boundary.", "Corridor"),
+        (-6, -16): ("Segment Divider - A narrow brace divides two hull sections; stable.", "Corridor"),
 
-        (-8, -13): ("WIP - Empty description (Relay).", "Relay"),
-        (-9, -13): ("WIP - Empty description (Relay).", "Relay"),
-        (-10, -13): ("WIP - Empty description (Relay).", "Relay"),
-        (-9, -12): ("WIP - Empty description (Relay).", "Relay"),
-        (-10, -14): ("WIP - Empty description (Relay).", "Relay"),
-        (-8, -14): ("WIP - Empty description (Relay).", "Relay"),
-        (-8, -15): ("WIP - Empty description (Relay).", "Relay"),
-        (-9, -15): ("WIP - Empty description (Relay).", "Relay"),
-        (-10, -15): ("WIP - Empty description (Relay).", "Relay"),
+        (-8, -13): ("Signal Rack - Empty mount points for drone uplink modules.", "Relay"),
+        (-9, -13): ("Data Spine - A vertical relay housing with low residual charge.", "Relay"),
+        (-10, -13): ("Fiber Junction - Dozens of glass lines converge into a sealed hub.", "Relay"),
+        (-9, -12): ("Repeater Coil - The coil is warm, maintaining minimal shipwide signal bounce.", "Relay"),
+        (-10, -14): ("Relay Crossfeed - Two inactive nodes face each other across the narrow space.", "Relay"),
+        (-8, -14): ("EM Shielding - Panels absorb stray electromagnetic output; slightly humming.", "Relay"),
+        (-8, -15): ("Diagnostic Plinth - A raised platform for field analyzers, currently offline.", "Relay"),
+        (-9, -15): ("Backup Array - Redundant wiring bundles arranged with exact precision.", "Relay"),
+        (-10, -15): ("Signal Sink - A terminal used to nullify corrupted transmissions.", "Relay"),
 
-        (-3, -14): ("WIP - Empty description (Utility).", "Utility"),
-        (-2, -14): ("WIP - Empty description (Utility).", "Utility"),
-        (-1, -14): ("WIP - Empty description (Utility).", "Utility"),
-        (-3, -13): ("WIP - Empty description (Utility).", "Utility"),
-        (-2, -13): ("WIP - Empty description (Utility).", "Utility"),
-        (-1, -13): ("WIP - Empty description (Utility).", "Utility"),
+        (-3, -14): ("Tool Bench - A fixed metal bench with empty brackets and tool outlines.", "Utility"),
+        (-2, -14): ("Spare Parts Bin - Stacked trays of unused universal fasteners.", "Utility"),
+        (-1, -14): ("Access Locker - A locked wall cabinet requiring a generic override.", "Utility"),
+        (-3, -13): ("Fluid Reservoir - A sealed tank of coolant mixture at safe pressure.", "Utility"),
+        (-2, -13): ("Wiring Spool - Multiple coils of insulated cabling, color-coded.", "Utility"),
+        (-1, -13): ("Maintenance Cart - A wheeled cart with its drawers half-open and empty.", "Utility"),
 
-        (-6, -17): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-6, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-7, -17): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-7, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-5, -17): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-5, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-4, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-8, -18): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-4, -19): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-8, -19): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-4, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-8, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-5, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-7, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
-        (-6, -20): ("WIP - Empty description (Fabrication Bay).", "Fabrication Bay"),
+        (-6, -17): ("Fabricator Arm - A large mechanical arm locked mid-motion.", "Fabrication Bay"),
+        (-6, -18): ("Print Bed - A flat surface coated in cured polymer dust.", "Fabrication Bay"),
+        (-7, -17): ("Assembly Track - The conveyor is frozen; residue clings to its joints.", "Fabrication Bay"),
+        (-7, -18): ("Heat Vents - Low warmth radiates despite the system being off.", "Fabrication Bay"),
+        (-5, -17): ("Parts Dispenser - Empty chutes arranged in a grid pattern.", "Fabrication Bay"),
+        (-5, -18): ("Calibration Station - A lens flickers with intermittent blue light.", "Fabrication Bay"),
+        (-4, -18): ("Inspection Rail - A narrow walkway raised slightly above the main floor.", "Fabrication Bay"),
+        (-8, -18): ("Monitor Array - Blank screens arranged like an unblinking wall.", "Fabrication Bay"),
+        (-4, -19): ("Auxiliary Feeder - A small mechanical funnel clogged with hardened composite.", "Fabrication Bay"),
+        (-8, -19): ("Scrap Containment - A mesh cage full of metallic fragments.", "Fabrication Bay"),
+        (-4, -20): ("Cooling Vent - A cold draft flows steadily from beneath the machine floor.", "Fabrication Bay"),
+        (-8, -20): ("Pattern Buffer - A chamber meant for storing fabrication templates.", "Fabrication Bay"),
+        (-5, -20): ("Material Hopper - A tall intake column with residue streaking downward.", "Fabrication Bay"),
+        (-7, -20): ("Weld Frame - A rigid structure with blackened edges.", "Fabrication Bay"),
+        (-6, -20): ("Mold Casting - A sealed mold with unreadable labeling.", "Fabrication Bay"),
 
-        (-7, -21): ("WIP - Empty description (Corridor).", "Corridor"),
-        (-5, -21): ("WIP - Empty description (Corridor).", "Corridor"),
+        (-7, -21): ("Lower Corridor - Structural strain readings elevated but within tolerance.", "Corridor"),
+        (-5, -21): ("Approach Hall - Air density fluctuates briefly without source.", "Corridor"),
 
-        (-7, -22): ("WIP - Empty description (Emergency Pod Bay).", "Emergency Pod Bay"),
-        (-6, -22): ("WIP - Empty description (Emergency Pod Bay).", "Emergency Pod Bay"),
-        (-5, -22): ("WIP - Empty description (Emergency Pod Bay).", "Emergency Pod Bay")
+        (-7, -22): ("Pod Chamber A - The launch rails emit intermittent static bursts.", "Emergency Pod Bay"),
+        (-6, -22): ("Pod Chamber B - Escape pod clamps cycle through diagnostic patterns unscheduled.", "Emergency Pod Bay"),
+        (-5, -22): ("Pod Chamber Access - The walkway trembles lightly; pressure variances logged.", "Emergency Pod Bay"),
     }
     return board
 

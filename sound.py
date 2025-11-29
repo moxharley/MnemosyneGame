@@ -45,11 +45,11 @@ def play_sound(sound):
         sound.play(loops=0, fade_ms=1500)
     elif sound == 5:
         sound = pygame.mixer.Sound('sounds/hull_1.ogg')
-        sound.set_volume(1.8)
+        sound.set_volume(2.5)
         sound.play(loops=0, fade_ms=1500)
     elif sound == 6:
         sound = pygame.mixer.Sound('sounds/hull_2.ogg')
-        sound.set_volume(2)
+        sound.set_volume(2.5)
         sound.play(loops=0, fade_ms=1500)
     elif sound == 7:
         sound = pygame.mixer.Sound('sounds/hull_3.ogg')
