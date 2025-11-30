@@ -147,10 +147,6 @@ def hull_damage(hull):
     return hull
 
 
-def encounter_chance(character):
-    pass
-
-
 def energy_drain(character):
     if random.random() < 0.23:
         character['current-EP'] -= 1

@@ -38,7 +38,7 @@ def game():
         if logic.check_win(board, player):
             goal_achieved = True
             break
-    if goal_achieved or demo_goal_achieved:
+    if goal_achieved:
         sequence.end_game()
     else:
         sequence.death()

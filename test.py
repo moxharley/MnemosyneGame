@@ -11,6 +11,7 @@ def game():
               'exp': 2, 'inventory': ['Side-Arm', 'Empty', 'Empty', 'Empty']}
     board = room.make_board()
     board['interacts'] = room.make_interaction()
+    board['encounters-passed'] = [False, False]
     goal_achieved = False
     hull_integrity = 90
     while True:
@@ -33,13 +34,14 @@ def game():
             player_turn.ship_map()
             logic.energy_drain(player)
         hull_integrity = logic.hull_damage(hull_integrity)
+        room.encounter_chance(player, board['encounters-passed'])
         if not logic.check_alive(player, hull_integrity):
             break
         if logic.check_win(board, player):
             goal_achieved = True
             break
-    if goal_achieved == True:
-        sequence.escape()
+    if goal_achieved:
+        sequence.end_game()
     else:
         sequence.death()
 

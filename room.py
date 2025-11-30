@@ -1,4 +1,4 @@
-import sequence, logic, time, sound, player_turn
+import sequence, logic, time, sound, player_turn, random
 
 
 def make_interaction():
@@ -246,6 +246,33 @@ def make_board():
         (-5, -22): ("Pod Chamber Access - The walkway trembles lightly; pressure variances logged.", "Emergency Pod Bay"),
     }
     return board
+
+
+def encounter_chance(character, passed):
+
+    def drones(player):
+        print('Drones')
+        return player
+
+    def machine(player):
+        print('Machine')
+        return player
+
+    def breach(player):
+        print('Breach')
+        return player
+
+    if random.random() < 0.9:
+        encounter = random.random()
+        if encounter < 0.2 and passed[0] == False:
+            drones(character)
+            passed[0] = True
+        elif encounter < 0.4 and passed[1] == False:
+            machine(character)
+            passed[1] = True
+        else:
+            breach(character)
+    return character
 
 
 def describe_current_location(board, character):
