@@ -116,6 +116,7 @@ def make_board():
     """
 
     board = {
+        "goal": (-7, -22),
         (0, 0): ("Cryopod-05 (Scratched) - Deep, uneven gouges mark the inside walls. Some look metallic; others disturbingly biological.", "Stasis-Pods"),
         (1, 0): ("Overhead Conduit - The ceiling panel above is bowed and stained by a dark, dried drip. Something dripped here recently.", "Stasis-Pods"),
         (2, 0): ("Supply Cabinet - A waist-high storage cabinet. Its magnetic \033[34mlock\033[0m flickers weakly, and the metal is dented from the inside.", "Stasis-Pods"),
@@ -225,14 +226,14 @@ def make_board():
         (-6, -18): ("Print Bed - A flat surface coated in cured polymer dust.", "Fabrication Bay"),
         (-7, -17): ("Assembly Track - The conveyor is frozen; residue clings to its joints.", "Fabrication Bay"),
         (-7, -18): ("Heat Vents - Low warmth radiates despite the system being off.", "Fabrication Bay"),
-        (-5, -17): ("Parts Dispenser - Empty chutes arranged in a grid pattern.", "Fabrication Bay"),
+        (-5, -17): ("Parts Dispenser - Empty \033[34mchutes\033[0m arranged in a grid pattern.", "Fabrication Bay"),
         (-5, -18): ("Calibration Station - A lens flickers with intermittent blue light.", "Fabrication Bay"),
         (-4, -18): ("Inspection Rail - A narrow walkway raised slightly above the main floor.", "Fabrication Bay"),
         (-8, -18): ("Monitor Array - Blank screens arranged like an unblinking wall.", "Fabrication Bay"),
         (-4, -19): ("Auxiliary Feeder - A small mechanical funnel clogged with hardened composite.", "Fabrication Bay"),
         (-8, -19): ("Scrap Containment - A mesh cage full of metallic fragments.", "Fabrication Bay"),
         (-4, -20): ("Cooling Vent - A cold draft flows steadily from beneath the machine floor.", "Fabrication Bay"),
-        (-8, -20): ("Pattern Buffer - A chamber meant for storing fabrication templates.", "Fabrication Bay"),
+        (-8, -20): ("Pattern Buffer - A \033[31mchamber\033[0m meant for storing fabrication templates.", "Fabrication Bay"),
         (-5, -20): ("Material Hopper - A tall intake column with residue streaking downward.", "Fabrication Bay"),
         (-7, -20): ("Weld Frame - A rigid structure with blackened edges.", "Fabrication Bay"),
         (-6, -20): ("Mold Casting - A sealed mold with unreadable labeling.", "Fabrication Bay"),

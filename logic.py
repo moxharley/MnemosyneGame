@@ -173,4 +173,8 @@ def check_alive(character, hull):
 
 
 def check_win(board, character):
-    return False
+    character_coordinates = (character["X-coordinate"], character["Y-coordinate"])
+    if board['goal'] == character_coordinates:
+        return True
+    else:
+        return False
