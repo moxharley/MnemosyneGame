@@ -2,6 +2,9 @@ import room, logic, sys, sequence, time
 
 
 def ship_map():
+    """
+    Output star-ship map layout.
+    """
     sequence.output('>\n> [\033[31mARCHANGEL\033[0m] DATA: Starship layout initializing.', True, 0.02)
     sequence.output('> -------------------------------------', True, 0.01)
     sequence.output('>    ┌───────┐  ┌──────┐  ┌───────┐', True, 0.01)
@@ -31,6 +34,17 @@ def ship_map():
 
 
 def look(board, character):
+    """
+    Player looks.
+
+    Prints details about player's current location.
+
+    :param board: a dictionary.
+    :param character: a dictionary.
+    :precondition: board must be a well-formed board dictionary.
+    :precondition: character must be a well-formed character dictionary.
+    :postcondition: checks the player's current tile and displays environmental details.
+    """
     sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ENVIRONMENT: Telemetry scan initialized.', True, 0.01)
     sequence.output('> \033[32m[telemetry synced]\033[0m', True, 0.01)
     sequence.output('> ------------------------ ', True, 0.01)
@@ -62,6 +76,16 @@ def look(board, character):
 
 
 def make_bar(current):
+    """
+    Make health or energy bar.
+
+    Displays health or energy in a progress-bar form.
+
+    :param current: an integer variable.
+    :precondition: current must be between (or including) 0 and 10
+    :postcondition: renders a progress bar of your current HP or EP
+    :return: a string variable.
+    """
     filled = ''
     empty = ''
     for index in range(0, current):
@@ -79,6 +103,15 @@ def make_bar(current):
 
 
 def status(character):
+    """
+    Player status.
+
+    Displays player status information.
+
+    :param character: a dictionary
+    :precondition: character must be a well-formed character dictionary.
+    :postcondition: outputs character details.
+    """
     sequence.output('>\n> [VEIL-9] STATUS: Process initiated.', True, 0.01)
     sequence.output('> \033[32m[bioscan complete]\033[0m', True, 0.01)
     sequence.output('> ------------------------', True, 0.01)
@@ -142,10 +175,22 @@ def move(character, direction):
 
 
 def interact(interacts, character):
+    """
+    Player interacts.
+
+    Checks for interactable and executes interactable if it exists.
+
+    :param interacts: a dictionary.
+    :param character: a dictionary.
+    :precondition: interacts must be a well-formed interacts dictionary.
+    :precondition: character must be a well-formed character dictionary.
+    :postcondition: checks if there is an interactable, then calls the interactable function and removes it.
+    :return: a dictionary.
+    """
     sequence.output("> ", True)
     character_coordinates = (character["X-coordinate"], character["Y-coordinate"])
     if character_coordinates in interacts:
-        character = interacts[character_coordinates](character)
+        interacts[character_coordinates](character)
     else:
         sequence.output('> INVALID INPUT: There is nothing to interact with')
         time.sleep(1)
