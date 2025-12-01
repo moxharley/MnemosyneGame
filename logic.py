@@ -39,7 +39,7 @@ def validate_move(board, character, direction):
     :postcondition: ensures movement is legal and stays within board confines.
     :return: a boolean value of whether the move is valid.
 
-    >>> validate_move({(0, 0): 'Empty Room', (1, 0): 'Empty Room', 'goal': (1, 0)}, {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}, 's')
+    >>> validate_move({(0, 0): 'Empty Room', (1, 0): 'Empty Room', 'goal': (1, 0)}, {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}, 'e')
     True
     >>> validate_move({(0, 0): 'Empty Room', (1, 0): 'Empty Room', 'goal': (1, 0)}, {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}, 'n')
     False
