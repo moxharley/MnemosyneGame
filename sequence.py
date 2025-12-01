@@ -41,6 +41,17 @@ def archangel_output(message):
 
 
 def validate_command(accepted_inputs):
+    """
+    Validate input command.
+
+    Ensures input is one of a collection of accepted inputs.
+
+    :param accepted_inputs: a tuple of string variables.
+    :precondition: accepted_inputs are case-sensitive.
+    :precondition: if only a single accepted input, accepted_inputs should be a string, not a tuple.
+    :postcondition: ensures the player input is a valid input and returns the valid input.
+    :return: a string variable
+    """
     while True:
         user_input = input()
         if user_input in accepted_inputs:
@@ -56,9 +67,9 @@ def boot():
     """
     Play boot sequence.
 
-    Runs intro "cutscene" and gets player dictionary details.
+    Runs intro "cutscene" and sets character details.
 
-    :return: a well-formed player dictionary.
+    :return: a well-formed character dictionary.
     """
     sound.play_track(4)
     output('..........\r', True, 0.55)
@@ -350,6 +361,9 @@ def tutorial(board, player):
 
 
 def log_1():
+    """
+    Display lore.
+    """
     output('> [DATA-SLATE // SURVEY LOG RETRIEVAL]', True)
     output('> [file: FLX-ORBITAL-DRIFT / TETHYS-RIFT]', True)
     output('> ', True)
@@ -391,6 +405,9 @@ def log_1():
 
 
 def death():
+    """
+    Death sequence.
+    """
     sound.play_sound(8)
     output('>\n> [VEIL-9] CRITICAL FAILURE: Vital signals lost.', True)
     output('> >>> TERMINAL CONNECTION LOST', True, 0.02)
