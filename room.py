@@ -80,28 +80,8 @@ def make_interaction():
         del has_interact[(1, 1)]
         return character
 
-    def puddle(character):
-        pass
-
-    def crate(character):
-        pass
-
-    def hatch(character):
-        pass
-
-    def interface(character):
-        pass
-
-    def door(character):
-        pass
-
     has_interact = {
-        (1, 1): data_pad,
-        (-1, 6): puddle,
-        (1, 7): crate,
-        (-5, 2): interface,
-        (-4, 0): hatch,
-        (-5, -1): door
+        (1, 1): data_pad
     }
     return has_interact
 
@@ -114,7 +94,6 @@ def make_board():
 
     :return: a well-formed board dictionary
     """
-
     board = {
         "goal": (-7, -22),
         (0, 0): ("Cryopod-05 (Scratched) - Deep, uneven gouges mark the inside walls. Some look metallic; others disturbingly biological.", "Stasis-Pods"),
@@ -122,7 +101,7 @@ def make_board():
         (2, 0): ("Supply Cabinet - A waist-high storage cabinet. Its magnetic \033[34mlock\033[0m flickers weakly, and the metal is dented from the inside.", "Stasis-Pods"),
         (3, 0): ("Cryopod-01 (Fractured) - The viewport glass is shattered inward as though something forced its way inside. Frost spreads in jagged veins.", "Stasis-Pods"),
         (0, 1): ("Cryopod-02 (Offline) - The pod is dark. A faint human-shaped frost imprint remains on the window, but the pod is empty.", "Stasis-Pods"),
-        (1, 1): ("Cryopod-03 (Your Pod) - The hatch is hanging sideways. Cracks in the interior ice suggest you thrashed free. A broken \033[31mdata-pad\033[0m lies on the platform.", "Stasis-Pods"),
+        (1, 1): ("Cryopod-03 (Your Pod) - The hatch is hanging sideways. Cracks in the interior ice suggest you thrashed free. A broken \033[34mdata-pad\033[0m lies on the platform.", "Stasis-Pods"),
         (2, 1): ("Terminal A - A flickering stasis control terminal. Lines of corrupted diagnostics scroll by too quickly to read.", "Stasis-Pods"),
         (3, 1): ("Cryopod-04 (Scorched) - The inner surface is warped and blackened by heat. Something inside burned violently before power failed.", "Stasis-Pods"),
         (0, 2): ("Entrance Hatch - The sliding hatch leads out into the hallway. Frost rims its seams, and a faint green exit strip glows beneath your feet.", "Stasis-Pods"),
@@ -137,11 +116,11 @@ def make_board():
         (0, 6): ("Suspended Crates - Two cargo containers hang from magnetic hooks above. Their clamps flicker on and off, making the chains sway slightly.", "Loading Bay"),
         (0, 7): ("Forklift Station - A compact cargo-lifter sits dormant, its tines embedded in the floor plating.", "Loading Bay"),
         (-1, 5): ("Overturned Cart - A \033[34msupply cart\033[0m lies on its side. Several sealed nutrient packs are scattered across the floor.", "Loading Bay"),
-        (-1, 6): ("Coolant Spill - A shallow \033[31mpuddle\033[0m spreads across the metal grate. It shines with a dark tint, though the coolant itself should not be so dark.", "Loading Bay"),
+        (-1, 6): ("Coolant Spill - A shallow \033[34mpuddle\033[0m spreads across the metal grate. It shines with a dark tint, though the coolant itself should not be so dark.", "Loading Bay"),
         (-1, 7): ("Loader Arm - A mechanical loading arm sits retracted, its claws dented and misaligned. Scorch marks climb the wall beside it, like something dragged along the metal.", "Loading Bay"),
         (1, 5): ("Tether Point - A pair of magnetic \033[34mtether lines\033[0m dangle from the ceiling, swaying gently. One line is frayed at the end.", "Loading Bay"),
         (1, 6): ("Wall Console - A freight \033[34mmanifest\033[0m console bolted to the bulkhead. Its screen is completely dark, but a steady clicking comes from inside the casing.", "Loading Bay"),
-        (1, 7): ("Cargo Pallet - A heavy pallet sits abandoned mid-transfer. One \033[31mcrate\033[0m bears a painted warning glyph: FLUX HANDLING — DO NOT VIBRATE. Its bolts are partially loosened.", "Loading Bay"),
+        (1, 7): ("Cargo Pallet - A heavy pallet sits abandoned mid-transfer. One \033[34mcrate\033[0m bears a painted warning glyph: FLUX HANDLING — DO NOT VIBRATE. Its bolts are partially loosened.", "Loading Bay"),
 
         (-2, 6): ("Corridor Junction - A smear of something dark drags along the wall at shoulder height, tapering off into shaky fingerprints.", "Corridor"),
 
@@ -159,7 +138,7 @@ def make_board():
         (-5, 4): ("Airflow Disturbance - The air in this junction is noticeably colder. VEIL-9 registers a localized pressure fluctuation, source undetermined.", "Corridor"),
         (-5, 3): ("Floor Imprint - A single indentation mars the deck plating. The force required exceeds the load capacity of any standard crew member. No debris accompanies the deformation.", "Corridor"),
 
-        (-5, 2): ("Primary Console - The command \033[31minterface\033[0m is cold and unpowered. Several keys are pressed inward as if held too long.", "Bridge"),
+        (-5, 2): ("Primary Console - The command \033[34minterface\033[0m is cold and unpowered. Several keys are pressed inward as if held too long.", "Bridge"),
         (-5, 1): ("Captain’s Chair - The restraint harness hangs open. The cushioning is indented, retaining the outline of recent occupation.", "Bridge"),
         (-5, 0): ("Nav-Panel Fragment - A cracked navigation \033[34mscreen\033[0m displays a fixed star-map coordinate that does not match Mnemosyne’s logged position.", "Bridge"),
         (-6, 2): ("Overhead Array — The sensor grid hums intermittently, emitting a low-band pulse inconsistent with any known scan pattern.", "Bridge"),
@@ -167,9 +146,9 @@ def make_board():
         (-6, 0): ("Auxiliary Station — A headset rests on the console. The audio jack shows heat warping, as though exposed to prolonged static surge.", "Bridge"),
         (-4, 2): ("Status Board — The ship \033[34mschematic\033[0m blinks between intact and fractured hull outlines. Neither version matches current conditions.", "Bridge"),
         (-4, 1): ("Internal Comms Unit — The speaker occasionally emits a soft intake-click, similar to someone preparing to speak but never continuing.", "Bridge"),
-        (-4, 0): ("Vent Access Chamber - A recessed maintenance alcove with a square ventilation \033[31mhatch\033[0m secured by worn fasteners. Thin particulate dust drifts from the grille.", "Bridge"),
+        (-4, 0): ("Vent Access Chamber - A recessed maintenance alcove with a square ventilation \033[34mhatch\033[0m secured by worn fasteners. Thin particulate dust drifts from the grille.", "Bridge"),
 
-        (-5, -1): ("Security Bulkhead – A reinforced \033[34mdoor\033[0m marked MAINTENANCE ACCESS. The lock panel is dark, requiring manual power restoration before it can respond.", "Corridor"),
+        (-5, -1): ("Security Bulkhead – A reinforced door marked MAINTENANCE ACCESS. The lock panel is dark.", "Corridor"),
         (-5, -2): ("Inspection Alcove – A recessed area containing a dormant wall terminal. Dried particulate dust coats the screen.", "Corridor"),
         (-5, -3): ("Structural Rib – Ceiling struts narrow overhead, creating a compressed passage. Metallic flecks litter the floor in a thin line.", "Corridor"),
         (-5, -4): ("Pressure Metering Section – A wall-mounted gauge reads zero across multiple channels; its casing is dented but intact.", "Corridor"),
@@ -180,25 +159,25 @@ def make_board():
         (-5, -8): ("Wiring Trench - A recessed floor channel filled with neatly bundled cables, some warm to the touch.", "Maintenance Access"),
         (-5, -9): ("Anchor Bolts - Heavy bolts securing a plate that has shifted slightly out of alignment.", "Maintenance Access"),
         (-6, -7): ("Coolant Runoff - A straight smear of dried coolant trails toward the lower levels.", "Maintenance Access"),
-        (-6, -8): ("Sensor Node - A disabled motion sensor hangs from its mount, lens dark.", "Maintenance Access"),
+        (-6, -8): ("Sensor Node - A disabled motion \033[34msensor\033[0m hangs from its mount, lens dark.", "Maintenance Access"),
         (-6, -9): ("Bulkhead Support - Thick reinforcement beams coated in a thin sheen of condensation.", "Maintenance Access"),
         (-4, -7): ("Panel Rack - Rows of closed access panels marked with faded maintenance codes.", "Maintenance Access"),
-        (-4, -8): ("Utility Junction - A cluster of conduits merge here; the metal lightly ticks as temperatures shift.", "Maintenance Access"),
+        (-4, -8): ("Utility Junction - A cluster of \033[34mconduits\033[0m merge here; the metal lightly ticks as temperatures shift.", "Maintenance Access"),
         (-4, -9): ("Floor Grate - The grate depresses slightly underfoot; airflow is steady below.", "Maintenance Access"),
         (-3, -7): ("Inspection Ladder - A short ladder leading to a sealed overhead hatch.", "Maintenance Access"),
-        (-3, -8): ("Service Outlet - A universal port for diagnostic tools, currently inactive.", "Maintenance Access"),
+        (-3, -8): ("Service Outlet - A universal \033[34mport\033[0m for diagnostic tools, currently inactive.", "Maintenance Access"),
         (-3, -9): ("Drain Runoff - Clear liquid gathers at the lowest point; no source is visible.", "Maintenance Access"),
 
         (-4, -10): ("Narrow Junction - The corridor contracts sharply, forcing movement in single file.", "Corridor"),
-        (-4, -11): ("Overhead Housing - A loose ceiling panel gently sways with each hull tremor.", "Corridor"),
+        (-4, -11): ("Overhead Housing - A loose ceiling \033[34mpanel\033[0m gently sways with each hull tremor.", "Corridor"),
         (-5, -11): ("Strained Bulkhead - The wall plating is bowed inward from external pressure.", "Corridor"),
-        (-6, -11): ("Pipe Array - Low-pressure pipes run along the wall; faint heat radiates from within.", "Corridor"),
+        (-6, -11): ("Pipe Array - Low-pressure \033[34mpipes\033[0m run along the wall; faint heat radiates from within.", "Corridor"),
         (-6, -12): ("Discolored Wall - A pale streak discolors the plating, origin unknown.", "Corridor"),
 
-        (-6, -13): ("Reactor Perimeter - The shielding here hums softly, pulsing with slow energy cycles.", "Reactor"),
+        (-6, -13): ("Reactor Perimeter - The \033[34mshielding\033[0m here hums softly, pulsing with slow energy cycles.", "Reactor"),
         (-5, -13): ("Reactor Cooling Rails - Parallel rails vent minimal heat; safe levels indicated.", "Reactor"),
         (-6, -14): ("Reactor Core Access - A secured control surface flashes intermittent warnings.", "Reactor"),
-        (-5, -14): ("Control Conduit - Thick power conduits run floor-to-ceiling, vibrating faintly.", "Reactor"),
+        (-5, -14): ("Control Conduit - Thick power \033[34mconduits\033[0m run floor-to-ceiling, vibrating faintly.", "Reactor"),
 
         (-7, -13): ("Outer Corridor - Long metal stretch with no points of interest detected.", "Corridor"),
         (-4, -14): ("Cross Way - Four corridor branches meet at a plain metal junction.", "Corridor"),
@@ -208,7 +187,7 @@ def make_board():
         (-8, -13): ("Signal Rack - Empty mount points for drone uplink modules.", "Relay"),
         (-9, -13): ("Data Spine - A vertical relay housing with low residual charge.", "Relay"),
         (-10, -13): ("Fiber Junction - Dozens of glass lines converge into a sealed hub.", "Relay"),
-        (-9, -12): ("Repeater Coil - The coil is warm, maintaining minimal shipwide signal bounce.", "Relay"),
+        (-9, -12): ("Repeater Coil - The \033[34mcoil\033[0m is warm, maintaining minimal shipwide signal bounce.", "Relay"),
         (-10, -14): ("Relay Crossfeed - Two inactive nodes face each other across the narrow space.", "Relay"),
         (-8, -14): ("EM Shielding - Panels absorb stray electromagnetic output; slightly humming.", "Relay"),
         (-8, -15): ("Diagnostic Plinth - A raised platform for field analyzers, currently offline.", "Relay"),
@@ -250,11 +229,299 @@ def make_board():
 
 def encounter_chance(character, passed):
 
-    def drones(player):
-        print('Drones')
+    def drones(player, encounter_passed):
+        drone_sound = sound.play_sound(9)
+        time.sleep(3)
+        sequence.output('>\n> [VEIL-9] MOTION_ALERT: Unscheduled actuator signatures approaching.', True)
+        sequence.output('> [\033[31mARCHANGEL\033[0m] IDENTIFIERS: Match shipboard survey drones, but telemetry shows non-standard motor timing.', True)
+        sequence.output('>', True)
+        sequence.output('> A drone drifts into view — unlit, low to the deck, moving as if listening.', True)
+        sequence.output('> Its sensor array twitches toward you in short, insectile jerks.', True)
+        sequence.output('>', True)
+        sequence.output("> Possible actions:", True)
+        sequence.output(f">   [1] INTUIT — Hold still quietly and observe.\n>      [STAT: Intuit [{player["int"]}] | DIFFICULTY: [moderate]]", True)
+        sequence.output(f">   [2] ENGAGE — Disrupt it. Kick the chassis.\n>      [STAT: Engage [{player["eng"]}] | DIFFICULTY: [intermediate]]\n> ",    True)
+        options = ["1", "2"]
+        if "Data-Knife" in player['inventory']:
+            sequence.output('> Special action [\033[31mData-Knife\033[0m]: ', True)
+            sequence.output(f">   [3] INTERFACE — Override drone with data-knife.\n>      [STAT: Interface [{player["inf"]}] | DIFFICULTY: [intermediate]]\n> ",    True)
+            options.append("3")
+        sequence.output(">> ")
+        action = int(sequence.validate_command(options))
+        if action == 1:
+            sequence.output('>\n> You press yourself against the bulkhead, holding completely still.', True, 0.06)
+            time.sleep(1)
+            sequence.output('>\n> [VEIL-9] WARNING: proximity alert.', True)
+            sequence.output('> [VEIL-9] WARNING: vector shift impossible.', True)
+            time.sleep(1)
+            sequence.output('>\n> The drone tilts toward you with a silent, unnatural glide.\n>', True, 0.06)
+            sound.play_sound(11)
+            sequence.output('> [VEIL-9] ALERT: optical lock detected.', True, 0.06)
+            time.sleep(1)
+            sequence.output(f'>\n> {player['first-name']}, it is inches from your visor. Stay still. Stay quiet.', True, 0.1)
+            drone_sound.set_volume(1.2)
+            time.sleep(4)
+            sound.play_sound(12)
+            sequence.output('> Cold metal presses against your jaw. Something soft and warm moves inside the casing.', True, 0.06)
+            time.sleep(2)
+            sequence.output('>\n> The drone’s sensor beam shifts across your position, hesitates', False, 0.06)
+            sequence.output('.....', True, 0.5)
+            time.sleep(2.5)
+            successful = logic.roll(character["int"], 3)
+            sequence.output("> ", True)
+            if successful:
+                sound.play_sound(3)
+                sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                if drone_sound:
+                    drone_sound.fadeout(16000)
+                sequence.output('> It drifts away without locking. Its engine whine recedes down the corridor.', True, 0.06)
+                sequence.output('> As it goes you can faintly hear a thick', False, 0.06)
+                sequence.output(' liquid', False, 0.3)
+                sequence.output('\b\b\b\b\b\b▓▓▓▓▓▓▓')
+                sequence.output(' dripping from its chassis.', True, 0.06)
+            else:
+                sound.play_sound(4)
+                sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
+                sequence.output('> The drone chassis distorts and gapes', False, 0.07)
+                sequence.output('...', True, 0.5)
+                drone_sound.fadeout(4000)
+                time.sleep(1.5)
+                sound.play_sound(10)
+                sound.play_sound(2)
+                sequence.output('> Something wet and threaded with wire pierces into your shoulder.\n>', True, 0.03)
+                sequence.output('> [VEIL-9] PAIN RESPONSE SPIKE.\n>', True, 0.01)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: ▓▓▓▓▓▓▓▓ contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory ▓▓▓▓▓▓▓▓▓▓▓▓▓▓', True, 0.015)
+                scary_sound = sound.play_sound(16)
+                sequence.output('> [VEIL-9] WARNING: ▓▓▓▓▓ ▓▓▓▓▓ ▓▓▓▓▓ ▓▓▓▓▓\n> E▓▓EC▓O\n>\n> dsd12▓▓▓▓▓\n> ---ZXS\n> TheXe are sXXen OF THXM\n> what a strange dream\n> what a strange dream> what a strange dream> what a strange dream\n> what a strange dream> what a strange dream', True, 0.01)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can you hear them calling?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can y-', True, 0.02)
+                sequence.output('> [\033[31mARCHANGEL\033[0m] Do NOT listen. Do NOT listen. Shut it out.', True, 0.02)
+                sequence.output('>', True, 0.02)
+                sequence.output("> Possible actions:", True, 0.02)
+                sequence.output(f">   [1] ENDURE — Kill the drone.\n>      [STAT: End▓▓▓▓▓[▓▓▓▓▓] | DIFFI▓▓ULTY: [▓▓▓▓▓▓▓▓▓▓]]\n>", True, 0.01)
+                sequence.output(">> ", False, 0.01)
+                action_two = int(sequence.validate_command("1"))
+                if action_two == 1:
+                    successful_two = logic.roll(character["end"], 5)
+                    if successful_two:
+                        sound.play_sound(3)
+                        sequence.output(">\n> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                        scary_sound.fadeout(2000)
+                        time.sleep(1)
+                        sound.play_sound(18)
+                        sequence.output('> You slam your fist into the drone.', True)
+                        sound.play_sound(18)
+                        sequence.output('> Once. Twice.', True)
+                        sequence.output('> It clings tighter, threads digging in deeper.\n>', True)
+                        sound.play_sound(2)
+                        sequence.output('> [VEIL-9] PAIN RESPONSE SPIKE.', True, 0.02)
+                        sequence.output('> [VEIL-9] WARNING: user vitals destabilizing.', True, 0.02)
+                        sequence.output('> [\033[31mARCHANGEL\033[0m] Apply force. Break the housing. NOW.\n>', True)
+                        time.sleep(0.8)
+                        sequence.output('> You grab the machine and hurl it off you.', True)
+                        time.sleep(1)
+                        sequence.output('> It hits the floor, writhing like a living thing—  ', True)
+                        sequence.output('> then bursts open in a splash of dark, warm fluid.\n>', True)
+                        time.sleep(2)
+                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount:", False)
+                        player = logic.update("current-HP", player, (-5))
+                        health_percent = (player['current-HP'] / 10) * 100
+                        health = player_turn.make_bar(player['current-HP'])
+                        sequence.output(f'{health} {health_percent}%', True)
+                        encounter_passed[0] = True
+                        player = logic.level_up(player)
+                    else:
+                        player['current-HP'] = 0
+                return player
+        elif action == 2:
+            successful = logic.roll(character["eng"], 5)
+            sequence.output("> ", True)
+            if successful:
+                sound.play_sound(3)
+                sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                sequence.output('> You rush forwards, listening to the buzzing of the drone.', True)
+                sequence.output('> You snap your knee upwards, and drive it into the chassis of the drone.\n>', True)
+                sound.play_sound(18)
+                sequence.output('> The metal gives with a sickening crunch, and something hot and viscous pours onto the floor', True)
+                sequence.output("> The drone's limbs spasm as it ricochets off the deck and skitters backward, propellers shrieking.", True)
+                gaunt = sound.play_sound(15)
+                time.sleep(1.5)
+                sequence.output('>\n> It staggers on bent struts, venting a thin, wet mist that smells wrong, then jolts itself upright.',True)
+                gaunt.fadeout(8000)
+                sequence.output('> It scuttles into the dark, still whispering as it goes.\n>',True)
+                sequence.output('> [VEIL-9] NOTICE: Threat proximity decreasing.', True)
+                sequence.output('> [\033[31mARCHANGEL\033[0m] ASSESSMENT: Damage inflicted. Target disengaging. Maintain distance.', True)
+            else:
+                sound.play_sound(4)
+                sequence.output('> You underestimate the gap between you and the drone.', True)
+                sequence.output('> You stomp down onto something hard, the drone trills from down the room.\n>', True)
+                time.sleep(1.5)
+                sequence.output('> The drone chassis distorts and gapes', False, 0.07)
+                sequence.output('...', True, 0.5)
+                drone_sound.fadeout(4000)
+                time.sleep(1.5)
+                sound.play_sound(10)
+                sound.play_sound(2)
+                sequence.output('> Something wet and threaded with wire pierces into your shoulder.\n>', True, 0.03)
+                sequence.output('> [VEIL-9] PAIN RESPONSE SPIKE.\n>', True, 0.01)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: ▓▓▓▓▓▓▓▓ contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory ▓▓▓▓▓▓▓▓▓▓▓▓▓▓', True, 0.015)
+                scary_sound = sound.play_sound(16)
+                sequence.output(
+                    '> [VEIL-9] WARNING: ▓▓▓▓▓ ▓▓▓▓▓ ▓▓▓▓▓ ▓▓▓▓▓\n> E▓▓EC▓O\n>\n> dsd12▓▓▓▓▓\n> ---ZXS\n> TheXe are sXXen OF THXM\n> what a strange dream\n> what a strange dream> what a strange dream> what a strange dream\n> what a strange dream> what a strange dream',
+                    True, 0.01)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can you hear them calling?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can y-', True, 0.02)
+                sequence.output('> [\033[31mARCHANGEL\033[0m] Do NOT listen. Do NOT listen. Shut it out.', True, 0.02)
+                sequence.output('>', True, 0.02)
+                sequence.output("> Possible actions:", True, 0.02)
+                sequence.output(
+                    f">   [1] ENDURE — Kill the drone.\n>      [STAT: End▓▓▓▓▓[▓▓▓▓▓] | DIFFI▓▓ULTY: [▓▓▓▓▓▓▓▓▓▓]]\n>",
+                    True, 0.01)
+                sequence.output(">> ", False, 0.01)
+                action_two = int(sequence.validate_command("1"))
+                if action_two == 1:
+                    successful_two = logic.roll(character["end"], 5)
+                    if successful_two:
+                        sound.play_sound(3)
+                        sequence.output(">\n> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                        scary_sound.fadeout(2000)
+                        time.sleep(1)
+                        sound.play_sound(18)
+                        sequence.output('> You slam your fist into the drone.', True)
+                        sound.play_sound(18)
+                        sequence.output('> Once. Twice.', True)
+                        sequence.output('> It clings tighter, threads digging in deeper.\n>', True)
+                        sound.play_sound(2)
+                        sequence.output('> [VEIL-9] PAIN RESPONSE SPIKE.', True, 0.02)
+                        sequence.output('> [VEIL-9] WARNING: user vitals destabilizing.', True, 0.02)
+                        sequence.output('> [\033[31mARCHANGEL\033[0m] Apply force. Break the housing. NOW.\n>', True)
+                        time.sleep(0.8)
+                        sequence.output('> You grab the machine and hurl it off you.', True)
+                        time.sleep(1)
+                        sequence.output('> It hits the floor, writhing like a living thing—  ', True)
+                        sequence.output('> then bursts open in a splash of dark, warm fluid.\n>', True)
+                        time.sleep(2)
+                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount:", False)
+                        player = logic.update("current-HP", player, (-5))
+                        health_percent = (player['current-HP'] / 10) * 100
+                        health = player_turn.make_bar(player['current-HP'])
+                        sequence.output(f'{health} {health_percent}%', True)
+                        encounter_passed[0] = True
+                        player = logic.level_up(player)
+                    else:
+                        player['current-HP'] = 0
+        elif action == 3:
+            successful = logic.roll(character["inf"], 5)
+            sequence.output("> ", True)
+            if successful:
+                sound.play_sound(3)
+                sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                sequence.output('> You drive the data-knife into its chassis.', True)
+                sequence.output('> The blade sinks until the handle hums.\n>', True)
+                sound.play_sound(1)
+                sequence.output('> A burst of static rips through the air.', True)
+                sequence.output('> The drone spasms, then freezes mid-motion.\n>', True)
+                sequence.output('> [VEIL-9] SIGNAL: Foreign process injected.', True)
+                sequence.output('> [\033[31mARCHANGEL\033[0m] OVERRIDE: Host subsystem terminated.\n>', True)
+                sequence.output('> The lights in the drone’s lens gutter out.', True)
+                sequence.output('> Its frame collapses to the floor like a puppet with cut strings.\n>', True)
+                sequence.output('> A faint warmth seeps from the wound in its plating.', True)
+                sequence.output('> It does not move again.', True)
+            else:
+                sound.play_sound(4)
+                sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
+                sequence.output('> You drive the data-knife into the drone’s port.', True)
+                time.sleep(1.5)
+                sound.play_sound(11)
+                sequence.output('> It hesitates')
+                sequence.output('...', False, 0.3)
+                sound.play_sound(2)
+                sequence.output(' then clamps around your hand with impossible force.', True, 0.02)
+                drone_sound.fadeout(4000)
+                time.sleep(1.5)
+                sound.play_sound(10)
+                sound.play_sound(2)
+                sequence.output('> Something wet and threaded with wire pierces into your shoulder.\n>', True, 0.03)
+                sequence.output('> [VEIL-9] PAIN RESPONSE SPIKE.\n>', True, 0.01)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: ▓▓▓▓▓▓▓▓ contamination.', True, 0.015)
+                sequence.output('> [VEIL-9] WARNING: auditory ▓▓▓▓▓▓▓▓▓▓▓▓▓▓', True, 0.015)
+                scary_sound = sound.play_sound(16)
+                sequence.output(
+                    '> [VEIL-9] WARNING: ▓▓▓▓▓ ▓▓▓▓▓ ▓▓▓▓▓ ▓▓▓▓▓\n> E▓▓EC▓O\n>\n> dsd12▓▓▓▓▓\n> ---ZXS\n> TheXe are sXXen OF THXM\n> what a strange dream\n> what a strange dream> what a strange dream> what a strange dream\n> what a strange dream> what a strange dream',
+                    True, 0.01)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: do you hear the voices?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can you hear them calling?', True, 0.02)
+                sequence.output('> [VEIL-9] WARNING: can y-', True, 0.02)
+                sequence.output('> [\033[31mARCHANGEL\033[0m] Do NOT listen. Do NOT listen. Shut it out.', True, 0.02)
+                sequence.output('>', True, 0.02)
+                sequence.output("> Possible actions:", True, 0.02)
+                sequence.output(
+                    f">   [1] ENDURE — Kill the drone.\n>      [STAT: End▓▓▓▓▓[▓▓▓▓▓] | DIFFI▓▓ULTY: [▓▓▓▓▓▓▓▓▓▓]]\n>",
+                    True, 0.01)
+                sequence.output(">> ", False, 0.01)
+                action_two = int(sequence.validate_command("1"))
+                if action_two == 1:
+                    successful_two = logic.roll(character["end"], 5)
+                    if successful_two:
+                        sound.play_sound(3)
+                        sequence.output(">\n> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                        scary_sound.fadeout(2000)
+                        time.sleep(1)
+                        sound.play_sound(18)
+                        sequence.output('> You slam your fist into the drone.', True)
+                        sound.play_sound(18)
+                        sequence.output('> Once. Twice.', True)
+                        sequence.output('> It clings tighter, threads digging in deeper.\n>', True)
+                        sound.play_sound(2)
+                        sequence.output('> [VEIL-9] PAIN RESPONSE SPIKE.', True, 0.02)
+                        sequence.output('> [VEIL-9] WARNING: user vitals destabilizing.', True, 0.02)
+                        sequence.output('> [\033[31mARCHANGEL\033[0m] Apply force. Break the housing. NOW.\n>', True)
+                        time.sleep(0.8)
+                        sequence.output('> You grab the machine and hurl it off you.', True)
+                        time.sleep(1)
+                        sequence.output('> It hits the floor, writhing like a living thing—  ', True)
+                        sequence.output('> then bursts open in a splash of dark, warm fluid.\n>', True)
+                        time.sleep(2)
+                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount:", False)
+                        player = logic.update("current-HP", player, (-5))
+                        health_percent = (player['current-HP'] / 10) * 100
+                        health = player_turn.make_bar(player['current-HP'])
+                        sequence.output(f'{health} {health_percent}%', True)
+                        encounter_passed[0] = True
+                        player = logic.level_up(player)
+                    else:
+                        player['current-HP'] = 0
         return player
 
-    def machine(player):
+    def machine(player, encounter_passed):
         print('Machine')
         return player
 
@@ -264,12 +531,10 @@ def encounter_chance(character, passed):
 
     if random.random() < 0.9:
         encounter = random.random()
-        if encounter < 0.2 and passed[0] == False:
-            drones(character)
-            passed[0] = True
+        if encounter < 0.9 and passed[0] == False:
+            character = drones(character, passed)
         elif encounter < 0.4 and passed[1] == False:
-            machine(character)
-            passed[1] = True
+            machine(character, passed)
         else:
             breach(character)
     return character

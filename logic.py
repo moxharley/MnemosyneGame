@@ -62,9 +62,9 @@ def validate_move(board, character, direction):
 
 def roll(stat, difficulty_class):
     """
-    Roll a die.
+    Roll an ability check.
 
-    Roll a die to beat a difficulty class.
+    Roll an ability check to beat a difficulty class.
 
     :param stat: an integer variable
     :param difficulty_class: an integer variable
@@ -130,6 +130,16 @@ def update(key, character, amount):
 
 
 def hull_damage(hull):
+    """
+    Damage hull.
+
+    Randomly determines if the hull takes damage and how much damage the hull takes.
+
+    :param hull: an integer variable.
+    :precondition: integer should be between 1 and 90.
+    :postcondition: randomly calculates how much damage the hull takes and returns the new hull total.
+    :return: an integer variable.
+    """
     if random.random() < 0.10:
         damage = random.randint(1, 9)
         hull -= damage
@@ -148,7 +158,17 @@ def hull_damage(hull):
 
 
 def energy_drain(character):
-    if random.random() < 0.23:
+    """
+    Drains player energy.
+
+    Randomly determines if the player's energy is drained and by how much.
+
+    :param character: a dictionary.
+    :precondition: character must be a well-formed character dictionary.
+    :postcondition: randomly calculates energy drain and returns updated character dictionary.
+    :return: a dictionary.
+    """
+    if random.random() < 0.20:
         character['current-EP'] -= 1
         sequence.output(">\n> [VEIL-9] ENERGY: Energy levels decreased a small amount: ", False)
         energy_percent = (character['current-EP'] / 10) * 100
@@ -158,6 +178,15 @@ def energy_drain(character):
 
 
 def check_alive(character, hull):
+    """
+    Check if player is alive.
+
+    :param character: a dictionary.
+    :param hull: an integer variable.
+    :precondition: character must be a well-formed character dictionary.
+    :postcondition: checks hull, current-HP and current-EP and checks if any of them are less than or equal to zero.
+    :return: a boolean variable.
+    """
     if hull <= 0:
         return False
     if character['current-EP'] <= 0:
@@ -169,6 +198,16 @@ def check_alive(character, hull):
 
 
 def check_win(board, character):
+    """
+    Check if player has won.
+
+    :param board: a dictionary.
+    :param character: a dictionary.
+    :precondition: board must be a well-formed board dictionary.
+    :precondition: character must be a well-formed character dictionary.
+    :postcondition: determines whether the player has reached the goal tile(s)
+    :return: a boolean variable.
+    """
     character_coordinates = (character["X-coordinate"], character["Y-coordinate"])
     if board['goal'] == character_coordinates:
         return True

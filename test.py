@@ -7,8 +7,8 @@ def game():
     """
     sound.ambient_noise()
     player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': "Jimmy", 'last-name': "Freaks", 'current-HP': 8,
-              'current-EP': 5, 'room': 'Stasis-Pods', 'class': 'Ace-pilot', 'end': -1, 'eng': -1, 'inf': 0, 'int': 0,
-              'exp': 2, 'inventory': ['Side-Arm', 'Empty', 'Empty', 'Empty']}
+              'current-EP': 5, 'room': 'Stasis-Pods', 'class': 'Ace-pilot', 'end': 0, 'eng': 0, 'inf': 0, 'int': 5,
+              'exp': 2, 'inventory': ['Side-Arm', 'Data-Knife', 'Empty', 'Empty']}
     board = room.make_board()
     board['interacts'] = room.make_interaction()
     board['encounters-passed'] = [False, False]
@@ -52,7 +52,7 @@ def main():
     """
     pygame.mixer.pre_init(frequency=44100, size=-16, channels=4, buffer=512)
     pygame.mixer.init()
-    pygame.mixer.set_num_channels(6)
+    pygame.mixer.set_num_channels(24)
     game()
 
 
