@@ -443,7 +443,11 @@ def encounter_chance(character, passed):
                         encounter_passed[0] = True
                         player = logic.level_up(player)
                     else:
-                        sequence.output('> I can hear the music I can hear the music I can hear the music\n>')
+                        sound.play_sound(4)
+                        sound.play_sound(1)
+                        sound.play_sound(4)
+                        sequence.output('>', True)
+                        sequence.output('> I can hear the music I can hear the music I can hear the music: ')
                         player['current-HP'] = 0
                         health_percent = (player['current-HP'] / 10) * 100
                         health = player_turn.make_bar(player['current-HP'])
@@ -539,7 +543,11 @@ def encounter_chance(character, passed):
                         encounter_passed[0] = True
                         player = logic.level_up(player)
                     else:
-                        sequence.output('> I can hear the music I can hear the music I can hear the music\n>')
+                        sound.play_sound(4)
+                        sound.play_sound(1)
+                        sound.play_sound(4)
+                        sequence.output('>', True)
+                        sequence.output('> I can hear the music I can hear the music I can hear the music: ')
                         player['current-HP'] = 0
                         health_percent = (player['current-HP'] / 10) * 100
                         health = player_turn.make_bar(player['current-HP'])
@@ -637,7 +645,11 @@ def encounter_chance(character, passed):
                         encounter_passed[0] = True
                         player = logic.level_up(player)
                     else:
-                        sequence.output('> I can hear the music I can hear the music I can hear the music\n>')
+                        sound.play_sound(4)
+                        sound.play_sound(1)
+                        sound.play_sound(4)
+                        sequence.output('>', True)
+                        sequence.output('> I can hear the music I can hear the music I can hear the music: ')
                         player['current-HP'] = 0
                         health_percent = (player['current-HP'] / 10) * 100
                         health = player_turn.make_bar(player['current-HP'])
