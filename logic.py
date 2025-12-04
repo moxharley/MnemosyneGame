@@ -205,7 +205,7 @@ def check_win(board, character):
     :param character: a dictionary.
     :precondition: board must be a well-formed board dictionary.
     :precondition: character must be a well-formed character dictionary.
-    :postcondition: determines whether the player has reached the goal tile(s)
+    :postcondition: determines whether the player has reached the goal tile(s).
     :return: a boolean variable.
     """
     character_coordinates = (character["X-coordinate"], character["Y-coordinate"])
