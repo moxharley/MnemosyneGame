@@ -6,7 +6,6 @@ def game():
     Run the game loop.
     """
     sound.ambient_noise()
-    print('\n\n\n\n\n\n')
     player = sequence.boot()
     board = room.make_board()
     board['interacts'] = room.make_interaction()
@@ -51,14 +50,44 @@ def main():
     pygame.mixer.pre_init(frequency=44100, size=-16, channels=4, buffer=512)
     pygame.mixer.init()
     pygame.mixer.set_num_channels(4)
-    print('\n------------------------------------\nHello! Welcome to my Term Project!')
-    print('This is a demo for a game called Mnemosyne, \nwhich is a text-based scifi horror/thriller game.')
+    print(
+    """
+-----------------------------------------------------------------------
+    Hello! Welcome to my Term Project!
+
+    This is a demo for a game called \033[1mMnemosyne\033[0m, 
+    a text-based sci-fi horror/thriller experience.
+
+    The game is fully functional and should have no bugs or crashes.
+    I believe I have sufficiently met all the criteria, though since 
+    I chose a bit of a radical direction for my genre, if I am missing 
+    anything, I hope that this still demonstrates my proficiency in the 
+    subject material of your class.
+    
+    My original scope for the game was perhaps a little too ambitious,
+    and though I have met all the project requirements, any text or output
+    highlighted in \033[34mblue\033[0m is something that was planned but unfinished.
+    I figured it was more important to ensure I met all the project requirements
+    than to dwell on the things that aren't incredibly central to the game loop.
+
+    I really enjoyed your lectures, and I am glad to see that I have 
+    another class with you next term!
+
+    All the best, and enjoy your winter break!
+    
+    Also turn your sound on!!! The sound adds so much!!!
+
+       — Harlan
+-----------------------------------------------------------------------
+    """
+    )
     while True:
         player_start = input('Please type \033[4mstart\033[0m to start the game:\n')
         if player_start != "start":
             print('Invalid Input')
         else:
-            print('Starting game...\n------------------------------------')
+            print('Starting game...')
+            sequence.output('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', delay=0.03)
             game()
             break
 

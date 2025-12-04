@@ -124,7 +124,7 @@ def boot():
     output('> ', True)
     output('> [ VEIL-9 LIFE SYSTEMS™ BOOT SEQUENCE ]', True)
     output('> ----------------------------------------', True)
-    output('>  \033[35m“Because life support should feel like living.”\033[0m', True)
+    output('>  \033[36m“Because life support should feel like living.”\033[0m', True)
     output('>  Property of \033[1mAurelius Dynamics\033[0m.', True)
     output('>  Unauthorized modification is a federal offense.', True)
     output('> ----------------------------------------', True)
@@ -153,6 +153,7 @@ def boot():
 
     if command in ('y', 'Y'):
         output('> ', True)
+        sound.play_sound(3)
         output('> \033[32mConfirmed.\033[0m', True)
         time.sleep(2.5)
         output('> Establishing uplink')
@@ -167,6 +168,7 @@ def boot():
         output('> \033[31mARCHANGEL\033[0m//VOICE ROUTE ONLINE', True)
     elif command in ('n', 'N'):
         output('> ', True)
+        sound.play_sound(4)
         output('> \033[31mDeclined.\033[0m', True)
         time.sleep(2.5)
         output('> [VEIL-9] SECURITY: External access request denied', False)
@@ -211,19 +213,26 @@ def boot():
     output('...', True, 0.3)
     output('> [\033[31mARCHANGEL\033[0m] PROCESS_ABORT: Manual input required. Self-report integrity > archived reconstruction.', True)
     output('> ', True)
-    archangel_output('Please state your first name.')
+    output('> Please state your first name.',True)
     output('> \n>> ', False, 0.01)
 
     first_name = input()
 
     output('> ', True)
-    archangel_output('Please state your last name.')
+    output('> Please state your last name.', True)
     output('> \n>> ', False, 0.01)
 
     last_name = input()
     identifier1 = first_name
     identifier2 = 'Ensign ' + last_name
-    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': first_name, 'last-name': last_name, 'current-HP': 8, 'current-EP': 7, 'room': 'Stasis-Pods', 'exp': 0}
+    player = {'X-coordinate': 1,
+              'Y-coordinate': 1,
+              'first-name': first_name,
+              'last-name': last_name,
+              'current-HP': 8,
+              'current-EP': 7,
+              'room': 'Stasis-Pods',
+              'exp': 0}
 
     output('> ', True)
     archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}.')

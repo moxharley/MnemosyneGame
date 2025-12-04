@@ -3,6 +3,107 @@ import sequence, logic, time, sound, player_turn, random
 
 def make_interaction():
 
+    def placeholder(character):
+        sequence.output('> [\033[34mDEVELOPER\033[0m] This is a placeholder interact function.', True)
+        sequence.output('> [\033[34mDEVELOPER\033[0m] Normally this event would be scripted as to the object in this room.\n>', True)
+        action_rng = random.random()
+        if action_rng < 0.25:
+            sequence.output("> Possible actions:", True)
+            sequence.output(f">   [1] INTERFACE — Attempt an interface roll.\n>      [STAT: Interface [{character["inf"]}] | DIFFICULTY: [moderate]]", True)
+            sequence.output('>\n>> ')
+            action = int(sequence.validate_command("1"))
+            if action == 1:
+                successful = logic.roll(character["inf"], 3)
+                sequence.output("> ", True)
+                if successful:
+                    sound.play_sound(3)
+                    sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                    sequence.output("> [VEIL-9] ENERGY: Energy levels increased a moderate amount: ")
+                    character = logic.update("current-EP", character, 1)
+                    energy_percent = (character['current-EP'] / 10) * 100
+                    energy = player_turn.make_bar(character['current-EP'])
+                    sequence.output(f'{energy} {energy_percent}%', True)
+                else:
+                    sound.play_sound(4)
+                    sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
+                    sequence.output("> [VEIL-9] ENERGY: Energy levels decreased a moderate amount: ")
+                    character = logic.update("current-EP", character, -1)
+                    energy_percent = (character['current-EP'] / 10) * 100
+                    energy = player_turn.make_bar(character['current-EP'])
+                    sequence.output(f'{energy} {energy_percent}%', True)
+        elif action_rng < 0.5:
+            sequence.output("> Possible actions:", True)
+            sequence.output(f">   [1] ENGAGE — Attempt an engage roll.\n>      [STAT: Engage [{character["eng"]}] | DIFFICULTY: [moderate]]", True)
+            sequence.output('>\n>> ')
+            action = int(sequence.validate_command("1"))
+            if action == 1:
+                successful = logic.roll(character["eng"], 3)
+                sequence.output("> ", True)
+                if successful:
+                    sound.play_sound(3)
+                    sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                    sequence.output("> [VEIL-9] ENERGY: Energy levels increased a moderate amount: ")
+                    character = logic.update("current-EP", character, 1)
+                    energy_percent = (character['current-EP'] / 10) * 100
+                    energy = player_turn.make_bar(character['current-EP'])
+                    sequence.output(f'{energy} {energy_percent}%', True)
+                else:
+                    sound.play_sound(4)
+                    sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
+                    sequence.output("> [VEIL-9] ENERGY: Health levels decreased a moderate amount: ")
+                    character = logic.update("current-HP", character, -1)
+                    health_percent = (character['current-HP'] / 10) * 100
+                    health = player_turn.make_bar(character['current-HP'])
+                    sequence.output(f'{health} {health_percent}%', True)
+        elif action_rng < 0.75:
+            sequence.output("> Possible actions:", True)
+            sequence.output(f">   [1] ENDURE — Attempt an endure roll.\n>      [STAT: Endure [{character["end"]}] | DIFFICULTY: [moderate]]", True)
+            sequence.output('>\n>> ')
+            action = int(sequence.validate_command("1"))
+            if action == 1:
+                successful = logic.roll(character["end"], 3)
+                sequence.output("> ", True)
+                if successful:
+                    sound.play_sound(3)
+                    sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                    sequence.output("> [VEIL-9] ENERGY: Health levels increased a moderate amount: ")
+                    character = logic.update("current-HP", character, 1)
+                    health_percent = (character['current-HP'] / 10) * 100
+                    health = player_turn.make_bar(character['current-HP'])
+                    sequence.output(f'{health} {health_percent}%', True)
+                else:
+                    sound.play_sound(4)
+                    sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
+                    sequence.output("> [VEIL-9] ENERGY: Health levels decreased a moderate amount: ")
+                    character = logic.update("current-HP", character, -1)
+                    health_percent = (character['current-HP'] / 10) * 100
+                    health = player_turn.make_bar(character['current-HP'])
+                    sequence.output(f'{health} {health_percent}%', True)
+        else:
+            sequence.output("> Possible actions:", True)
+            sequence.output(f">   [1] INTUIT — Attempt an intuit roll.\n>      [STAT: Intuit [{character["int"]}] | DIFFICULTY: [moderate]]", True)
+            sequence.output('>\n>> ')
+            action = int(sequence.validate_command("1"))
+            if action == 1:
+                successful = logic.roll(character["int"], 3)
+                sequence.output("> ", True)
+                if successful:
+                    sound.play_sound(3)
+                    sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
+                    sequence.output("> [VEIL-9] ENERGY: Health levels increased a moderate amount: ")
+                    character = logic.update("current-HP", character, 1)
+                    health_percent = (character['current-HP'] / 10) * 100
+                    health = player_turn.make_bar(character['current-HP'])
+                    sequence.output(f'{health} {health_percent}%', True)
+                else:
+                    sound.play_sound(4)
+                    sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
+                    sequence.output("> [VEIL-9] ENERGY: Energy levels decreased a moderate amount: ")
+                    character = logic.update("current-EP", character, -1)
+                    energy_percent = (character['current-EP'] / 10) * 100
+                    energy = player_turn.make_bar(character['current-EP'])
+                    sequence.output(f'{energy} {energy_percent}%', True)
+
     def data_pad(character):
         sequence.output("> You reach down to the raised platform beside your open cryopod.", True)
         sequence.output("> The data-pad is half-frozen to the metal, its screen shot through with cracks.\n> ", True)
@@ -32,7 +133,7 @@ def make_interaction():
                 character = logic.update("current-EP", character, (-1))
                 energy_percent = (character['current-EP'] / 10) * 100
                 energy = player_turn.make_bar(character['current-EP'])
-                sequence.output(f'{energy} {energy_percent}%\n>', True)
+                sequence.output(f'{energy} {energy_percent}%', True)
             else:
                 sound.play_sound(4)
                 sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
@@ -43,7 +144,7 @@ def make_interaction():
                 character = logic.update("current-HP", character, -1)
                 health_percent = (character['current-HP'] / 10) * 100
                 health = player_turn.make_bar(character['current-HP'])
-                sequence.output(f'{health} {health_percent}%\n>', True)
+                sequence.output(f'{health} {health_percent}%', True)
                 character = logic.level_up(character)
         elif action == 2:
             successful = logic.roll(character["eng"], 5)
@@ -58,7 +159,7 @@ def make_interaction():
                 character = logic.update("current-EP", character, 3)
                 energy_percent = (character['current-EP'] / 10) * 100
                 energy = player_turn.make_bar(character['current-EP'])
-                sequence.output(f'{energy} {energy_percent}%\n>', True)
+                sequence.output(f'{energy} {energy_percent}%', True)
             else:
                 sound.play_sound(4)
                 sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
@@ -75,13 +176,14 @@ def make_interaction():
                 character = logic.update("current-EP", character, (-1))
                 energy_percent = (character['current-EP'] / 10) * 100
                 energy = player_turn.make_bar(character['current-EP'])
-                sequence.output(f'{energy} {energy_percent}%\n>', True)
+                sequence.output(f'{energy} {energy_percent}%', True)
                 character = logic.level_up(character)
         del has_interact[(1, 1)]
         return character
 
     has_interact = {
-        (1, 1): data_pad
+        (1, 1): data_pad,
+        (1, 2): placeholder
     }
     return has_interact
 
@@ -333,7 +435,7 @@ def encounter_chance(character, passed):
                         sequence.output('> It hits the floor, writhing like a living thing—  ', True)
                         sequence.output('> then bursts open in a splash of dark, warm fluid.\n>', True)
                         time.sleep(2)
-                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount:", False)
+                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount: ", False)
                         player = logic.update("current-HP", player, (-5))
                         health_percent = (player['current-HP'] / 10) * 100
                         health = player_turn.make_bar(player['current-HP'])
@@ -341,7 +443,11 @@ def encounter_chance(character, passed):
                         encounter_passed[0] = True
                         player = logic.level_up(player)
                     else:
+                        sequence.output('> I can hear the music I can hear the music I can hear the music\n>')
                         player['current-HP'] = 0
+                        health_percent = (player['current-HP'] / 10) * 100
+                        health = player_turn.make_bar(player['current-HP'])
+                        sequence.output(f'{health} {health_percent}%', True)
                 return player
         elif action == 2:
             successful = logic.roll(character["eng"], 5)
@@ -359,6 +465,10 @@ def encounter_chance(character, passed):
                 sequence.output('>\n> It staggers on bent struts, venting a thin, wet mist that smells wrong, then jolts itself upright.',True)
                 gaunt.fadeout(8000)
                 sequence.output('> It scuttles into the dark, still whispering as it goes.\n>',True)
+                if gaunt:
+                    gaunt.fadeout(20000)
+                if drone_sound:
+                    drone_sound.fadeout(16000)
                 sequence.output('> [VEIL-9] NOTICE: Threat proximity decreasing.', True)
                 sequence.output('> [\033[31mARCHANGEL\033[0m] ASSESSMENT: Damage inflicted. Target disengaging. Maintain distance.', True)
             else:
@@ -421,7 +531,7 @@ def encounter_chance(character, passed):
                         sequence.output('> It hits the floor, writhing like a living thing—  ', True)
                         sequence.output('> then bursts open in a splash of dark, warm fluid.\n>', True)
                         time.sleep(2)
-                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount:", False)
+                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount: ", False)
                         player = logic.update("current-HP", player, (-5))
                         health_percent = (player['current-HP'] / 10) * 100
                         health = player_turn.make_bar(player['current-HP'])
@@ -429,7 +539,11 @@ def encounter_chance(character, passed):
                         encounter_passed[0] = True
                         player = logic.level_up(player)
                     else:
+                        sequence.output('> I can hear the music I can hear the music I can hear the music\n>')
                         player['current-HP'] = 0
+                        health_percent = (player['current-HP'] / 10) * 100
+                        health = player_turn.make_bar(player['current-HP'])
+                        sequence.output(f'{health} {health_percent}%', True)
         elif action == 3:
             successful = logic.roll(character["inf"], 5)
             sequence.output("> ", True)
@@ -440,10 +554,15 @@ def encounter_chance(character, passed):
                 sequence.output('> The blade sinks until the handle hums.\n>', True)
                 sound.play_sound(1)
                 sequence.output('> A burst of static rips through the air.', True)
+                gaunt = sound.play_sound(15)
                 sequence.output('> The drone spasms, then freezes mid-motion.\n>', True)
+                if drone_sound:
+                    drone_sound.fadeout(8000)
                 sequence.output('> [VEIL-9] SIGNAL: Foreign process injected.', True)
                 sequence.output('> [\033[31mARCHANGEL\033[0m] OVERRIDE: Host subsystem terminated.\n>', True)
                 sequence.output('> The lights in the drone’s lens gutter out.', True)
+                if gaunt:
+                    gaunt.fadeout(8000)
                 sequence.output('> Its frame collapses to the floor like a puppet with cut strings.\n>', True)
                 sequence.output('> A faint warmth seeps from the wound in its plating.', True)
                 sequence.output('> It does not move again.', True)
@@ -510,7 +629,7 @@ def encounter_chance(character, passed):
                         sequence.output('> It hits the floor, writhing like a living thing—  ', True)
                         sequence.output('> then bursts open in a splash of dark, warm fluid.\n>', True)
                         time.sleep(2)
-                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount:", False)
+                        sequence.output("> [VEIL-9] HEALTH: Health levels decreased a dangerous amount: ", False)
                         player = logic.update("current-HP", player, (-5))
                         health_percent = (player['current-HP'] / 10) * 100
                         health = player_turn.make_bar(player['current-HP'])
@@ -518,7 +637,11 @@ def encounter_chance(character, passed):
                         encounter_passed[0] = True
                         player = logic.level_up(player)
                     else:
+                        sequence.output('> I can hear the music I can hear the music I can hear the music\n>')
                         player['current-HP'] = 0
+                        health_percent = (player['current-HP'] / 10) * 100
+                        health = player_turn.make_bar(player['current-HP'])
+                        sequence.output(f'{health} {health_percent}%', True)
         return player
 
     def machine(player, encounter_passed):

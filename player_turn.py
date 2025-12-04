@@ -191,6 +191,7 @@ def interact(interacts, character):
     character_coordinates = (character["X-coordinate"], character["Y-coordinate"])
     if character_coordinates in interacts:
         interacts[character_coordinates](character)
+        del interacts[character_coordinates]
     else:
         sequence.output('> INVALID INPUT: There is nothing to interact with')
         time.sleep(1)
