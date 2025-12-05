@@ -7,7 +7,7 @@ def game():
     Run the game loop.
     """
     sound.ambient_noise()
-    player = {'X-coordinate': 1, 'Y-coordinate': 1, 'first-name': "Jimmy", 'last-name': "Freaks", 'current-HP': 8,
+    player = {'X-coordinate': -6, 'Y-coordinate': -22, 'first-name': "Jimmy", 'last-name': "Freaks", 'current-HP': 8,
               'current-EP': 5, 'room': 'Stasis-Pods', 'class': 'Ace-pilot', 'end': 0, 'eng': 0, 'inf': 0, 'int': 5,
               'exp': 2, 'inventory': ['Side-Arm', 'Data-Knife', 'Empty', 'Empty']}
     board = room.make_board()

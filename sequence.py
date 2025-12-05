@@ -434,6 +434,7 @@ def end_game():
     output('> [VEIL-9] THRUSTER CORE: online.\n>', True)
     archangel_output('I will handle guidance. Remain still.')
     sound.play_sound(20)
+    time.sleep(5)
 
 """
 > [VEIL-9] WARNING: Hull integrity collapse approaching critical threshold.
