@@ -676,6 +676,7 @@ def encounter_chance(character, passed):
     def breach(player):
         breach_rng = random.random()
         if breach_rng < 0.1:
+            sound.play_sound(21)
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ALERT: Ambient vibrations exceed safe thresholds.', True)
         elif breach_rng < 0.2:
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] NOTICE: Local atmospheric pressure fluctuation detected.', True)
@@ -686,12 +687,14 @@ def encounter_chance(character, passed):
         elif breach_rng < 0.5:
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] SYSTEM STATUS: Motion signatures approaching tolerance limit.', True)
         elif breach_rng < 0.6:
+            sound.play_sound(21)
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ADVISORY: Hull microfractures showing rapid propagation.', True)
         elif breach_rng < 0.7:
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ERROR: Heat signature detected with no thermal source.', True)
         elif breach_rng < 0.8:
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] UPDATE: Interference spike recorded on all channels.', True)
         elif breach_rng < 0.9:
+            sound.play_sound(21)
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] FLAG: Spatial mapping desynchronized—recalibrating.', True)
         else:
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] HIGH-PRIORITY WARNING: Unknown echo pattern repeating.', True)

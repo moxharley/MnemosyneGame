@@ -111,6 +111,10 @@ def play_sound(sound):
         sound = pygame.mixer.Sound('sounds/escape.ogg')
         sound.set_volume(0.8)
         channel = sound.play(loops=0, fade_ms=3000)
+    elif sound == 21:
+        sound = pygame.mixer.Sound('sounds/rumble.ogg')
+        sound.set_volume(0.8)
+        channel = sound.play(loops=1, fade_ms=8000)
     return channel
 
 
