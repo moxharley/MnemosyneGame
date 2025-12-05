@@ -2,8 +2,24 @@ import sequence, logic, time, sound, player_turn, random
 
 
 def make_interaction():
+    """
+    Make interactions.
 
+    Creates a well-formed dictionary of interactions.
+
+    :return: a dictionary.
+    """
     def placeholder(character):
+        """
+        Placeholder interact.
+
+        A randomized example of a scripted interact.
+
+        :param character: a dictionary.
+        :precondition: character must be a well-formed character dictionary.
+        :postcondition: runs placeholder interact and returns adjusted character dictionary.
+        :return: a dictionary.
+        """
         sequence.output('> [\033[34mDEVELOPER\033[0m] This is a placeholder interact function.', True)
         sequence.output('> [\033[34mDEVELOPER\033[0m] Normally this event would be scripted as to the object in this room.\n>', True)
         action_rng = random.random()
@@ -105,6 +121,14 @@ def make_interaction():
                     sequence.output(f'{energy} {energy_percent}%', True)
 
     def data_pad(character):
+        """
+        Data-pad interact.
+
+        :param character: a dictionary
+        :precondition: character must be a well-formed character dictionary.
+        :postcondition: runs data-pad interact and returns adjusted character dictionary.
+        :return:
+        """
         sequence.output("> You reach down to the raised platform beside your open cryopod.", True)
         sequence.output("> The data-pad is half-frozen to the metal, its screen shot through with cracks.\n> ", True)
         time.sleep(1)
@@ -347,7 +371,18 @@ def make_board():
 
 
 def encounter_chance(character, passed):
+    """
+    Encounter chance.
 
+    Determines whether there is an encounter and which one it is.
+
+    :param character: a dictionary.
+    :param passed: a list.
+    :precondition: character must be a well-formed character dictionary.
+    :precondition: passed must be a list boolean values associated with the provided encounters.
+    :postcondition: determines the encounter if there is one and returns the adjusted character dictionary.
+    :return: a dictionary.
+    """
     def drones(player, encounter_passed):
         drone_sound = sound.play_sound(9)
         time.sleep(3)
