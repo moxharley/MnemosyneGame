@@ -186,6 +186,13 @@ def check_alive(character, hull):
     :precondition: character must be a well-formed character dictionary.
     :postcondition: checks hull, current-HP and current-EP and checks if any of them are less than or equal to zero.
     :return: a boolean variable.
+
+    >>> check_alive({'current-HP': 10, 'current-EP': 10}, 90)
+    True
+    >>> check_alive({'current-HP': 0, 'current-EP': 0}, 90)
+    False
+    >>> check_alive({'current-HP': 10, 'current-EP': 10}, 0)
+    False
     """
     if hull <= 0:
         return False
