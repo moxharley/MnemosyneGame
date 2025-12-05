@@ -183,7 +183,24 @@ def make_interaction():
 
     has_interact = {
         (1, 1): data_pad,
-        (1, 2): placeholder
+        (2, 2): placeholder,
+        (2, 0): placeholder,
+        (0, 6): placeholder,
+        (1, 6): placeholder,
+        (-1, 6): placeholder,
+        (-5, 0): placeholder,
+        (-4, 2): placeholder,
+        (-4, 0): placeholder,
+        (-6, -8): placeholder,
+        (-4, -8): placeholder,
+        (-9, -13): placeholder,
+        (-8, -15): placeholder,
+        (-3, -13): placeholder,
+        (-1, -13): placeholder,
+        (-7, -17): placeholder,
+        (-4, -19): placeholder,
+        (-8, -19): placeholder,
+        (-7, -20): placeholder
     }
     return has_interact
 
@@ -200,7 +217,7 @@ def make_board():
         "goal": (-7, -22),
         (0, 0): ("Cryopod-05 (Scratched) - Deep, uneven gouges mark the inside walls. Some look metallic; others disturbingly biological.", "Stasis-Pods"),
         (1, 0): ("Overhead Conduit - The ceiling panel above is bowed and stained by a dark, dried drip. Something dripped here recently.", "Stasis-Pods"),
-        (2, 0): ("Supply Cabinet - A waist-high storage cabinet. Its magnetic lock flickers weakly, and the metal is dented from the inside.", "Stasis-Pods"),
+        (2, 0): ("Supply Cabinet - A waist-high storage \033[34mcabinet\033[0m. Its magnetic lock flickers weakly, and the metal is dented from the inside.", "Stasis-Pods"),
         (3, 0): ("Cryopod-01 (Fractured) - The viewport glass is shattered inward as though something forced its way inside. Frost spreads in jagged veins.", "Stasis-Pods"),
         (0, 1): ("Cryopod-02 (Offline) - The pod is dark. A faint human-shaped frost imprint remains on the window, but the pod is empty.", "Stasis-Pods"),
         (1, 1): ("Cryopod-03 (Your Pod) - The hatch is hanging sideways. Cracks in the interior ice suggest you thrashed free. A broken \033[31mdata-pad\033[0m lies on the platform.", "Stasis-Pods"),
@@ -208,20 +225,20 @@ def make_board():
         (3, 1): ("Cryopod-04 (Scorched) - The inner surface is warped and blackened by heat. Something inside burned violently before power failed.", "Stasis-Pods"),
         (0, 2): ("Entrance Hatch - The sliding hatch leads out into the hallway. Frost rims its seams, and a faint green exit strip glows beneath your feet.", "Stasis-Pods"),
         (1, 2): ("Cryopod-06 (Coolant Leak) - Coolant pools beneath the pod, unusually dark and viscous. It reeks of warm metal.", "Stasis-Pods"),
-        (2, 2): ("Terminal B - A partially frozen backup terminal. Crew IDs flicker onscreen before dissolving into static.", "Stasis-Pods"),
+        (2, 2): ("Terminal B - A partially frozen backup \033[34mterminal\033[0m. Crew IDs flicker onscreen before dissolving into static.", "Stasis-Pods"),
         (3, 2): ("Drain Pit - A grated floor drain where melted ice gathers. Something metallic clatters deep beneath it when you move nearby.", "Stasis-Pods"),
 
         (0, 3): ("Corridor Junction - A narrow passage coated in thin frost. Emergency strips along the walls pulse a slow amber.", "Corridor"),
         (0, 4): ("Warped Bulkhead - The corridor bends slightly where the hull has bowed inward. Metal creaks softly with each shift of the ship.", "Corridor"),
 
         (0, 5): ("Cargo Lift Column - A central freight lift stands dark and unpowered. The railing is bent, as though something heavy struck it from below.", "Loading Bay"),
-        (0, 6): ("Suspended Crates - Two cargo containers hang from magnetic hooks above. Their clamps flicker on and off, making the chains sway slightly.", "Loading Bay"),
+        (0, 6): ("Suspended Crates - Two cargo \033[34mcontainers\033[0m hang from magnetic hooks above. Their clamps flicker on and off, making the chains sway slightly.", "Loading Bay"),
         (0, 7): ("Forklift Station - A compact cargo-lifter sits dormant, its tines embedded in the floor plating.", "Loading Bay"),
         (-1, 5): ("Overturned Cart - A supply cart lies on its side. Several sealed nutrient packs are scattered across the floor.", "Loading Bay"),
-        (-1, 6): ("Coolant Spill - A shallow puddle spreads across the metal grate. It shines with a dark tint, though the coolant itself should not be so dark.", "Loading Bay"),
+        (-1, 6): ("Coolant Spill - A shallow \033[34mpuddle\033[0m spreads across the metal grate. It shines with a dark tint, though the coolant itself should not be so dark.", "Loading Bay"),
         (-1, 7): ("Loader Arm - A mechanical loading arm sits retracted, its claws dented and misaligned. Scorch marks climb the wall beside it, like something dragged along the metal.", "Loading Bay"),
         (1, 5): ("Tether Point - A pair of magnetic tether lines dangle from the ceiling, swaying gently. One line is frayed at the end.", "Loading Bay"),
-        (1, 6): ("Wall Console - A freight manifest console bolted to the bulkhead. Its screen is completely dark, but a steady clicking comes from inside the casing.", "Loading Bay"),
+        (1, 6): ("Wall Console - A freight \033[34mmanifest\033[0m console bolted to the bulkhead. Its screen is completely dark, but a steady clicking comes from inside the casing.", "Loading Bay"),
         (1, 7): ("Cargo Pallet - A heavy pallet sits abandoned mid-transfer. One crate bears a painted warning glyph: FLUX HANDLING — DO NOT VIBRATE. Its bolts are partially loosened.", "Loading Bay"),
 
         (-2, 6): ("Corridor Junction - A smear of something dark drags along the wall at shoulder height, tapering off into shaky fingerprints.", "Corridor"),
@@ -242,13 +259,13 @@ def make_board():
 
         (-5, 2): ("Primary Console - The command interface is cold and unpowered. Several keys are pressed inward as if held too long.", "Bridge"),
         (-5, 1): ("Captain’s Chair - The restraint harness hangs open. The cushioning is indented, retaining the outline of recent occupation.", "Bridge"),
-        (-5, 0): ("Nav-Panel Fragment - A cracked navigation screen displays a fixed star-map coordinate that does not match Mnemosyne’s logged position.", "Bridge"),
+        (-5, 0): ("Nav-Panel Fragment - A cracked navigation \033[34mscreen\033[0m displays a fixed star-map coordinate that does not match Mnemosyne’s logged position.", "Bridge"),
         (-6, 2): ("Overhead Array — The sensor grid hums intermittently, emitting a low-band pulse inconsistent with any known scan pattern.", "Bridge"),
         (-6, 1): ("Chart Table — A holo-slate lies inert. Finger streaks are visible in the dust, terminating abruptly at the table’s edge.", "Bridge"),
         (-6, 0): ("Auxiliary Station — A headset rests on the console. The audio jack shows heat warping, as though exposed to prolonged static surge.", "Bridge"),
-        (-4, 2): ("Status Board — The ship schematic blinks between intact and fractured hull outlines. Neither version matches current conditions.", "Bridge"),
+        (-4, 2): ("Status Board — The ship \033[34mschematic\033[0m blinks between intact and fractured hull outlines. Neither version matches current conditions.", "Bridge"),
         (-4, 1): ("Internal Comms Unit — The speaker occasionally emits a soft intake-click, similar to someone preparing to speak but never continuing.", "Bridge"),
-        (-4, 0): ("Vent Access Chamber - A recessed maintenance alcove with a square ventilation hatch secured by worn fasteners. Thin particulate dust drifts from the grille.", "Bridge"),
+        (-4, 0): ("Vent Access Chamber - A recessed maintenance alcove with a square ventilation \033[34mhatch\033[0m secured by worn fasteners. Thin particulate dust drifts from the grille.", "Bridge"),
 
         (-5, -1): ("Security Bulkhead – A reinforced door marked MAINTENANCE ACCESS. The lock panel is dark.", "Corridor"),
         (-5, -2): ("Inspection Alcove – A recessed area containing a dormant wall terminal. Dried particulate dust coats the screen.", "Corridor"),
@@ -261,10 +278,10 @@ def make_board():
         (-5, -8): ("Wiring Trench - A recessed floor channel filled with neatly bundled cables, some warm to the touch.", "Maintenance Access"),
         (-5, -9): ("Anchor Bolts - Heavy bolts securing a plate that has shifted slightly out of alignment.", "Maintenance Access"),
         (-6, -7): ("Coolant Runoff - A straight smear of dried coolant trails toward the lower levels.", "Maintenance Access"),
-        (-6, -8): ("Sensor Node - A disabled motion sensor hangs from its mount, lens dark.", "Maintenance Access"),
+        (-6, -8): ("Sensor Node - A disabled motion \033[34msensor\033[0m hangs from its mount, lens dark.", "Maintenance Access"),
         (-6, -9): ("Bulkhead Support - Thick reinforcement beams coated in a thin sheen of condensation.", "Maintenance Access"),
         (-4, -7): ("Panel Rack - Rows of closed access panels marked with faded maintenance codes.", "Maintenance Access"),
-        (-4, -8): ("Utility Junction - A cluster of conduits merge here; the metal lightly ticks as temperatures shift.", "Maintenance Access"),
+        (-4, -8): ("Utility Junction - A cluster of \033[34mconduits\033[0m merge here; the metal lightly ticks as temperatures shift.", "Maintenance Access"),
         (-4, -9): ("Floor Grate - The grate depresses slightly underfoot; airflow is steady below.", "Maintenance Access"),
         (-3, -7): ("Inspection Ladder - A short ladder leading to a sealed overhead hatch.", "Maintenance Access"),
         (-3, -8): ("Service Outlet - A universal port for diagnostic tools, currently inactive.", "Maintenance Access"),
@@ -287,36 +304,36 @@ def make_board():
         (-6, -16): ("Segment Divider - A narrow brace divides two hull sections; stable.", "Corridor"),
 
         (-8, -13): ("Signal Rack - Empty mount points for drone uplink modules.", "Relay"),
-        (-9, -13): ("Data Spine - A vertical relay housing with low residual charge.", "Relay"),
+        (-9, -13): ("Data Spine - A vertical \033[34mrelay\033[0m with low residual charge.", "Relay"),
         (-10, -13): ("Fiber Junction - Dozens of glass lines converge into a sealed hub.", "Relay"),
         (-9, -12): ("Repeater Coil - The coil is warm, maintaining minimal shipwide signal bounce.", "Relay"),
         (-10, -14): ("Relay Crossfeed - Two inactive nodes face each other across the narrow space.", "Relay"),
         (-8, -14): ("EM Shielding - Panels absorb stray electromagnetic output; slightly humming.", "Relay"),
-        (-8, -15): ("Diagnostic Plinth - A raised platform for field analyzers, currently offline.", "Relay"),
+        (-8, -15): ("Diagnostic Plinth - A raised platform for field \033[34manalyzers\033[0m, currently offline.", "Relay"),
         (-9, -15): ("Backup Array - Redundant wiring bundles arranged with exact precision.", "Relay"),
         (-10, -15): ("Signal Sink - A terminal used to nullify corrupted transmissions.", "Relay"),
 
         (-3, -14): ("Tool Bench - A fixed metal bench with empty brackets and tool outlines.", "Utility"),
         (-2, -14): ("Spare Parts Bin - Stacked trays of unused universal fasteners.", "Utility"),
         (-1, -14): ("Access Locker - A locked wall cabinet requiring a generic override.", "Utility"),
-        (-3, -13): ("Fluid Reservoir - A sealed tank of coolant mixture at safe pressure.", "Utility"),
+        (-3, -13): ("Fluid Reservoir - A sealed \033[34mtank\033[0m of coolant mixture at safe pressure.", "Utility"),
         (-2, -13): ("Wiring Spool - Multiple coils of insulated cabling, color-coded.", "Utility"),
-        (-1, -13): ("Maintenance Cart - A wheeled cart with its drawers half-open and empty.", "Utility"),
+        (-1, -13): ("Maintenance Cart - A wheeled \033[34mcart\033[0m with its drawers half-open and empty.", "Utility"),
 
         (-6, -17): ("Fabricator Arm - A large mechanical arm locked mid-motion.", "Fabrication Bay"),
         (-6, -18): ("Print Bed - A flat surface coated in cured polymer dust.", "Fabrication Bay"),
-        (-7, -17): ("Assembly Track - The conveyor is frozen; residue clings to its joints.", "Fabrication Bay"),
+        (-7, -17): ("Assembly Track - The \033[34mconveyor\033[0m is frozen; residue clings to its joints.", "Fabrication Bay"),
         (-7, -18): ("Heat Vents - Low warmth radiates despite the system being off.", "Fabrication Bay"),
         (-5, -17): ("Parts Dispenser - Empty chutes arranged in a grid pattern.", "Fabrication Bay"),
         (-5, -18): ("Calibration Station - A lens flickers with intermittent blue light.", "Fabrication Bay"),
         (-4, -18): ("Inspection Rail - A narrow walkway raised slightly above the main floor.", "Fabrication Bay"),
         (-8, -18): ("Monitor Array - Blank screens arranged like an unblinking wall.", "Fabrication Bay"),
-        (-4, -19): ("Auxiliary Feeder - A small mechanical funnel clogged with hardened composite.", "Fabrication Bay"),
-        (-8, -19): ("Scrap Containment - A mesh cage full of metallic fragments.", "Fabrication Bay"),
+        (-4, -19): ("Auxiliary Feeder - A small mechanical \033[34mfunnel\033[0m clogged with hardened composite.", "Fabrication Bay"),
+        (-8, -19): ("Scrap Containment - A mesh \033[34mcage\033[0m full of metallic fragments.", "Fabrication Bay"),
         (-4, -20): ("Cooling Vent - A cold draft flows steadily from beneath the machine floor.", "Fabrication Bay"),
         (-8, -20): ("Pattern Buffer - A chamber meant for storing fabrication templates.", "Fabrication Bay"),
         (-5, -20): ("Material Hopper - A tall intake column with residue streaking downward.", "Fabrication Bay"),
-        (-7, -20): ("Weld Frame - A rigid structure with blackened edges.", "Fabrication Bay"),
+        (-7, -20): ("Weld Frame - A rigid \033[34mstructure\033[0m with blackened edges.", "Fabrication Bay"),
         (-6, -20): ("Mold Casting - A sealed mold with unreadable labeling.", "Fabrication Bay"),
 
         (-7, -21): ("Lower Corridor - Structural strain readings elevated but within tolerance.", "Corridor"),
@@ -656,20 +673,34 @@ def encounter_chance(character, passed):
                         sequence.output(f'{health} {health_percent}%', True)
         return player
 
-    def machine(player, encounter_passed):
-        print('Machine')
-        return player
-
     def breach(player):
-        print('Breach')
+        breach_rng = random.random()
+        if breach_rng < 0.1:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ALERT: Ambient vibrations exceed safe thresholds.', True)
+        elif breach_rng < 0.2:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] NOTICE: Local atmospheric pressure fluctuation detected.', True)
+        elif breach_rng < 0.3:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] WARNING: Proximity sensors registering inconsistent returns.', True)
+        elif breach_rng < 0.4:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] CAUTION: Audio anomalies logged. Source unresolved.', True)
+        elif breach_rng < 0.5:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] SYSTEM STATUS: Motion signatures approaching tolerance limit.', True)
+        elif breach_rng < 0.6:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ADVISORY: Hull microfractures showing rapid propagation.', True)
+        elif breach_rng < 0.7:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] ERROR: Heat signature detected with no thermal source.', True)
+        elif breach_rng < 0.8:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] UPDATE: Interference spike recorded on all channels.', True)
+        elif breach_rng < 0.9:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] FLAG: Spatial mapping desynchronized—recalibrating.', True)
+        else:
+            sequence.output('>\n> [\033[31mARCHANGEL\033[0m] HIGH-PRIORITY WARNING: Unknown echo pattern repeating.', True)
         return player
 
-    if random.random() < 0.9:
+    if random.random() < 0.09:
         encounter = random.random()
-        if encounter < 0.9 and passed[0] == False:
+        if encounter < 0.1 and passed[0] == False:
             character = drones(character, passed)
-        elif encounter < 0.4 and passed[1] == False:
-            machine(character, passed)
         else:
             breach(character)
     return character

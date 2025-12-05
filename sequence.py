@@ -423,3 +423,46 @@ def death():
     output('> >>> USER STATUS: DECEASED  ', True, 0.02)
     output('> >>> U.A.S MNEMOSYNE REGISTRY UPDATED', True, 0.02)
     time.sleep(2)
+
+
+def end_game():
+    output('> [VEIL-9] WARNING: Hull integrity collapse approaching critical threshold.\n>', True)
+    archangel_output('The escape pods remain functional... marginally.')
+    output('>\n> You climb into the pod. The restraints are cold. The hatch seals with a hydraulic snap.\n>', True)
+    sound.play_sound(19)
+    output('> [VEIL-9] PRESSURIZATION: nominal.', True)
+    output('> [VEIL-9] THRUSTER CORE: online.\n>', True)
+    archangel_output('I will handle guidance. Remain still.')
+    sound.play_sound(20)
+
+"""
+> [VEIL-9] WARNING: Hull integrity collapse approaching critical threshold.
+> [ARCHANGEL] The escape pods remain functional… marginally.
+
+You climb into the pod. The restraints are cold. The hatch seals with a hydraulic snap.
+
+> [VEIL-9] PRESSURIZATION: nominal.
+> [VEIL-9] THRUSTER CORE: online.
+> [ARCHANGEL] I will handle guidance. Remain still.
+
+A deep groan shudders through the ship. Metal fails somewhere behind you.
+
+> [ARCHANGEL] Launch recommended. Structural failure is… accelerating.
+
+You hit the release.
+
+The pod slams forward—violently enough to blur thought—then detaches, spinning free into the dark.
+
+For a moment, you see the Mnemosyne through the viewport: a dying shape folding in on itself, lights flickering like neurons misfiring.
+
+> [ARCHANGEL] …Signal integrity degrading. If you can hear this—
+> [ARCHANGEL] —maintain course. Avoid the Rift perimeter. Do not—
+
+Static floods the channel.
+
+The stars tilt.
+
+Silence returns.
+
+You have escaped.
+"""
