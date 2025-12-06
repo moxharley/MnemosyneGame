@@ -214,6 +214,11 @@ def check_win(board, character):
     :precondition: character must be a well-formed character dictionary.
     :postcondition: determines whether the player has reached the goal tile(s).
     :return: a boolean variable.
+
+    >>> check_win({'goal': (0, 0)}, {'X-coordinate': 0, 'Y-coordinate': 0})
+    True
+    >>> check_win({'goal': (0, 0)}, {'X-coordinate': 1, 'Y-coordinate': 1})
+    False
     """
     character_coordinates = (character["X-coordinate"], character["Y-coordinate"])
     if board['goal'] == character_coordinates:
