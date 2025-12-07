@@ -38,7 +38,7 @@ NOT = Forgot to add/didn't have time to add.
 | **4a + 4b** | logic.py            | 081–111            |                                                                                                           |
 | **4c + 4d** | NOT                 | —                  | Hit Points don't change on a level up because your hit point total is part of the game's tension!         |
 | **7a + 7b** | GEN                 | —                  |                                                                                                           |
-| **7c**      | NOT                 | —                  | I made the error-prone functions before we did our week on try/except blocks. There are no errors though! |
+| **7c**      | NOT                 | —                  | I made the error-prone functions before we did our week on try/except blocks. There should be no crashes or errors though! |
 | **7d + 7e** | GEN                 | —                  |                                                                                                           |
 | **7f + 7g** | GEN                 | —                  |                                                                                                           |
 | **7h**      | game.py             | 019–034            |                                                                                                           |
