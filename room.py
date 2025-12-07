@@ -47,6 +47,7 @@ def make_interaction():
                     energy_percent = (character['current-EP'] / 10) * 100
                     energy = player_turn.make_bar(character['current-EP'])
                     sequence.output(f'{energy} {energy_percent}%', True)
+                    character = logic.level_up(character)
         elif action_rng < 0.5:
             sequence.output("> Possible actions:", True)
             sequence.output(f">   [1] ENGAGE — Attempt an engage roll.\n>      [STAT: Engage [{character["eng"]}] | DIFFICULTY: [moderate]]", True)
@@ -71,6 +72,7 @@ def make_interaction():
                     health_percent = (character['current-HP'] / 10) * 100
                     health = player_turn.make_bar(character['current-HP'])
                     sequence.output(f'{health} {health_percent}%', True)
+                    character = logic.level_up(character)
         elif action_rng < 0.75:
             sequence.output("> Possible actions:", True)
             sequence.output(f">   [1] ENDURE — Attempt an endure roll.\n>      [STAT: Endure [{character["end"]}] | DIFFICULTY: [moderate]]", True)
@@ -95,6 +97,7 @@ def make_interaction():
                     health_percent = (character['current-HP'] / 10) * 100
                     health = player_turn.make_bar(character['current-HP'])
                     sequence.output(f'{health} {health_percent}%', True)
+                    character = logic.level_up(character)
         else:
             sequence.output("> Possible actions:", True)
             sequence.output(f">   [1] INTUIT — Attempt an intuit roll.\n>      [STAT: Intuit [{character["int"]}] | DIFFICULTY: [moderate]]", True)
@@ -119,6 +122,7 @@ def make_interaction():
                     energy_percent = (character['current-EP'] / 10) * 100
                     energy = player_turn.make_bar(character['current-EP'])
                     sequence.output(f'{energy} {energy_percent}%', True)
+                    character = logic.level_up(character)
         return character
 
 
