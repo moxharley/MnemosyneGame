@@ -743,7 +743,7 @@ def encounter_chance(character, passed):
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] HIGH-PRIORITY WARNING: Unknown echo pattern repeating.', True)
         return player
 
-    if random.random() < 0.07:
+    if random.random() < 0.2:
         encounter = random.random()
         if encounter < 0.1 and passed[0] == False:
             character = drones(character, passed)

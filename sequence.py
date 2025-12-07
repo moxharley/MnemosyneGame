@@ -368,7 +368,7 @@ def tutorial(board, player):
     output('>', True)
     archangel_output('You can type the command \033[4mmap\033[0m to view star-ship layout.')
     output('>\n> [\033[31mARCHANGEL\033[0m] NOTICE: Movement commands: (n, e, s, w)', True)
-    sound.play_track(4)
+    sound.play_track(5)
     return player
 
 

@@ -67,7 +67,7 @@ def main():
     subject material of your class.
     
     My original scope for the game was perhaps a little too ambitious,
-    and though I have met all the project requirements, any text or output
+    and though I have met almost every one of the project requirements, any text or output
     highlighted in \033[34mblue\033[0m is something that was planned but unfinished.
     I figured it was more important to ensure I met all the project requirements
     than to dwell on the things that aren't incredibly central to the game loop.
@@ -77,7 +77,7 @@ def main():
 
     All the best, and enjoy your winter break!
     
-    Also turn your sound on!!! The sound adds so much!!!
+    Also turn your sound on!!! I spent too much time on the sound!!!
 
        — Harlan
 -----------------------------------------------------------------------
