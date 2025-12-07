@@ -232,7 +232,8 @@ def boot():
               'current-HP': 8,
               'current-EP': 7,
               'room': 'Stasis-Pods',
-              'exp': 0}
+              'exp': 0,
+              'inventory': []}
 
     output('> ', True)
     archangel_output(f'{first_name} {last_name}...acknowledged. Welcome back {identifier1}.')
