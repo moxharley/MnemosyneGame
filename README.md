@@ -22,8 +22,8 @@ Due to the limited weeks and time we had to complete this project, some features
 
 TABLE OF CONTENTS:
 
-GEN = General/vague requirement that has examples or instances all throughout my code.
-ONE = One example of many examples.
+GEN = General/vague requirement that has examples or instances all throughout my code.<br>
+ONE = One example of many examples.<br>
 NOT = Forgot to add/didn't have time to add.
 
 | Requirement | Module(s)           | Line(s)            | Notes                                                                                                     |
