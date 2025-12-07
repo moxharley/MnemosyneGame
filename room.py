@@ -418,7 +418,8 @@ def encounter_chance(character, passed):
             sequence.output('> [VEIL-9] ALERT: optical lock detected.', True, 0.06)
             time.sleep(1)
             sequence.output(f'>\n> {player['first-name']}, it is inches from your visor. Stay still. Stay quiet.', True, 0.1)
-            drone_sound.set_volume(1.2)
+            if drone_sound:
+                drone_sound.set_volume(1.2)
             time.sleep(4)
             sound.play_sound(12)
             sequence.output('> Cold metal presses against your jaw. Something soft and warm moves inside the casing.', True, 0.06)
@@ -443,7 +444,8 @@ def encounter_chance(character, passed):
                 sequence.output("> [\033[31mARCHANGEL\033[0m] ACTION: Failure.\n> ", True)
                 sequence.output('> The drone chassis distorts and gapes', False, 0.07)
                 sequence.output('...', True, 0.5)
-                drone_sound.fadeout(4000)
+                if drone_sound:
+                    drone_sound.fadeout(4000)
                 time.sleep(1.5)
                 sound.play_sound(10)
                 sound.play_sound(2)
@@ -525,7 +527,8 @@ def encounter_chance(character, passed):
                 gaunt = sound.play_sound(15)
                 time.sleep(1.5)
                 sequence.output('>\n> It staggers on bent struts, venting a thin, wet mist that smells wrong, then jolts itself upright.',True)
-                gaunt.fadeout(8000)
+                if gaunt:
+                    gaunt.fadeout(8000)
                 sequence.output('> It scuttles into the dark, still whispering as it goes.\n>',True)
                 if gaunt:
                     gaunt.fadeout(20000)
@@ -540,7 +543,8 @@ def encounter_chance(character, passed):
                 time.sleep(1.5)
                 sequence.output('> The drone chassis distorts and gapes', False, 0.07)
                 sequence.output('...', True, 0.5)
-                drone_sound.fadeout(4000)
+                if drone_sound:
+                    drone_sound.fadeout(4000)
                 time.sleep(1.5)
                 sound.play_sound(10)
                 sound.play_sound(2)
@@ -643,7 +647,8 @@ def encounter_chance(character, passed):
                 sequence.output('...', False, 0.3)
                 sound.play_sound(2)
                 sequence.output(' then clamps around your hand with impossible force.', True, 0.02)
-                drone_sound.fadeout(4000)
+                if drone_sound:
+                    drone_sound.fadeout(4000)
                 time.sleep(1.5)
                 sound.play_sound(10)
                 sound.play_sound(2)

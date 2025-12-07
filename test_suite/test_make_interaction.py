@@ -25,8 +25,8 @@ class Test(TestCase):
     @patch('builtins.input', side_effect=['1'])
     def test_interface_failure(self, _, __, ___):
         example_interactions = make_interaction()
-        example_character = {'current-HP': 5, 'current-EP': 5, 'inf': 0}
-        expected = {'current-HP': 5, 'current-EP': 4, 'inf': 0}
+        example_character = {'current-HP': 5, 'current-EP': 5, 'inf': 0, 'exp': 0}
+        expected = {'current-HP': 5, 'current-EP': 4, 'inf': 0, 'exp': 1}
         actual = example_interactions[(2, 0)](example_character)
         self.assertEqual(expected, actual)
 
@@ -45,8 +45,8 @@ class Test(TestCase):
     @patch('builtins.input', side_effect=['1'])
     def test_engage_failure(self, _, __, ___):
         example_interactions = make_interaction()
-        example_character = {'current-HP': 5, 'current-EP': 5, 'eng': 0}
-        expected = {'current-HP': 4, 'current-EP': 5, 'eng': 0}
+        example_character = {'current-HP': 5, 'current-EP': 5, 'eng': 0, 'exp': 0}
+        expected = {'current-HP': 4, 'current-EP': 5, 'eng': 0, 'exp': 1}
         actual = example_interactions[(2, 0)](example_character)
         self.assertEqual(expected, actual)
 
@@ -65,8 +65,8 @@ class Test(TestCase):
     @patch('builtins.input', side_effect=['1'])
     def test_endure_failure(self, _, __, ___):
         example_interactions = make_interaction()
-        example_character = {'current-HP': 5, 'current-EP': 5, 'end': 0}
-        expected = {'current-HP': 4, 'current-EP': 5, 'end': 0}
+        example_character = {'current-HP': 5, 'current-EP': 5, 'end': 0, 'exp': 0}
+        expected = {'current-HP': 4, 'current-EP': 5, 'end': 0, 'exp': 1}
         actual = example_interactions[(2, 0)](example_character)
         self.assertEqual(expected, actual)
 
@@ -85,7 +85,7 @@ class Test(TestCase):
     @patch('builtins.input', side_effect=['1'])
     def test_intuit_failure(self, _, __, ___):
         example_interactions = make_interaction()
-        example_character = {'current-HP': 5, 'current-EP': 5, 'int': 0}
-        expected = {'current-HP': 5, 'current-EP': 4, 'int': 0}
+        example_character = {'current-HP': 5, 'current-EP': 5, 'int': 0, 'exp': 0}
+        expected = {'current-HP': 5, 'current-EP': 4, 'int': 0, 'exp': 1}
         actual = example_interactions[(2, 0)](example_character)
         self.assertEqual(expected, actual)
