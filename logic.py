@@ -126,6 +126,8 @@ def update(key, character, amount):
     character[key] += amount
     if character[key] < 0:
         character[key] = 0
+    elif character[key] > 10:
+        character[key] = 10
     return character
 
 
@@ -140,7 +142,7 @@ def hull_damage(hull):
     :postcondition: randomly calculates how much damage the hull takes and returns the new hull total.
     :return: an integer variable.
     """
-    if random.random() < 0.10:
+    if random.random() < 0.05:
         damage = random.randint(1, 9)
         hull -= damage
         hull_percent = (hull / 90) * 100

@@ -20,7 +20,7 @@ def play_track(track):
     elif track == 4:
         track = pygame.mixer.Sound('sounds/track_4.ogg')
         track.set_volume(0.2)
-        track.play(loops=1, fade_ms=1500)
+        track.play(loops=-1, fade_ms=1500)
 
 
 def play_sound(sound):

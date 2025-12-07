@@ -1,7 +1,7 @@
 import time, sys, pyttsx3, pygame, random, sound, player_turn
 
 
-def output(message, new_line=False, delay=0.04):
+def output(message: str, new_line=False, delay=0.04):
     """
     Game output.
 
@@ -364,8 +364,10 @@ def tutorial(board, player):
     archangel_output('Exercise extreme caution. Avoid drawing unnecessary attention.')
     output('> ', True)
     archangel_output('I will continue analysis as you move.')
+    output('>', True)
+    archangel_output('You can type the command \033[4mmap\033[0m to view star-ship layout.')
+    output('>\n> [\033[31mARCHANGEL\033[0m] NOTICE: Movement commands: (n, e, s, w)', True)
     sound.play_track(4)
-
     return player
 
 
@@ -435,35 +437,3 @@ def end_game():
     archangel_output('I will handle guidance. Remain still.')
     sound.play_sound(20)
     time.sleep(5)
-
-"""
-> [VEIL-9] WARNING: Hull integrity collapse approaching critical threshold.
-> [ARCHANGEL] The escape pods remain functional… marginally.
-
-You climb into the pod. The restraints are cold. The hatch seals with a hydraulic snap.
-
-> [VEIL-9] PRESSURIZATION: nominal.
-> [VEIL-9] THRUSTER CORE: online.
-> [ARCHANGEL] I will handle guidance. Remain still.
-
-A deep groan shudders through the ship. Metal fails somewhere behind you.
-
-> [ARCHANGEL] Launch recommended. Structural failure is… accelerating.
-
-You hit the release.
-
-The pod slams forward—violently enough to blur thought—then detaches, spinning free into the dark.
-
-For a moment, you see the Mnemosyne through the viewport: a dying shape folding in on itself, lights flickering like neurons misfiring.
-
-> [ARCHANGEL] …Signal integrity degrading. If you can hear this—
-> [ARCHANGEL] —maintain course. Avoid the Rift perimeter. Do not—
-
-Static floods the channel.
-
-The stars tilt.
-
-Silence returns.
-
-You have escaped.
-"""

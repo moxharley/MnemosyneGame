@@ -204,7 +204,6 @@ def make_interaction():
                 energy = player_turn.make_bar(character['current-EP'])
                 sequence.output(f'{energy} {energy_percent}%', True)
                 character = logic.level_up(character)
-        del has_interact[(1, 1)]
         return character
 
     has_interact = {
@@ -472,7 +471,8 @@ def encounter_chance(character, passed):
                     if successful_two:
                         sound.play_sound(3)
                         sequence.output(">\n> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
-                        scary_sound.fadeout(2000)
+                        if scary_sound:
+                            scary_sound.fadeout(2000)
                         time.sleep(1)
                         sound.play_sound(18)
                         sequence.output('> You slam your fist into the drone.', True)
@@ -572,7 +572,8 @@ def encounter_chance(character, passed):
                     if successful_two:
                         sound.play_sound(3)
                         sequence.output(">\n> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
-                        scary_sound.fadeout(2000)
+                        if scary_sound:
+                            scary_sound.fadeout(2000)
                         time.sleep(1)
                         sound.play_sound(18)
                         sequence.output('> You slam your fist into the drone.', True)
@@ -674,7 +675,8 @@ def encounter_chance(character, passed):
                     if successful_two:
                         sound.play_sound(3)
                         sequence.output(">\n> [\033[31mARCHANGEL\033[0m] ACTION: Success.\n> ", True)
-                        scary_sound.fadeout(2000)
+                        if scary_sound:
+                            scary_sound.fadeout(2000)
                         time.sleep(1)
                         sound.play_sound(18)
                         sequence.output('> You slam your fist into the drone.', True)
@@ -737,7 +739,7 @@ def encounter_chance(character, passed):
             sequence.output('>\n> [\033[31mARCHANGEL\033[0m] HIGH-PRIORITY WARNING: Unknown echo pattern repeating.', True)
         return player
 
-    if random.random() < 0.05:
+    if random.random() < 0.07:
         encounter = random.random()
         if encounter < 0.1 and passed[0] == False:
             character = drones(character, passed)

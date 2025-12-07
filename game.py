@@ -1,4 +1,4 @@
-import pygame, sound, room, logic, player_turn, sequence, sys, os
+import pygame, sound, room, logic, player_turn, sequence
 
 
 def game():
@@ -12,6 +12,7 @@ def game():
     sequence.tutorial(board, player)
     goal_achieved = False
     hull_integrity = 90
+    encounters_passed = [False, False]
     while True:
         sequence.output("> \n>> ")
         action = logic.get_user_input()
@@ -32,6 +33,7 @@ def game():
             player_turn.ship_map()
             logic.energy_drain(player)
         hull_integrity = logic.hull_damage(hull_integrity)
+        room.encounter_chance(player, encounters_passed)
         if not logic.check_alive(player, hull_integrity):
             break
         if logic.check_win(board, player):
