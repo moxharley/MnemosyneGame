@@ -26,58 +26,25 @@ GEN = General/vague requirement that has examples or instances all throughout my
 ONE = One example of many examples.
 NOT = Forgot to add/didn't have time to add.
 
-
-\| Requirement \| Module(s)      \| Line(s)   \|
-|-------------|----------------|-----------|
-| 3a          | GEN                        |
-|-------------|----------------|-----------|
-| 3b          | room.py        | 233 - 371 |
-|-------------|----------------|-----------|
-| 3c          | sequence.py    | 228 - 235 |
-|             |                | 255 - 282 |
-|-------------|----------------|-----------|
-| 3d          | player_turn.py | 238 - 283 |
-|-------------|----------------|-----------|
-| 3e + 3f     | room.py        | 374 - 745 |
-|             |                | 004 - 230 |
-|-------------|----------------|-----------|
-| 3g          | logic.py       | 209 - 229 |
-|             | game.py        | 039 - 043 |
-|-------------|----------------|-----------|
-| 4a + 4b     | logic.py       | 081 - 111 |
-|-------------|----------------|-----------|
-| 4c + 4d     | NOT                        | - NOTE: Hit Points don't change on a level up because your hit point total is part of the game's tension!
-|-------------|----------------------------|
-| 7a + 7b     | GEN                        | 
-|-------------|----------------------------|
-| 7c          | NOT                        | - NOTE: I made the error-prone functions before we did our week on try/except blocks. There are no errors though!
-|-------------|----------------------------|
-| 7d + 7e     | GEN                        |
-|-------------|----------------------------|
-| 7f + 7g     | GEN                        |
-|-------------|----------------|-----------|
-| 7h          | ONE: game.py   | 019 - 034 |
-|-------------|----------------|-----------|
-| 7i          | ONE: game.py   | 016 - 041 |
-|-------------|----------------|-----------|
-| 7j          | ONE: game.py   | 019       |
-|-------------|----------------|-----------|
-| 7k          | player_turn.py | 132 + 134 |
-|-------------|----------------|-----------|
-| 7l          | NOT                        | - NOTE: Missed this requirement.
-|-------------|----------------|-----------|
-| 7m          | ONE: logic.py  | 145       |
-|-------------|----------------|-----------|
-| 7n          | sequence.py    | 004       |
-|-------------|----------------|-----------|
-| 7o + 7p     | GEN                        |
-|-------------|----------------------------|
-\
-
-
-
-
-
-
-
-
+| Requirement | Module(s)           | Line(s)            | Notes                                                                                                     |
+| ----------- | ------------------- | ------------------ | --------------------------------------------------------------------------------------------------------- |
+| **3a**      | GEN                 | —                  |                                                                                                           |
+| **3b**      | room.py             | 233–371            |                                                                                                           |
+| **3c**      | sequence.py         | 228–235<br>255–282 |                                                                                                           |
+| **3d**      | player_turn.py      | 238–283            |                                                                                                           |
+| **3e + 3f** | room.py             | 374–745<br>004–230 |                                                                                                           |
+| **3g**      | logic.py<br>game.py | 209–229<br>039–043 |                                                                                                           |
+| **4a + 4b** | logic.py            | 081–111            |                                                                                                           |
+| **4c + 4d** | NOT                 | —                  | Hit Points don't change on a level up because your hit point total is part of the game's tension!         |
+| **7a + 7b** | GEN                 | —                  |                                                                                                           |
+| **7c**      | NOT                 | —                  | I made the error-prone functions before we did our week on try/except blocks. There are no errors though! |
+| **7d + 7e** | GEN                 | —                  |                                                                                                           |
+| **7f + 7g** | GEN                 | —                  |                                                                                                           |
+| **7h**      | game.py             | 019–034            |                                                                                                           |
+| **7i**      | game.py             | 016–041            |                                                                                                           |
+| **7j**      | game.py             | 019                |                                                                                                           |
+| **7k**      | player_turn.py      | 132, 134           |                                                                                                           |
+| **7l**      | NOT                 | —                  | Missed this requirement.                                                                                  |
+| **7m**      | logic.py            | 145                |                                                                                                           |
+| **7n**      | sequence.py         | 004                |                                                                                                           |
+| **7o + 7p** | GEN                 | —                  |                                                                                                           |
