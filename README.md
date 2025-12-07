@@ -25,16 +25,15 @@ Due to the limited weeks and time we had to complete this project, some features
 This table of contents refers to the section 5 (mandatory elements) of the term project.
 
 GEN = General/vague requirement that has examples or instances all throughout my code.<br>
-ONE = One example of many examples.<br>
 NOT = Forgot to add/didn't have time to add.
 
 | Requirement | Module(s)           | Line(s)            | Notes                                                                                                     |
 | ----------- | ------------------- | ------------------ | --------------------------------------------------------------------------------------------------------- |
 | **3a**      | GEN                 | —                  |                                                                                                           |
-| **3b**      | room.py             | 233–371            |                                                                                                           |
+| **3b**      | room.py             | 237–375            |                                                                                                           |
 | **3c**      | sequence.py         | 228–235<br>255–282 |                                                                                                           |
 | **3d**      | player_turn.py      | 238–283            |                                                                                                           |
-| **3e + 3f** | room.py             | 374–745<br>004–230 |                                                                                                           |
+| **3e + 3f** | room.py             | 378–752<br>004–234 |                                                                                                           |
 | **3g**      | logic.py<br>game.py | 209–229<br>039–043 |                                                                                                           |
 | **4a + 4b** | logic.py            | 081–111            |                                                                                                           |
 | **4c + 4d** | NOT                 | —                  | Hit Points don't change on a level up because your hit point total is part of the game's tension!         |
