@@ -20,7 +20,7 @@ Mnemosyne - Science Fiction Horror Game: You are a **lone survivor** in a dereli
 
 Due to the limited weeks and time we had to complete this project, some features I had in mind were not fully integrated yet and the actual story of the game is about a third as fleshed out than I had in mind in my head, however I still feel like I have a very good **demo** of the game. I wanted to prioritize having a clean working product rather than a story that was fully complete. I am proud of my work and I hope you enjoy this spooky scifi experience!
 
-TABLE OF CONTENTS:
+## TABLE OF CONTENTS:
 
 GEN = General/vague requirement that has examples or instances all throughout my code.<br>
 ONE = One example of many examples.<br>
