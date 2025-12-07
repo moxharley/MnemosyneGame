@@ -33,7 +33,7 @@ NOT = Forgot to add/didn't have time to add.
 | **3b**      | room.py             | 237–375            |                                                                                                           |
 | **3c**      | sequence.py         | 228–236<br>256–283 |                                                                                                           |
 | **3d**      | player_turn.py      | 238–283            |                                                                                                           |
-| **3e + 3f** | room.py             | 378–752<br>004–234 |                                                                                                           |
+| **3e + 3f** | room.py             | 378–757<br>004–234 |                                                                                                           |
 | **3g**      | logic.py<br>game.py | 209–229<br>039–043 |                                                                                                           |
 | **4a + 4b** | logic.py            | 081–111            |                                                                                                           |
 | **4c + 4d** | NOT                 | —                  | Hit Points don't change on a level up because your hit point total is part of the game's tension!         |
