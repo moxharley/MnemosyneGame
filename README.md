@@ -20,18 +20,33 @@ Mnemosyne - Science Fiction Horror Game: You are a **lone survivor** in a dereli
 
 Due to the limited weeks and time we had to complete this project, some features I had in mind were not fully integrated yet and the actual story of the game is about a third as fleshed out than I had in mind in my head, however I still feel like I have a very good **demo** of the game. I wanted to prioritize having a clean working product rather than a story that was fully complete. I am proud of my work and I hope you enjoy this spooky scifi experience!
 
-ONLY READ THE NOTES BELOW ONCE YOU HAVE PLAYED THROUGH THE GAME AT LEAST ONCE (SPOILERS):
+## TABLE OF CONTENTS:
 
-Since I chose to do something a little more unique with this project, I would like to go through the requirements in your instructions document and explain what I implemented for each requirement:
+This table of contents refers to the section 5 (mandatory elements) of the term project.
 
-Board - The star-ship map has roughly 100+ tiles. Each of which have a description and some of which have items to interact with.
+GEN = General/vague requirement that has examples or instances all throughout my code.<br>
+ONE = One example of many examples.<br>
+NOT = Forgot to add/didn't have time to add.
 
-Player - The player has a name, class, HP, EP, as well as an inventory. Certain interactions require certain items.
-
-Encounters - Interactable objects throughout the ship, which due to time constraints are mostly placeholders, but they are still functional they just don't have any flavor text! There are also certain scary encounters with the enemies of this game.
-
-Level Up - When you fail a roll, you gain an experience point, and for every three experience points you gain, you can add an additional +1 to one stat of your choice.
-
-Goal - Your final goal is to reach the escape pod bay and escape.
-
-
+| Requirement | Module(s)           | Line(s)            | Notes                                                                                                     |
+| ----------- | ------------------- | ------------------ | --------------------------------------------------------------------------------------------------------- |
+| **3a**      | GEN                 | —                  |                                                                                                           |
+| **3b**      | room.py             | 233–371            |                                                                                                           |
+| **3c**      | sequence.py         | 228–235<br>255–282 |                                                                                                           |
+| **3d**      | player_turn.py      | 238–283            |                                                                                                           |
+| **3e + 3f** | room.py             | 374–745<br>004–230 |                                                                                                           |
+| **3g**      | logic.py<br>game.py | 209–229<br>039–043 |                                                                                                           |
+| **4a + 4b** | logic.py            | 081–111            |                                                                                                           |
+| **4c + 4d** | NOT                 | —                  | Hit Points don't change on a level up because your hit point total is part of the game's tension!         |
+| **7a + 7b** | GEN                 | —                  |                                                                                                           |
+| **7c**      | NOT                 | —                  | I made the error-prone functions before we did our week on try/except blocks. There are no errors though! |
+| **7d + 7e** | GEN                 | —                  |                                                                                                           |
+| **7f + 7g** | GEN                 | —                  |                                                                                                           |
+| **7h**      | game.py             | 019–034            |                                                                                                           |
+| **7i**      | game.py             | 016–041            |                                                                                                           |
+| **7j**      | game.py             | 019                |                                                                                                           |
+| **7k**      | player_turn.py      | 132, 134           |                                                                                                           |
+| **7l**      | NOT                 | —                  | Missed this requirement.                                                                                  |
+| **7m**      | logic.py            | 145                |                                                                                                           |
+| **7n**      | sequence.py         | 004                |                                                                                                           |
+| **7o + 7p** | GEN                 | —                  |                                                                                                           |
