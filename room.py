@@ -119,6 +119,8 @@ def make_interaction():
                     energy_percent = (character['current-EP'] / 10) * 100
                     energy = player_turn.make_bar(character['current-EP'])
                     sequence.output(f'{energy} {energy_percent}%', True)
+        return character
+
 
     def data_pad(character):
         """
