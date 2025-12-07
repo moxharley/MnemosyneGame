@@ -26,8 +26,8 @@ GEN = General/vague requirement that has examples or instances all throughout my
 ONE = One example of many examples.
 NOT = Forgot to add/didn't have time to add.
 
-\
-| Requirement | Module(s)      | Line(s)   |
+
+\| Requirement \| Module(s)      \| Line(s)   \|
 |-------------|----------------|-----------|
 | 3a          | GEN                        |
 |-------------|----------------|-----------|
